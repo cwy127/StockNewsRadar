@@ -58,6 +58,22 @@ div[data-testid="stExpander"] [data-testid="stExpanderDetails"] *{
   color:inherit;
 }
 
+
+.perf-tabs{margin-top:.65rem}
+.perf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.8rem 0 1rem}
+.perf-box{background:#14181d;border:1px solid var(--line);border-radius:14px;padding:.8rem}
+.perf-box .k{color:var(--muted);font-size:.7rem}
+.perf-box .v{font-size:1.08rem;font-weight:850;margin-top:.15rem}
+.perf-row{background:#14181d;border:1px solid var(--line);border-radius:14px;padding:.8rem;margin:.55rem 0}
+.perf-row-top{display:flex;justify-content:space-between;gap:.6rem;align-items:center}
+.perf-rank{font-weight:850}
+.perf-name{font-weight:750}
+.perf-small{color:var(--muted);font-size:.72rem;margin-top:.18rem}
+.perf-returns{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-top:.55rem}
+.perf-return{background:#101318;border-radius:10px;padding:.5rem .35rem;text-align:center}
+.perf-return .k{font-size:.62rem;color:var(--muted)}
+.perf-return .v{font-weight:850;font-size:.86rem;margin-top:.08rem}
+
 div[data-testid="stSegmentedControl"] button{border-radius:12px!important}
 @media(max-width:600px){.block-container{padding-top:5rem}.hero-title{font-size:1.72rem}.metrics{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -65,6 +81,7 @@ div[data-testid="stSegmentedControl"] button{border-radius:12px!important}
 
 KST = ZoneInfo("Asia/Seoul")
 LIVE_FILE = Path("data/live_kr.json")
+VALIDATION_FILE = Path("data/validation/results.json")
 
 def direction_text(v):
     return {"positive":"▲ 상승 촉매","negative":"▼ 위험·악재","neutral":"• 추가 확인"}.get(v,"• 추가 확인")
@@ -155,9 +172,12 @@ def render_card(x, top_rank=None):
 now = datetime.now(KST)
 st.markdown(f'<div class="hero"><div class="hero-title">StockNewsRadar <span class="live-badge">KR LIVE</span></div><div class="hero-sub">다음 거래일 관찰 후보 · {now.strftime("%Y-%m-%d %H:%M")} KST</div></div>', unsafe_allow_html=True)
 
-market = st.segmented_control("시장",["한국","미국"],default="한국",label_visibility="collapsed")
+view = st.segmented_control("보기", ["레이더", "성과"], default="레이더", label_visibility="collapsed")
 
-if market == "한국":
+if view == "레이더":
+    market = st.segmented_control("시장",["한국","미국"],default="한국",label_visibility="collapsed")
+
+if view == "레이더" and market == "한국":
     if not LIVE_FILE.exists():
         st.warning("아직 자동 수집 데이터가 없습니다.")
         st.stop()
@@ -223,8 +243,81 @@ if market == "한국":
 - 시장확인 35 미만 종목도 TOP 후보에서 제외
 - 아직 백테스트 전의 **V1 휴리스틱**이므로 매수 신호가 아니라 조사 우선순위입니다.
         """)
-else:
+elif view == "레이더" and market == "미국":
     st.markdown('<div class="section-title">미국 시장</div>', unsafe_allow_html=True)
     st.markdown('<div class="notice">미국 자동수집은 다음 단계에서 연결합니다.</div>', unsafe_allow_html=True)
+
+elif view == "성과":
+    st.markdown('<div class="section-title">TOP 후보 검증 성과</div>', unsafe_allow_html=True)
+    st.caption("매일 저장된 TOP 후보를 다음 거래일 실제 시가·고가·저가·종가와 비교한 누적 검증 결과입니다.")
+
+    if not VALIDATION_FILE.exists():
+        st.markdown('<div class="empty">아직 검증 결과 파일이 없습니다. Evaluate TOP candidates 워크플로를 실행하면 생성됩니다.</div>', unsafe_allow_html=True)
+    else:
+        validation = json.loads(VALIDATION_FILE.read_text(encoding="utf-8"))
+        records = validation.get("records", [])
+        summary = validation.get("summary", {})
+        evaluated = [r for r in records if r.get("status") == "evaluated"]
+
+        def perf_pct(v):
+            if v is None:
+                return '<span class="price-flat">—</span>'
+            cls = "price-up" if v > 0 else "price-down" if v < 0 else "price-flat"
+            return f'<span class="{cls}">{v:+.2f}%</span>'
+
+        st.markdown(f"""
+        <div class="perf-grid">
+          <div class="perf-box"><div class="k">평가 완료</div><div class="v">{summary.get("evaluated_count",0):,}건</div></div>
+          <div class="perf-box"><div class="k">종가 승률</div><div class="v">{summary.get("close_win_rate_pct") if summary.get("close_win_rate_pct") is not None else "—"}{"" if summary.get("close_win_rate_pct") is None else "%"}</div></div>
+          <div class="perf-box"><div class="k">장중 +3% 도달률</div><div class="v">{summary.get("high_hit_3pct_rate_pct") if summary.get("high_hit_3pct_rate_pct") is not None else "—"}{"" if summary.get("high_hit_3pct_rate_pct") is None else "%"}</div></div>
+          <div class="perf-box"><div class="k">평균 종가 수익률</div><div class="v">{perf_pct(summary.get("avg_close_return_pct"))}</div></div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if not evaluated:
+            st.markdown('<div class="empty">아직 다음 거래일 평가가 완료된 후보가 없습니다. 첫 스냅샷의 다음 거래일 장 종료 후 자동으로 성적이 쌓입니다.</div>', unsafe_allow_html=True)
+        else:
+            top1 = [r for r in evaluated if r.get("rank") == 1]
+            if top1:
+                top1_win = [r for r in top1 if (r.get("next_close_pct") or 0) > 0]
+                top1_avg = sum(r.get("next_close_pct") or 0 for r in top1) / len(top1)
+                st.markdown(f"""
+                <div class="perf-grid">
+                  <div class="perf-box"><div class="k">TOP #1 종가 승률</div><div class="v">{len(top1_win)/len(top1)*100:.1f}%</div></div>
+                  <div class="perf-box"><div class="k">TOP #1 평균 종가</div><div class="v">{perf_pct(top1_avg)}</div></div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            st.markdown('<div class="section-title">최근 평가 결과</div>', unsafe_allow_html=True)
+            for r in evaluated[:30]:
+                rank = r.get("rank","—")
+                name = html.escape(str(r.get("name","")), quote=True)
+                symbol = html.escape(str(r.get("symbol","")), quote=True)
+                signal_date = html.escape(str(r.get("signal_date","")), quote=True)
+                next_date = html.escape(str(r.get("next_trade_date","")), quote=True)
+                score = r.get("final_score","—")
+                st.markdown(f"""
+                <div class="perf-row">
+                  <div class="perf-row-top">
+                    <div><span class="perf-rank">#{rank}</span> <span class="perf-name">{name}</span></div>
+                    <div class="perf-small">점수 {score}</div>
+                  </div>
+                  <div class="perf-small">{symbol} · 신호 {signal_date} → 평가 {next_date}</div>
+                  <div class="perf-returns">
+                    <div class="perf-return"><div class="k">시가 갭</div><div class="v">{perf_pct(r.get("gap_open_pct"))}</div></div>
+                    <div class="perf-return"><div class="k">장중 고가</div><div class="v">{perf_pct(r.get("next_high_pct"))}</div></div>
+                    <div class="perf-return"><div class="k">종가</div><div class="v">{perf_pct(r.get("next_close_pct"))}</div></div>
+                  </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            with st.expander("성과 해석 기준"):
+                st.markdown("""
+- **종가 승률**: 다음 거래일 종가가 스냅샷 당시 기준 종가보다 높은 비율입니다.
+- **장중 +3% 도달률**: 다음 거래일 고가가 기준 종가 대비 +3% 이상 도달한 비율입니다.
+- **평균 종가 수익률**: 평가된 모든 TOP 후보의 다음 거래일 종가 수익률 평균입니다.
+- **TOP #1 성적**: 매일 가장 높은 우선순위 한 종목만 따로 집계합니다.
+- 데이터가 적을 때는 통계적 의미가 거의 없으므로 최소 수십 건 이상 누적 후 점수 조정을 권장합니다.
+                """)
 
 st.markdown('<div class="notice">자동매매가 아니라 다음 거래일에 먼저 조사할 종목을 좁히는 리서치 도구입니다.</div>', unsafe_allow_html=True)
