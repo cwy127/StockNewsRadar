@@ -1,0 +1,40 @@
+name: Snapshot TOP candidates
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Final evening snapshot after the 23:30 collector run.
+    - cron: "45 23 * * 1-5"
+      timezone: "Asia/Seoul"
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Save today's TOP candidates
+        run: python scripts/snapshot_top_candidates.py
+
+      - name: Commit snapshot
+        run: |
+          git add data/history/top/
+
+          if git diff --cached --quiet; then
+            echo "No snapshot changes."
+            exit 0
+          fi
+
+          git config user.name "stock-news-radar-bot"
+          git config user.email "stock-news-radar-bot@users.noreply.github.com"
+          git commit -m "Save daily TOP candidate snapshot"
+          git push
