@@ -7,7 +7,6 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-import pandas as pd
 import yfinance as yf
 
 API = "https://opendart.fss.or.kr/api/list.json"
@@ -71,7 +70,7 @@ def request_json(params, retries=3):
             req = urllib.request.Request(
                 url,
                 headers={
-                    "User-Agent": "Mozilla/5.0 StockNewsRadar-Collector/1.1",
+                    "User-Agent": "Mozilla/5.0 StockNewsRadar-Collector/1.2",
                     "Accept": "application/json",
                     "Connection": "close",
                 },
@@ -102,7 +101,9 @@ def fetch_type(kind, start_date, end_date):
         if status == "013":
             break
         if status != "000":
-            raise RuntimeError(f"type={kind} status={status} message={payload.get('message')}")
+            raise RuntimeError(
+                f"type={kind} status={status} message={payload.get('message')}"
+            )
         batch = payload.get("list", [])
         rows.extend(batch)
         total_page = int(payload.get("total_page") or 1)
@@ -131,7 +132,6 @@ def score_market_confirmation(day_change, five_day, volume_ratio):
             score += 4
         elif day_change < -3:
             score -= 8
-
     if volume_ratio is not None:
         if 1.2 <= volume_ratio < 2.5:
             score += 20
@@ -141,7 +141,6 @@ def score_market_confirmation(day_change, five_day, volume_ratio):
             score += 8
         elif volume_ratio < 0.8:
             score -= 7
-
     if five_day is not None:
         if -2 <= five_day <= 8:
             score += 10
@@ -149,7 +148,6 @@ def score_market_confirmation(day_change, five_day, volume_ratio):
             score += 4
         elif five_day > 15:
             score -= 6
-
     return int(max(0, min(100, round(score))))
 
 def score_overheat(day_change, five_day, volume_ratio, distance_20d_high):
@@ -163,7 +161,6 @@ def score_overheat(day_change, five_day, volume_ratio, distance_20d_high):
             risk += 18
         elif day_change >= 4:
             risk += 8
-
     if five_day is not None:
         if five_day >= 30:
             risk += 35
@@ -171,41 +168,34 @@ def score_overheat(day_change, five_day, volume_ratio, distance_20d_high):
             risk += 25
         elif five_day >= 12:
             risk += 12
-
     if volume_ratio is not None:
         if volume_ratio >= 8:
             risk += 15
         elif volume_ratio >= 5:
             risk += 10
-
     if distance_20d_high is not None and distance_20d_high >= -1.5:
         risk += 8
-
     return int(max(0, min(100, round(risk))))
 
 def parse_price_frame(frame):
     if frame is None or frame.empty:
         return None
-
     frame = frame.dropna(subset=["Close"]).copy()
     if len(frame) < 6:
         return None
 
     close = frame["Close"].astype(float)
     volume = frame["Volume"].astype(float).fillna(0)
-
     latest = float(close.iloc[-1])
     prev = float(close.iloc[-2])
-    day_change = ((latest / prev) - 1) * 100 if prev else None
-
     five_base = float(close.iloc[-6])
-    five_day = ((latest / five_base) - 1) * 100 if five_base else None
 
+    day_change = ((latest / prev) - 1) * 100 if prev else None
+    five_day = ((latest / five_base) - 1) * 100 if five_base else None
     vol_window = volume.iloc[-21:-1]
     vol_avg20 = float(vol_window.mean()) if len(vol_window) else 0
     latest_vol = float(volume.iloc[-1])
-    volume_ratio = (latest_vol / vol_avg20) if vol_avg20 > 0 else None
-
+    volume_ratio = latest_vol / vol_avg20 if vol_avg20 > 0 else None
     high20 = float(frame["High"].astype(float).iloc[-20:].max())
     distance_high = ((latest / high20) - 1) * 100 if high20 else None
 
@@ -233,7 +223,7 @@ def fetch_price_data(candidates):
     results = {}
 
     for i in range(0, len(tickers), 25):
-        chunk = tickers[i:i+25]
+        chunk = tickers[i:i + 25]
         try:
             data = yf.download(
                 tickers=chunk,
@@ -254,10 +244,7 @@ def fetch_price_data(candidates):
 
         for ticker in chunk:
             try:
-                if len(chunk) == 1:
-                    frame = data.copy()
-                else:
-                    frame = data[ticker].copy()
+                frame = data.copy() if len(chunk) == 1 else data[ticker].copy()
                 parsed = parse_price_frame(frame)
                 if parsed:
                     results[mapping[ticker]] = parsed
@@ -266,9 +253,46 @@ def fetch_price_data(candidates):
 
     return results
 
+def filing_sort_key(item):
+    return (
+        item.get("material_score") or 0,
+        item.get("published_at") or "",
+        item.get("receipt_no") or "",
+    )
+
+def dedupe_by_symbol(items):
+    grouped = {}
+    for item in items:
+        grouped.setdefault(item["symbol"], []).append(item)
+
+    unique = []
+    for symbol, group in grouped.items():
+        group.sort(key=filing_sort_key, reverse=True)
+        representative = dict(group[0])
+
+        related = []
+        for extra in group[1:6]:
+            related.append({
+                "report_name": extra.get("report_name"),
+                "event": extra.get("event"),
+                "direction": extra.get("direction"),
+                "material_score": extra.get("material_score"),
+                "published_at": extra.get("published_at"),
+                "receipt_no": extra.get("receipt_no"),
+                "url": extra.get("url"),
+            })
+
+        representative["related_filing_count"] = max(0, len(group) - 1)
+        representative["related_filings"] = related
+        unique.append(representative)
+
+    unique.sort(key=filing_sort_key, reverse=True)
+    return unique
+
 def build_candidates(rows):
-    seen = set()
-    output = []
+    filing_seen = set()
+    raw_candidates = []
+
     for row in rows:
         corp_cls = (row.get("corp_cls") or "").strip()
         stock_code = (row.get("stock_code") or "").strip()
@@ -279,15 +303,15 @@ def build_candidates(rows):
             continue
 
         key = (receipt, stock_code, report)
-        if key in seen:
+        if key in filing_seen:
             continue
-        seen.add(key)
+        filing_seen.add(key)
 
         score, direction, label, reason = classify(report)
         if score < 68:
             continue
 
-        output.append({
+        raw_candidates.append({
             "grade": grade(score),
             "symbol": stock_code,
             "name": (row.get("corp_name") or "").strip(),
@@ -302,11 +326,8 @@ def build_candidates(rows):
             "url": f"https://dart.fss.or.kr/dsaf001/main.do?rcpNo={receipt}",
         })
 
-    output.sort(
-        key=lambda x: (x["material_score"], x["published_at"], x["receipt_no"]),
-        reverse=True,
-    )
-    output = output[:120]
+    # Important: one candidate per listed company.
+    output = dedupe_by_symbol(raw_candidates)[:120]
 
     price_data = fetch_price_data(output)
 
@@ -344,16 +365,22 @@ def main():
             rows.extend(batch)
             source_status[kind] = {"ok": True, "count": len(batch)}
         except Exception as exc:
-            source_status[kind] = {"ok": False, "count": 0, "error": str(exc)}
+            source_status[kind] = {
+                "ok": False,
+                "count": 0,
+                "error": str(exc),
+            }
 
     if not rows:
-        raise SystemExit("No OpenDART data fetched; keeping the previous live_kr.json.")
+        raise SystemExit(
+            "No OpenDART data fetched; keeping the previous live_kr.json."
+        )
 
     candidates = build_candidates(rows)
     price_count = sum(1 for x in candidates if x.get("price"))
 
     payload = {
-        "version": "kr-live-price-v1",
+        "version": "kr-live-price-v2-dedup",
         "generated_at": now.isoformat(timespec="seconds"),
         "window": {"start": start, "end": end},
         "raw_count": len(rows),
@@ -379,7 +406,7 @@ def main():
         encoding="utf-8",
     )
     print(
-        f"Wrote {OUT}: raw={len(rows)}, candidates={len(candidates)}, "
+        f"Wrote {OUT}: raw={len(rows)}, unique_candidates={len(candidates)}, "
         f"price_enriched={price_count}"
     )
 
