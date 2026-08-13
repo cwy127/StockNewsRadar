@@ -257,6 +257,10 @@ def render_card(x, top_rank=None):
     news = US_NEWS_BY_SYMBOL.get(str(x.get("symbol", "")).upper(), {}) if is_us else {}
     news_score = news.get("news_score")
     news_sentiment = news.get("news_sentiment", "neutral")
+    news_metric_html = (
+        f'<div class="metric"><div class="n">{news_score if news_score is not None else "—"}</div><div class="l">뉴스확인</div></div>'
+        if is_us else ""
+    )
 
     price_line = ""
     if p:
@@ -312,13 +316,7 @@ def render_card(x, top_rank=None):
         <div class="symbol">{values["symbol"]} · {values["market"]} · <span class="{dc}">{direction_text(x.get("direction"))}</span></div>
       </div><div class="grade {gc}">{grade}급</div></div>
       <div class="event">{values["event"]}</div><div class="summary">{values["report_name"]}</div>
-      <div class="metrics{" us-five" if is_us else ""}">
-        <div class="metric"><div class="n">{score}</div><div class="l">최종점수</div></div>
-        <div class="metric"><div class="n">{x.get("material_score","—")}</div><div class="l">{"SEC 중요도" if is_us else "공시 중요도"}</div></div>
-        <div class="metric"><div class="n">{confirmation if confirmation is not None else "—"}</div><div class="l">시장확인</div></div>
-        {f'<div class="metric"><div class="n">{news_score if news_score is not None else "—"}</div><div class="l">뉴스확인</div></div>' if is_us else ""}
-        <div class="metric"><div class="n">{overheat if overheat is not None else "—"}</div><div class="l">과열위험</div></div>
-      </div>
+      <div class="metrics{" us-five" if is_us else ""}"><div class="metric"><div class="n">{score}</div><div class="l">최종점수</div></div><div class="metric"><div class="n">{x.get("material_score","—")}</div><div class="l">{"SEC 중요도" if is_us else "공시 중요도"}</div></div><div class="metric"><div class="n">{confirmation if confirmation is not None else "—"}</div><div class="l">시장확인</div></div>{news_metric_html}<div class="metric"><div class="n">{overheat if overheat is not None else "—"}</div><div class="l">과열위험</div></div></div>
       {price_line}
       {news_html}
       <div class="reason">왜 보는가 · {values["reason"]}</div>
