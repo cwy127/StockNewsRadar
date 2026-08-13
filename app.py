@@ -147,6 +147,21 @@ div[data-testid="stSegmentedControl"] [role="button"]{
 
 
 
+
+.premarket-wrap{margin:.8rem 0 1rem}
+.premarket-summary{background:#11151a;border:1px solid var(--line);border-radius:14px;padding:.8rem;margin:.55rem 0}
+.premarket-title{font-size:.8rem;font-weight:850}
+.premarket-sub{font-size:.68rem;color:var(--muted);margin-top:.18rem;line-height:1.45}
+.premarket-row{background:#14181d;border:1px solid var(--line);border-radius:13px;padding:.72rem .78rem;margin:.42rem 0}
+.premarket-row-top{display:flex;justify-content:space-between;gap:.6rem;align-items:center}
+.premarket-name{font-size:.82rem;font-weight:850}
+.premarket-score{font-size:.76rem;font-weight:850}
+.premarket-meta{font-size:.66rem;color:var(--muted);margin-top:.18rem;line-height:1.45}
+.pm-badge{display:inline-block;border-radius:999px;padding:.16rem .44rem;font-size:.63rem;font-weight:850;margin-right:.35rem}
+.pm-watch{background:rgba(57,217,138,.14);color:var(--green)}
+.pm-check{background:rgba(245,196,81,.14);color:var(--yellow)}
+.pm-caution{background:rgba(255,93,103,.14);color:var(--red)}
+
 .signal-line{margin-top:.55rem;font-size:.72rem;color:#b7bec8}
 .signal-badge{display:inline-block;border-radius:999px;padding:.16rem .42rem;font-size:.64rem;font-weight:850;margin-right:.35rem}
 .signal-strong{background:rgba(57,217,138,.14);color:var(--green)}
@@ -357,6 +372,100 @@ def signal_confidence(x):
             css = "signal-weak"
 
     return level, css, " · ".join(checks)
+
+
+def premarket_status(x):
+    score = final_score(x)
+    signal_level, _, _ = signal_confidence(x)
+    market = x.get("market_confirmation")
+    heat = x.get("overheat_risk")
+    p = x.get("price") or {}
+    vr = p.get("volume_ratio_20d")
+
+    reasons = []
+    reasons.append(f"신호 {signal_level}")
+
+    if market is not None:
+        reasons.append("시장 강함" if market >= 70 else "시장 보통" if market >= 50 else "시장 약함")
+    if heat is not None:
+        reasons.append("과열 낮음" if heat <= 30 else "과열 보통" if heat <= 55 else "과열 주의")
+    if vr is not None:
+        if vr >= 1.5:
+            reasons.append("거래량 증가")
+        elif vr < 0.8:
+            reasons.append("거래량 약함")
+
+    if x.get("market") == "US":
+        news = US_NEWS_BY_SYMBOL.get(str(x.get("symbol", "")).upper(), {})
+        ns = news.get("news_sentiment")
+        if ns == "positive":
+            reasons.append("뉴스 긍정")
+        elif ns == "negative":
+            reasons.append("뉴스 부정")
+
+    if score >= 75 and signal_level == "강함" and (heat is None or heat <= 40):
+        return "관찰 우선", "pm-watch", " · ".join(reasons)
+    if score >= 65 and signal_level in {"강함", "보통"} and (heat is None or heat <= 60):
+        return "장 시작 확인", "pm-check", " · ".join(reasons)
+    return "주의", "pm-caution", " · ".join(reasons)
+
+def render_premarket_brief(candidates, market_label):
+    positive = [x for x in candidates if x.get("direction") == "positive"]
+    positive.sort(key=lambda x:(final_score(x), x.get("published_at","")), reverse=True)
+
+    eligible = [
+        x for x in positive
+        if x.get("price")
+        and (x.get("overheat_risk") is None or x.get("overheat_risk") <= 70)
+        and (x.get("market_confirmation") is None or x.get("market_confirmation") >= 30)
+    ]
+
+    if not eligible:
+        st.markdown('<div class="empty">장 시작 전 우선 관찰 후보가 없습니다.</div>', unsafe_allow_html=True)
+        return
+
+    top3 = eligible[:3]
+    watch_count = 0
+    rows = []
+
+    for idx, x in enumerate(top3, 1):
+        status, css_class, reason = premarket_status(x)
+        if status == "관찰 우선":
+            watch_count += 1
+
+        name = html.escape(str(x.get("name", "")))
+        symbol = html.escape(str(x.get("symbol", "")))
+        score = final_score(x)
+        event = html.escape(str(x.get("event", "")))
+
+        rows.append(f"""
+        <div class="premarket-row">
+          <div class="premarket-row-top">
+            <div class="premarket-name">#{idx} {name}</div>
+            <div class="premarket-score">{score}</div>
+          </div>
+          <div class="premarket-meta">{symbol} · {event}</div>
+          <div class="premarket-meta"><span class="pm-badge {css_class}">{status}</span>{html.escape(reason)}</div>
+        </div>
+        """)
+
+    if watch_count >= 2:
+        day_note = f"{market_label}은 오늘 우선 관찰 후보가 {watch_count}개입니다."
+    elif watch_count == 1:
+        day_note = f"{market_label}은 오늘 1개를 우선 보고, 나머지는 장 시작 반응을 확인하세요."
+    else:
+        day_note = f"{market_label}은 오늘 강한 우선 후보가 적어 장 시작 반응 확인이 중요합니다."
+
+    st.markdown(f"""
+    <div class="premarket-wrap">
+      <div class="section-title">장 시작 전 최종 관찰</div>
+      <div class="premarket-summary">
+        <div class="premarket-title">{html.escape(day_note)}</div>
+        <div class="premarket-sub">실시간 프리마켓 갭은 아직 반영하지 않습니다. 장 시작 직전/직후 급등 갭이 크면 추격하지 말고 실제 가격 반응을 다시 확인하세요.</div>
+      </div>
+      {''.join(rows)}
+    </div>
+    """, unsafe_allow_html=True)
 
 def render_card(x, top_rank=None):
     dc = direction_css(x.get("direction"))
@@ -787,6 +896,8 @@ if view == "레이더" and market == "한국":
         and (x.get("market_confirmation") is None or x.get("market_confirmation") >= 35)
     ][:7]
 
+    render_premarket_brief(candidates, "한국")
+
     st.markdown(f"""
     <div class="market-strip">
       <div class="market-chip"><div class="k">최근 수집</div><div class="v pos">{generated[5:16].replace("T"," ") if generated else "—"}</div></div>
@@ -853,6 +964,8 @@ elif view == "레이더" and market == "미국":
             and (x.get("overheat_risk") is None or x.get("overheat_risk") <= 65)
             and (x.get("market_confirmation") is None or x.get("market_confirmation") >= 35)
         ][:7]
+
+        render_premarket_brief(us_candidates, "미국")
 
         st.markdown(f"""
         <div class="market-strip">
