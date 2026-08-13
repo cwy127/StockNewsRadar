@@ -145,6 +145,18 @@ div[data-testid="stSegmentedControl"] [role="button"]{
 
 
 
+
+.brief-wrap{margin:.7rem 0 1rem}
+.brief-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+.brief-card{background:#14181d;border:1px solid var(--line);border-radius:14px;padding:.75rem}
+.brief-k{font-size:.66rem;color:var(--muted)}
+.brief-v{font-size:.95rem;font-weight:850;margin-top:.1rem}
+.brief-list{margin-top:.5rem}
+.brief-item{background:#11151a;border:1px solid var(--line);border-radius:11px;padding:.6rem .7rem;margin:.35rem 0}
+.brief-item-top{display:flex;justify-content:space-between;gap:.5rem}
+.brief-name{font-size:.78rem;font-weight:800}
+.brief-meta{font-size:.64rem;color:var(--muted);margin-top:.15rem}
+
 .analysis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.7rem 0}
 .analysis-card{background:#14181d;border:1px solid var(--line);border-radius:14px;padding:.75rem}
 .analysis-card .k{font-size:.67rem;color:var(--muted)}
@@ -189,6 +201,7 @@ US_VALIDATION_FILE = Path("data/validation/results_us.json")
 US_LIVE_FILE = Path("data/live_us.json")
 US_NEWS_FILE = Path("data/news_us.json")
 ANALYSIS_FILE = Path("data/analysis/performance_report.json")
+DAILY_BRIEF_FILE = Path("data/brief/daily_brief.json")
 
 
 def load_us_news_map():
@@ -568,6 +581,98 @@ def render_analysis_market(market_key):
         render_analysis_group("뉴스확인 점수별", market_data.get("by_news_score", []))
         render_analysis_group("뉴스 방향별", market_data.get("by_news_sentiment", []))
 
+
+def render_daily_brief_market(market_key, title):
+    brief = file_json(DAILY_BRIEF_FILE)
+    data = brief.get(market_key, {})
+
+    if not data or data.get("status") != "ok":
+        st.markdown('<div class="empty">아직 Daily Brief 데이터가 없습니다.</div>', unsafe_allow_html=True)
+        return
+
+    strongest = data.get("strongest") or {}
+    strongest_name = html.escape(str(strongest.get("name", "—")))
+    strongest_score = strongest.get("final_score", "—")
+
+    st.markdown(f"""
+    <div class="brief-wrap">
+      <div class="section-title">{html.escape(title)}</div>
+      <div class="brief-grid">
+        <div class="brief-card"><div class="brief-k">새 후보</div><div class="brief-v">{data.get("new_count",0)}개</div></div>
+        <div class="brief-card"><div class="brief-k">유지</div><div class="brief-v">{data.get("retained_count",0)}개</div></div>
+        <div class="brief-card"><div class="brief-k">탈락</div><div class="brief-v">{data.get("dropped_count",0)}개</div></div>
+        <div class="brief-card"><div class="brief-k">TOP #1</div><div class="brief-v">{strongest_name} · {strongest_score}</div></div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    if data.get("new"):
+        st.markdown('<div class="section-title">오늘 새 후보</div>', unsafe_allow_html=True)
+        for item in data.get("new", [])[:5]:
+            name = html.escape(str(item.get("name", "")))
+            symbol = html.escape(str(item.get("symbol", "")))
+            score = item.get("final_score", "—")
+            rank = item.get("rank", "—")
+            event = html.escape(str(item.get("event", "")))
+            st.markdown(f"""
+            <div class="brief-item">
+              <div class="brief-item-top">
+                <div class="brief-name">#{rank} {name}</div>
+                <div class="brief-name">{score}</div>
+              </div>
+              <div class="brief-meta">{symbol} · {event}</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    if data.get("retained"):
+        st.markdown('<div class="section-title">계속 유지 중</div>', unsafe_allow_html=True)
+        for item in data.get("retained", [])[:5]:
+            name = html.escape(str(item.get("name", "")))
+            symbol = html.escape(str(item.get("symbol", "")))
+            rank = item.get("rank", "—")
+            prev_rank = item.get("previous_rank", "—")
+            score_change = item.get("score_change")
+            rank_change = item.get("rank_change")
+
+            rank_txt = ""
+            if rank_change is not None:
+                rank_txt = f"순위 {'+' if rank_change > 0 else ''}{rank_change}"
+            score_txt = ""
+            if score_change is not None:
+                score_txt = f"점수 {'+' if score_change > 0 else ''}{score_change}"
+
+            extra = " · ".join([x for x in [rank_txt, score_txt] if x]) or "변화 없음"
+
+            st.markdown(f"""
+            <div class="brief-item">
+              <div class="brief-item-top">
+                <div class="brief-name">#{rank} {name}</div>
+                <div class="brief-name">전일 #{prev_rank}</div>
+              </div>
+              <div class="brief-meta">{symbol} · {extra}</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    if data.get("dropped"):
+        with st.expander(f"오늘 탈락 {data.get('dropped_count',0)}개"):
+            for item in data.get("dropped", [])[:10]:
+                name = html.escape(str(item.get("name", "")))
+                symbol = html.escape(str(item.get("symbol", "")))
+                rank = item.get("rank", "—")
+                score = item.get("final_score", "—")
+                st.markdown(f"**#{rank} {name}** · {symbol} · 이전 점수 {score}")
+
+def render_daily_brief():
+    st.markdown('<div class="section-title">Daily Brief</div>', unsafe_allow_html=True)
+    st.caption("전날 TOP 스냅샷과 비교한 오늘의 변화입니다.")
+    brief_market = st.segmented_control(
+        "브리프 시장",
+        ["한국", "미국"],
+        default="한국",
+        label_visibility="collapsed",
+    )
+    render_daily_brief_market("kr" if brief_market == "한국" else "us", f"{brief_market} 오늘 변화")
+
 now = datetime.now(KST)
 st.markdown(f'<div class="hero"><div class="hero-title">StockNewsRadar <span class="live-badge">KR LIVE</span></div><div class="hero-sub">다음 거래일 관찰 후보 · {now.strftime("%Y-%m-%d %H:%M")} KST</div></div>', unsafe_allow_html=True)
 
@@ -577,6 +682,7 @@ with st.expander("수집 상태"):
     render_health_monitor()
 
 if view == "레이더":
+    render_daily_brief()
     market = st.segmented_control("시장",["한국","미국"],default="한국",label_visibility="collapsed", width="content")
 
 if view == "레이더" and market == "한국":
