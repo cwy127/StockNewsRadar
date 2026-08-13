@@ -1,0 +1,46 @@
+name: Build candidate history
+
+on:
+  workflow_dispatch:
+  schedule:
+    # After the daily brief and daily TOP snapshots should already exist.
+    - cron: "15 18 * * 1-5"
+      timezone: "America/New_York"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-candidate-history
+  cancel-in-progress: false
+
+jobs:
+  history:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Build candidate history
+        run: python scripts/build_candidate_history.py
+
+      - name: Commit candidate history
+        run: |
+          git add data/history/candidate_history.json
+
+          if git diff --cached --quiet; then
+            echo "No candidate history changes."
+            exit 0
+          fi
+
+          git config user.name "stock-news-radar-bot"
+          git config user.email "stock-news-radar-bot@users.noreply.github.com"
+          git commit -m "Update candidate history"
+          git pull --rebase origin main
+          git push
