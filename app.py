@@ -146,6 +146,14 @@ div[data-testid="stSegmentedControl"] [role="button"]{
 
 
 
+
+.signal-line{margin-top:.55rem;font-size:.72rem;color:#b7bec8}
+.signal-badge{display:inline-block;border-radius:999px;padding:.16rem .42rem;font-size:.64rem;font-weight:850;margin-right:.35rem}
+.signal-strong{background:rgba(57,217,138,.14);color:var(--green)}
+.signal-mid{background:rgba(245,196,81,.14);color:var(--yellow)}
+.signal-weak{background:rgba(255,93,103,.14);color:var(--red)}
+.signal-check{color:#d5dbe3}
+
 .brief-wrap{margin:.7rem 0 1rem}
 .brief-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
 .brief-card{background:#14181d;border:1px solid var(--line);border-radius:14px;padding:.75rem}
@@ -281,6 +289,75 @@ def final_score(x):
 
     return round(max(0, min(100, score)), 1)
 
+
+def signal_confidence(x):
+    points = 0
+    checks = []
+
+    material = x.get("material_score")
+    market = x.get("market_confirmation")
+    heat = x.get("overheat_risk")
+    p = x.get("price") or {}
+    vr = p.get("volume_ratio_20d")
+
+    if material is not None and material >= 80:
+        points += 1
+        checks.append("공시✓" if x.get("market") != "US" else "SEC✓")
+    else:
+        checks.append("공시△" if x.get("market") != "US" else "SEC△")
+
+    if market is not None and market >= 60:
+        points += 1
+        checks.append("시장✓")
+    else:
+        checks.append("시장△")
+
+    if vr is not None and vr >= 1.2:
+        points += 1
+        checks.append("거래량✓")
+    else:
+        checks.append("거래량△")
+
+    if heat is not None and heat <= 40:
+        points += 1
+        checks.append("과열낮음✓")
+    else:
+        checks.append("과열주의△")
+
+    if x.get("market") == "US":
+        news = US_NEWS_BY_SYMBOL.get(str(x.get("symbol", "")).upper(), {})
+        news_sentiment = news.get("news_sentiment")
+        if news_sentiment == "positive":
+            points += 1
+            checks.append("뉴스✓")
+        elif news_sentiment == "negative":
+            checks.append("뉴스✕")
+            points -= 1
+        else:
+            checks.append("뉴스△")
+
+        if points >= 4:
+            level = "강함"
+            css = "signal-strong"
+        elif points >= 2:
+            level = "보통"
+            css = "signal-mid"
+        else:
+            level = "약함"
+            css = "signal-weak"
+    else:
+        if points >= 3:
+            level = "강함"
+            css = "signal-strong"
+        elif points >= 2:
+            level = "보통"
+            css = "signal-mid"
+        else:
+            level = "약함"
+            css = "signal-weak"
+
+    return level, css, " · ".join(checks)
+
 def render_card(x, top_rank=None):
     dc = direction_css(x.get("direction"))
     grade = x.get("grade","B")
@@ -293,6 +370,7 @@ def render_card(x, top_rank=None):
     confirmation = x.get("market_confirmation")
     overheat = x.get("overheat_risk")
     score = final_score(x)
+    signal_level, signal_css_class, signal_checks = signal_confidence(x)
     news = US_NEWS_BY_SYMBOL.get(str(x.get("symbol", "")).upper(), {}) if is_us else {}
     news_score = news.get("news_score")
     news_sentiment = news.get("news_sentiment", "neutral")
@@ -357,6 +435,7 @@ def render_card(x, top_rank=None):
       <div class="event">{values["event"]}</div><div class="summary">{values["report_name"]}</div>
       <div class="metrics{" us-five" if is_us else ""}"><div class="metric"><div class="n">{score}</div><div class="l">최종점수</div></div><div class="metric"><div class="n">{x.get("material_score","—")}</div><div class="l">{"SEC 중요도" if is_us else "공시 중요도"}</div></div><div class="metric"><div class="n">{confirmation if confirmation is not None else "—"}</div><div class="l">시장확인</div></div>{news_metric_html}<div class="metric"><div class="n">{overheat if overheat is not None else "—"}</div><div class="l">과열위험</div></div></div>
       {price_line}
+      <div class="signal-line"><span class="signal-badge {signal_css_class}">신호 {signal_level}</span><span class="signal-check">{signal_checks}</span></div>
       {news_html}
       <div class="reason">왜 보는가 · {values["reason"]}</div>
       <div class="meta">{source_name} · {values["published_at"]}</div>
