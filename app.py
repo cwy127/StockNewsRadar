@@ -420,7 +420,10 @@ def premarket_status(x):
 
 def render_premarket_brief(candidates, market_label):
     positive = [x for x in candidates if x.get("direction") == "positive"]
-    positive.sort(key=lambda x:(final_score(x), x.get("published_at","")), reverse=True)
+    positive.sort(
+        key=lambda x: (final_score(x), x.get("published_at", "")),
+        reverse=True,
+    )
 
     eligible = [
         x for x in positive
@@ -430,33 +433,33 @@ def render_premarket_brief(candidates, market_label):
     ]
 
     if not eligible:
-        st.markdown('<div class="empty">장 시작 전 우선 관찰 후보가 없습니다.</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="empty">장 시작 전 우선 관찰 후보가 없습니다.</div>',
+            unsafe_allow_html=True,
+        )
         return
 
     top3 = eligible[:3]
+
+    rendered = []
     watch_count = 0
-    rows = []
 
     for idx, x in enumerate(top3, 1):
         status, css_class, reason = premarket_status(x)
+
         if status == "관찰 우선":
             watch_count += 1
 
-        name = html.escape(str(x.get("name", "")))
-        symbol = html.escape(str(x.get("symbol", "")))
-        score = final_score(x)
-        event = html.escape(str(x.get("event", "")))
-
-        rows.append(f"""
-        <div class="premarket-row">
-          <div class="premarket-row-top">
-            <div class="premarket-name">#{idx} {name}</div>
-            <div class="premarket-score">{score}</div>
-          </div>
-          <div class="premarket-meta">{symbol} · {event}</div>
-          <div class="premarket-meta"><span class="pm-badge {css_class}">{status}</span>{html.escape(reason)}</div>
-        </div>
-        """)
+        rendered.append({
+            "idx": idx,
+            "name": html.escape(str(x.get("name", "")), quote=True),
+            "symbol": html.escape(str(x.get("symbol", "")), quote=True),
+            "score": final_score(x),
+            "event": html.escape(str(x.get("event", "")), quote=True),
+            "status": html.escape(status, quote=True),
+            "css_class": css_class,
+            "reason": html.escape(reason, quote=True),
+        })
 
     if watch_count >= 2:
         day_note = f"{market_label}은 오늘 우선 관찰 후보가 {watch_count}개입니다."
@@ -465,16 +468,45 @@ def render_premarket_brief(candidates, market_label):
     else:
         day_note = f"{market_label}은 오늘 강한 우선 후보가 적어 장 시작 반응 확인이 중요합니다."
 
-    st.markdown(f"""
-    <div class="premarket-wrap">
-      <div class="section-title">장 시작 전 최종 관찰</div>
-      <div class="premarket-summary">
-        <div class="premarket-title">{html.escape(day_note)}</div>
-        <div class="premarket-sub">실시간 프리마켓 갭은 아직 반영하지 않습니다. 장 시작 직전/직후 급등 갭이 크면 추격하지 말고 실제 가격 반응을 다시 확인하세요.</div>
-      </div>
-      {''.join(rows)}
-    </div>
-    """, unsafe_allow_html=True)
+    # Header/summary first
+    st.markdown(
+        (
+            '<div class="premarket-wrap">'
+            '<div class="section-title">장 시작 전 최종 관찰</div>'
+            '<div class="premarket-summary">'
+            f'<div class="premarket-title">{html.escape(day_note, quote=True)}</div>'
+            '<div class="premarket-sub">'
+            '실시간 프리마켓 갭은 아직 반영하지 않습니다. '
+            '장 시작 직전/직후 급등 갭이 크면 추격하지 말고 실제 가격 반응을 다시 확인하세요.'
+            '</div>'
+            '</div>'
+        ),
+        unsafe_allow_html=True,
+    )
+
+    # Render each row separately so Markdown cannot interpret indented HTML as a code block.
+    for item in rendered:
+        st.markdown(
+            (
+                '<div class="premarket-row">'
+                '<div class="premarket-row-top">'
+                f'<div class="premarket-name">#{item["idx"]} {item["name"]}</div>'
+                f'<div class="premarket-score">{item["score"]}</div>'
+                '</div>'
+                f'<div class="premarket-meta">{item["symbol"]} · {item["event"]}</div>'
+                '<div class="premarket-meta">'
+                f'<span class="pm-badge {item["css_class"]}">{item["status"]}</span>'
+                f'{item["reason"]}'
+                '</div>'
+                '</div>'
+            ),
+            unsafe_allow_html=True,
+        )
+
+    # Close visual wrapper. A separate zero-height close tag is harmless and avoids
+    # keeping large mixed HTML inside one Markdown block.
+    st.markdown('</div>', unsafe_allow_html=True)
+
 
 def render_card(x, top_rank=None):
     dc = direction_css(x.get("direction"))
