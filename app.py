@@ -148,6 +148,15 @@ div[data-testid="stSegmentedControl"] [role="button"]{
 
 
 
+
+.refresh-row{display:flex;justify-content:flex-end;margin:-.15rem 0 .35rem}
+div[data-testid="stButton"] button[kind="secondary"]{
+  min-height:34px!important;
+  padding:.28rem .62rem!important;
+  border-radius:10px!important;
+  font-size:.72rem!important;
+}
+
 .premarket-wrap{margin:.8rem 0 1rem}
 .premarket-summary{background:#11151a;border:1px solid var(--line);border-radius:14px;padding:.8rem;margin:.55rem 0}
 .premarket-title{font-size:.8rem;font-weight:850}
@@ -861,8 +870,17 @@ def render_daily_brief():
     )
     render_daily_brief_market("kr" if brief_market == "한국" else "us", f"{brief_market} 오늘 변화")
 
+
+def render_refresh_button():
+    c1, c2 = st.columns([4, 1], gap="small")
+    with c2:
+        if st.button("↻ 새로고침", use_container_width=True, type="secondary"):
+            st.rerun()
+
 now = datetime.now(KST)
 st.markdown(f'<div class="hero"><div class="hero-title">StockNewsRadar <span class="live-badge">KR LIVE</span></div><div class="hero-sub">다음 거래일 관찰 후보 · {now.strftime("%Y-%m-%d %H:%M")} KST</div></div>', unsafe_allow_html=True)
+
+render_refresh_button()
 
 view = st.segmented_control("보기", ["레이더", "성과"], default="레이더", label_visibility="collapsed", width="content")
 
