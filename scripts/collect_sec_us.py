@@ -1,3 +1,4 @@
+import gzip
 import json
 import os
 import re
@@ -57,6 +58,11 @@ def sec_get(url, timeout=20, retries=3):
             req = urllib.request.Request(url, headers=HEADERS)
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 data = r.read()
+                content_encoding = (r.headers.get("Content-Encoding") or "").lower()
+                # urllib does not automatically decompress gzip responses.
+                # SEC commonly returns gzip when Accept-Encoding requests it.
+                if content_encoding == "gzip" or data[:2] == b"\x1f\x8b":
+                    data = gzip.decompress(data)
                 return data, r.headers.get("Content-Type", "")
         except Exception as exc:
             last = exc
