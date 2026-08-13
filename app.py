@@ -921,7 +921,7 @@ def install_pull_to_refresh():
           let maxPull = 0;
           let tracking = false;
           let reloading = false;
-          const threshold = 85;
+          const threshold = 170;
 
           const scrollTop = () => {
             return Math.max(
