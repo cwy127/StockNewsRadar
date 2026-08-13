@@ -160,6 +160,7 @@ div[data-testid="stSegmentedControl"] [role="button"]{
 KST = ZoneInfo("Asia/Seoul")
 LIVE_FILE = Path("data/live_kr.json")
 VALIDATION_FILE = Path("data/validation/results.json")
+US_VALIDATION_FILE = Path("data/validation/results_us.json")
 US_LIVE_FILE = Path("data/live_us.json")
 US_NEWS_FILE = Path("data/news_us.json")
 
@@ -476,73 +477,142 @@ elif view == "성과":
     st.markdown('<div class="section-title">TOP 후보 검증 성과</div>', unsafe_allow_html=True)
     st.caption("매일 저장된 TOP 후보를 다음 거래일 실제 시가·고가·저가·종가와 비교한 누적 검증 결과입니다.")
 
-    if not VALIDATION_FILE.exists():
-        st.markdown('<div class="empty">아직 검증 결과 파일이 없습니다. Evaluate TOP candidates 워크플로를 실행하면 생성됩니다.</div>', unsafe_allow_html=True)
-    else:
-        validation = json.loads(VALIDATION_FILE.read_text(encoding="utf-8"))
-        records = validation.get("records", [])
-        summary = validation.get("summary", {})
-        evaluated = [r for r in records if r.get("status") == "evaluated"]
+    perf_market = st.segmented_control(
+        "성과 시장",
+        ["한국", "미국"],
+        default="한국",
+        label_visibility="collapsed",
+    )
 
-        def perf_pct(v):
-            if v is None:
-                return '<span class="price-flat">—</span>'
-            cls = "price-up" if v > 0 else "price-down" if v < 0 else "price-flat"
-            return f'<span class="{cls}">{v:+.2f}%</span>'
-
-        st.markdown(f"""
-        <div class="perf-grid">
-          <div class="perf-box"><div class="k">평가 완료</div><div class="v">{summary.get("evaluated_count",0):,}건</div></div>
-          <div class="perf-box"><div class="k">종가 승률</div><div class="v">{summary.get("close_win_rate_pct") if summary.get("close_win_rate_pct") is not None else "—"}{"" if summary.get("close_win_rate_pct") is None else "%"}</div></div>
-          <div class="perf-box"><div class="k">장중 +3% 도달률</div><div class="v">{summary.get("high_hit_3pct_rate_pct") if summary.get("high_hit_3pct_rate_pct") is not None else "—"}{"" if summary.get("high_hit_3pct_rate_pct") is None else "%"}</div></div>
-          <div class="perf-box"><div class="k">평균 종가 수익률</div><div class="v">{perf_pct(summary.get("avg_close_return_pct"))}</div></div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        if not evaluated:
-            st.markdown('<div class="empty">아직 다음 거래일 평가가 완료된 후보가 없습니다. 첫 스냅샷의 다음 거래일 장 종료 후 자동으로 성적이 쌓입니다.</div>', unsafe_allow_html=True)
+    if perf_market == "한국":
+        if not VALIDATION_FILE.exists():
+            st.markdown('<div class="empty">아직 한국 검증 결과 파일이 없습니다.</div>', unsafe_allow_html=True)
         else:
-            top1 = [r for r in evaluated if r.get("rank") == 1]
-            if top1:
-                top1_win = [r for r in top1 if (r.get("next_close_pct") or 0) > 0]
-                top1_avg = sum(r.get("next_close_pct") or 0 for r in top1) / len(top1)
-                st.markdown(f"""
-                <div class="perf-grid">
-                  <div class="perf-box"><div class="k">TOP #1 종가 승률</div><div class="v">{len(top1_win)/len(top1)*100:.1f}%</div></div>
-                  <div class="perf-box"><div class="k">TOP #1 평균 종가</div><div class="v">{perf_pct(top1_avg)}</div></div>
-                </div>
-                """, unsafe_allow_html=True)
+            validation = json.loads(VALIDATION_FILE.read_text(encoding="utf-8"))
+            records = validation.get("records", [])
+            summary = validation.get("summary", {})
+            evaluated = [r for r in records if r.get("status") == "evaluated"]
 
-            st.markdown('<div class="section-title">최근 평가 결과</div>', unsafe_allow_html=True)
-            for r in evaluated[:30]:
-                rank = r.get("rank","—")
-                name = html.escape(str(r.get("name","")), quote=True)
-                symbol = html.escape(str(r.get("symbol","")), quote=True)
-                signal_date = html.escape(str(r.get("signal_date","")), quote=True)
-                next_date = html.escape(str(r.get("next_trade_date","")), quote=True)
-                score = r.get("final_score","—")
-                st.markdown(f"""
-                <div class="perf-row">
-                  <div class="perf-row-top">
-                    <div><span class="perf-rank">#{rank}</span> <span class="perf-name">{name}</span></div>
-                    <div class="perf-small">점수 {score}</div>
-                  </div>
-                  <div class="perf-small">{symbol} · 신호 {signal_date} → 평가 {next_date}</div>
-                  <div class="perf-returns">
-                    <div class="perf-return"><div class="k">시가 갭</div><div class="v">{perf_pct(r.get("gap_open_pct"))}</div></div>
-                    <div class="perf-return"><div class="k">장중 고가</div><div class="v">{perf_pct(r.get("next_high_pct"))}</div></div>
-                    <div class="perf-return"><div class="k">종가</div><div class="v">{perf_pct(r.get("next_close_pct"))}</div></div>
-                  </div>
-                </div>
-                """, unsafe_allow_html=True)
+            def perf_pct(v):
+                if v is None:
+                    return '<span class="price-flat">—</span>'
+                cls = "price-up" if v > 0 else "price-down" if v < 0 else "price-flat"
+                return f'<span class="{cls}">{v:+.2f}%</span>'
 
-            with st.expander("성과 해석 기준"):
-                st.markdown("""
-- **종가 승률**: 다음 거래일 종가가 스냅샷 당시 기준 종가보다 높은 비율입니다.
-- **장중 +3% 도달률**: 다음 거래일 고가가 기준 종가 대비 +3% 이상 도달한 비율입니다.
-- **평균 종가 수익률**: 평가된 모든 TOP 후보의 다음 거래일 종가 수익률 평균입니다.
-- **TOP #1 성적**: 매일 가장 높은 우선순위 한 종목만 따로 집계합니다.
-- 데이터가 적을 때는 통계적 의미가 거의 없으므로 최소 수십 건 이상 누적 후 점수 조정을 권장합니다.
-                """)
+            st.markdown(f"""
+            <div class="perf-grid">
+              <div class="perf-box"><div class="k">평가 완료</div><div class="v">{summary.get("evaluated_count",0):,}건</div></div>
+              <div class="perf-box"><div class="k">종가 승률</div><div class="v">{summary.get("close_win_rate_pct") if summary.get("close_win_rate_pct") is not None else "—"}{"" if summary.get("close_win_rate_pct") is None else "%"}</div></div>
+              <div class="perf-box"><div class="k">장중 +3% 도달률</div><div class="v">{summary.get("high_hit_3pct_rate_pct") if summary.get("high_hit_3pct_rate_pct") is not None else "—"}{"" if summary.get("high_hit_3pct_rate_pct") is None else "%"}</div></div>
+              <div class="perf-box"><div class="k">평균 종가 수익률</div><div class="v">{perf_pct(summary.get("avg_close_return_pct"))}</div></div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            if not evaluated:
+                st.markdown('<div class="empty">아직 다음 거래일 평가가 완료된 한국 후보가 없습니다.</div>', unsafe_allow_html=True)
+            else:
+                top1 = [r for r in evaluated if r.get("rank") == 1]
+                if top1:
+                    top1_win = [r for r in top1 if (r.get("next_close_pct") or 0) > 0]
+                    top1_avg = sum(r.get("next_close_pct") or 0 for r in top1) / len(top1)
+                    st.markdown(f"""
+                    <div class="perf-grid">
+                      <div class="perf-box"><div class="k">TOP #1 종가 승률</div><div class="v">{len(top1_win)/len(top1)*100:.1f}%</div></div>
+                      <div class="perf-box"><div class="k">TOP #1 평균 종가</div><div class="v">{perf_pct(top1_avg)}</div></div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                st.markdown('<div class="section-title">최근 한국 평가 결과</div>', unsafe_allow_html=True)
+                for r in evaluated[:30]:
+                    rank = r.get("rank","—")
+                    name = html.escape(str(r.get("name","")), quote=True)
+                    symbol = html.escape(str(r.get("symbol","")), quote=True)
+                    signal_date = html.escape(str(r.get("signal_date","")), quote=True)
+                    next_date = html.escape(str(r.get("next_trade_date","")), quote=True)
+                    score = r.get("final_score","—")
+                    st.markdown(f"""
+                    <div class="perf-row">
+                      <div class="perf-row-top">
+                        <div><span class="perf-rank">#{rank}</span> <span class="perf-name">{name}</span></div>
+                        <div class="perf-small">점수 {score}</div>
+                      </div>
+                      <div class="perf-small">{symbol} · 신호 {signal_date} → 평가 {next_date}</div>
+                      <div class="perf-returns">
+                        <div class="perf-return"><div class="k">시가 갭</div><div class="v">{perf_pct(r.get("gap_open_pct"))}</div></div>
+                        <div class="perf-return"><div class="k">장중 고가</div><div class="v">{perf_pct(r.get("next_high_pct"))}</div></div>
+                        <div class="perf-return"><div class="k">종가</div><div class="v">{perf_pct(r.get("next_close_pct"))}</div></div>
+                      </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+    else:
+        if not US_VALIDATION_FILE.exists():
+            st.markdown('<div class="empty">아직 미국 검증 결과 파일이 없습니다.</div>', unsafe_allow_html=True)
+        else:
+            validation = json.loads(US_VALIDATION_FILE.read_text(encoding="utf-8"))
+            records = validation.get("records", [])
+            summary = validation.get("summary", {})
+            evaluated = [r for r in records if r.get("status") == "evaluated"]
+
+            def us_perf_pct(v):
+                if v is None:
+                    return '<span class="price-flat">—</span>'
+                cls = "price-up" if v > 0 else "price-down" if v < 0 else "price-flat"
+                return f'<span class="{cls}">{v:+.2f}%</span>'
+
+            st.markdown(f"""
+            <div class="perf-grid">
+              <div class="perf-box"><div class="k">평가 완료</div><div class="v">{summary.get("evaluated_count",0):,}건</div></div>
+              <div class="perf-box"><div class="k">종가 승률</div><div class="v">{summary.get("close_win_rate_pct") if summary.get("close_win_rate_pct") is not None else "—"}{"" if summary.get("close_win_rate_pct") is None else "%"}</div></div>
+              <div class="perf-box"><div class="k">장중 +3% 도달률</div><div class="v">{summary.get("high_hit_3pct_rate_pct") if summary.get("high_hit_3pct_rate_pct") is not None else "—"}{"" if summary.get("high_hit_3pct_rate_pct") is None else "%"}</div></div>
+              <div class="perf-box"><div class="k">장중 +5% 도달률</div><div class="v">{summary.get("high_hit_5pct_rate_pct") if summary.get("high_hit_5pct_rate_pct") is not None else "—"}{"" if summary.get("high_hit_5pct_rate_pct") is None else "%"}</div></div>
+              <div class="perf-box"><div class="k">평균 시가 갭</div><div class="v">{us_perf_pct(summary.get("avg_gap_open_pct"))}</div></div>
+              <div class="perf-box"><div class="k">평균 종가 수익률</div><div class="v">{us_perf_pct(summary.get("avg_close_return_pct"))}</div></div>
+              <div class="perf-box"><div class="k">TOP #1 종가 승률</div><div class="v">{summary.get("top1_close_win_rate_pct") if summary.get("top1_close_win_rate_pct") is not None else "—"}{"" if summary.get("top1_close_win_rate_pct") is None else "%"}</div></div>
+              <div class="perf-box"><div class="k">TOP #1 평균 종가</div><div class="v">{us_perf_pct(summary.get("top1_avg_close_return_pct"))}</div></div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            if not evaluated:
+                st.markdown('<div class="empty">아직 다음 거래일 평가가 완료된 미국 후보가 없습니다. 첫 스냅샷의 다음 미국 거래일 장 종료 후 수치가 채워집니다.</div>', unsafe_allow_html=True)
+            else:
+                st.markdown('<div class="section-title">최근 미국 평가 결과</div>', unsafe_allow_html=True)
+                for r in evaluated[:30]:
+                    rank = r.get("rank","—")
+                    name = html.escape(str(r.get("name","")), quote=True)
+                    symbol = html.escape(str(r.get("symbol","")), quote=True)
+                    signal_date = html.escape(str(r.get("signal_date","")), quote=True)
+                    next_date = html.escape(str(r.get("next_trade_date","")), quote=True)
+                    score = r.get("final_score","—")
+                    sec_score = r.get("material_score","—")
+                    market_score = r.get("market_confirmation","—")
+                    news_score = r.get("news_score","—")
+                    heat = r.get("overheat_risk","—")
+
+                    st.markdown(f"""
+                    <div class="perf-row">
+                      <div class="perf-row-top">
+                        <div><span class="perf-rank">#{rank}</span> <span class="perf-name">{name}</span></div>
+                        <div class="perf-small">V2 점수 {score}</div>
+                      </div>
+                      <div class="perf-small">{symbol} · SEC {sec_score} · 시장 {market_score} · 뉴스 {news_score} · 과열 {heat}</div>
+                      <div class="perf-small">신호 {signal_date} → 평가 {next_date}</div>
+                      <div class="perf-returns">
+                        <div class="perf-return"><div class="k">시가 갭</div><div class="v">{us_perf_pct(r.get("gap_open_pct"))}</div></div>
+                        <div class="perf-return"><div class="k">장중 고가</div><div class="v">{us_perf_pct(r.get("next_high_pct"))}</div></div>
+                        <div class="perf-return"><div class="k">종가</div><div class="v">{us_perf_pct(r.get("next_close_pct"))}</div></div>
+                      </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+    with st.expander("성과 해석 기준"):
+        st.markdown("""
+- **종가 승률**: 다음 거래일 종가가 스냅샷 기준 종가보다 높은 비율입니다.
+- **장중 +3% / +5% 도달률**: 다음 거래일 고가가 기준 종가 대비 해당 수익률 이상 도달한 비율입니다.
+- **평균 시가 갭**: 다음 거래일 시가가 스냅샷 기준 종가에서 얼마나 벌어져 시작했는지의 평균입니다.
+- **TOP #1 성적**: 매일 최종점수가 가장 높았던 한 종목만 따로 집계합니다.
+- 미국 성과는 현재 **SEC + 시장확인 + 뉴스확인 + 과열위험**을 결합한 V2 점수를 검증합니다.
+- 데이터가 적을 때는 통계적 의미가 약하므로 수십 건 이상 쌓인 뒤 점수 가중치를 조정하는 게 좋습니다.
+        """)
 
 st.markdown('<div class="notice">자동매매가 아니라 다음 거래일에 먼저 조사할 종목을 좁히는 리서치 도구입니다.</div>', unsafe_allow_html=True)
