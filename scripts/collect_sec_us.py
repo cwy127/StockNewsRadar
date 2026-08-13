@@ -184,7 +184,7 @@ def yahoo_symbol(ticker):
 
 def parse_price_frame(df):
     if df is None or df.empty:
-        return None
+        return None, "unavailable", 0
 
     if getattr(df.columns, "nlevels", 1) > 1:
         try:
@@ -193,8 +193,12 @@ def parse_price_frame(df):
             pass
 
     df = df.dropna(subset=["Close"]).copy()
-    if len(df) < 21:
-        return None
+    rows = len(df)
+
+    # We need at least 21 daily bars for the 20-day volume/high metrics.
+    # A newly listed stock can be perfectly valid but not have enough history yet.
+    if rows < 21:
+        return None, "insufficient_history", rows
 
     close = df["Close"].astype(float)
     volume = df["Volume"].astype(float).fillna(0)
@@ -262,7 +266,8 @@ def parse_price_frame(df):
         "distance_20d_high_pct": round(dist_high, 2) if dist_high is not None else None,
         "market_confirmation": int(max(0, min(100, confirmation))),
         "overheat_risk": int(max(0, min(100, heat))),
-    }
+    }, "ok", rows
+
 
 def fetch_prices(candidates):
     symbol_map = {}
@@ -272,6 +277,7 @@ def fetch_prices(candidates):
 
     y_symbols = list(symbol_map)
     results = {}
+    statuses = {}
 
     for i in range(0, len(y_symbols), 25):
         chunk = y_symbols[i:i + 25]
@@ -294,19 +300,30 @@ def fetch_prices(candidates):
             continue
 
         for ys in chunk:
+            ticker = symbol_map[ys]
             try:
                 frame = data.copy() if len(chunk) == 1 else data[ys].copy()
-                parsed = parse_price_frame(frame)
+                parsed, status, rows = parse_price_frame(frame)
+                statuses[ticker] = {
+                    "status": status,
+                    "history_rows": rows,
+                }
                 if parsed:
-                    results[symbol_map[ys]] = parsed
+                    results[ticker] = parsed
             except Exception as exc:
                 print(f"US price parse failed {ys}: {exc}")
 
-    # Targeted retry for positive candidates that a batch request missed.
+    # Targeted retry for positive candidates that batch request did not fully enrich.
     for item in candidates:
         ticker = item["symbol"]
         if ticker in results or item.get("direction") != "positive":
             continue
+
+        # If the batch already confirmed that price data exists but history is
+        # simply too short, no need to retry as a "failure".
+        if statuses.get(ticker, {}).get("status") == "insufficient_history":
+            continue
+
         ys = yahoo_symbol(ticker)
         try:
             df = yf.download(
@@ -318,13 +335,18 @@ def fetch_prices(candidates):
                 threads=False,
                 timeout=15,
             )
-            parsed = parse_price_frame(df)
+            parsed, status, rows = parse_price_frame(df)
+            statuses[ticker] = {
+                "status": status,
+                "history_rows": rows,
+            }
             if parsed:
                 results[ticker] = parsed
         except Exception as exc:
             print(f"US price retry failed {ys}: {exc}")
 
-    return results
+    return results, statuses
+
 
 def main():
     cik_map = load_cik_ticker_map()
@@ -388,22 +410,29 @@ def main():
             break
 
     # Price-enrich ALL candidates in batches, instead of only the first 60.
-    prices = fetch_prices(candidates)
+    prices, price_statuses = fetch_prices(candidates)
     enriched = 0
 
     for item in candidates:
-        px = prices.get(item["symbol"])
+        symbol = item["symbol"]
+        px = prices.get(symbol)
+        status_info = price_statuses.get(symbol) or {}
+        status = status_info.get("status", "unavailable")
+        history_rows = status_info.get("history_rows", 0)
+
         if px:
             item["price"] = px
             item["market_confirmation"] = px["market_confirmation"]
             item["overheat_risk"] = px["overheat_risk"]
             item["price_status"] = "ok"
+            item["price_history_rows"] = history_rows
             enriched += 1
         else:
             item["price"] = None
             item["market_confirmation"] = None
             item["overheat_risk"] = None
-            item["price_status"] = "unavailable"
+            item["price_status"] = status
+            item["price_history_rows"] = history_rows
 
     candidates.sort(
         key=lambda x: (
@@ -415,7 +444,7 @@ def main():
 
     now = datetime.now(timezone.utc)
     payload = {
-        "version": "us-sec-live-v2-price-cleanup",
+        "version": "us-sec-live-v3-new-listing-aware",
         "generated_at": now.isoformat(timespec="seconds"),
         "candidate_count": len(candidates),
         "price_enriched_count": enriched,
