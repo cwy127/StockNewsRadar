@@ -9,7 +9,7 @@ st.set_page_config(page_title="StockNewsRadar", page_icon="📡", layout="center
 
 st.markdown("""
 <style>
-:root{--bg:#0b0d10;--card:#15181d;--card2:#1b1f25;--text:#f4f6f8;--muted:#9ca3af;--line:#272c34;--green:#39d98a;--red:#ff6b6b;--yellow:#f5c451;--blue:#6ea8fe}
+:root{--bg:#0b0d10;--card:#15181d;--card2:#1b1f25;--text:#f4f6f8;--muted:#9ca3af;--line:#272c34;--green:#39d98a;--red:#ff5d67;--yellow:#f5c451;--blue:#4f8cff}
 html,body,[class*="css"]{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Apple SD Gothic Neo",sans-serif}
 .stApp{background:var(--bg);color:var(--text)}
 .block-container{max-width:760px;padding-top:5rem;padding-left:.85rem;padding-right:.85rem;padding-bottom:5rem}
@@ -28,6 +28,36 @@ html,body,[class*="css"]{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Di
 .source-link{display:inline-block;margin-top:.55rem;color:#8ab4ff!important;text-decoration:none;font-size:.76rem;font-weight:700}
 .section-title{font-size:1.05rem;font-weight:800;margin-top:1.15rem;margin-bottom:.4rem}.notice{background:#11151a;border:1px solid var(--line);border-radius:14px;padding:.8rem;color:#aeb5bf;font-size:.76rem;line-height:1.45;margin-top:1rem}.empty{background:#11151a;border:1px solid var(--line);border-radius:14px;padding:1rem;color:#aeb5bf;font-size:.82rem;line-height:1.5}
 .bucket-positive{border-left:3px solid var(--green);padding-left:.65rem}.bucket-neutral{border-left:3px solid var(--yellow);padding-left:.65rem}.bucket-negative{border-left:3px solid var(--red);padding-left:.65rem}
+
+.price-up{color:var(--red);font-weight:800}
+.price-down{color:var(--blue);font-weight:800}
+.price-flat{color:#d5dae1;font-weight:700}
+div[data-testid="stExpander"]{
+  background:#11151a!important;
+  border:1px solid var(--line)!important;
+  border-radius:14px!important;
+  overflow:hidden!important;
+}
+div[data-testid="stExpander"] details,
+div[data-testid="stExpander"] summary{
+  background:#11151a!important;
+  color:var(--text)!important;
+}
+div[data-testid="stExpander"] summary:hover{
+  background:#171c22!important;
+}
+div[data-testid="stExpander"] summary *{
+  color:var(--text)!important;
+}
+div[data-testid="stExpander"] [data-testid="stExpanderDetails"]{
+  background:#0f1317!important;
+  color:var(--text)!important;
+  border-top:1px solid var(--line)!important;
+}
+div[data-testid="stExpander"] [data-testid="stExpanderDetails"] *{
+  color:inherit;
+}
+
 div[data-testid="stSegmentedControl"] button{border-radius:12px!important}
 @media(max-width:600px){.block-container{padding-top:5rem}.hero-title{font-size:1.72rem}.metrics{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -43,12 +73,18 @@ def direction_css(v):
     return {"positive":"pos","negative":"neg","neutral":"neutral"}.get(v,"neutral")
 
 def fmt_pct(v):
-    if v is None: return "—"
-    return f"{v:+.1f}%"
+    if v is None:
+        return '<span class="price-flat">—</span>'
+    cls = "price-up" if v > 0 else "price-down" if v < 0 else "price-flat"
+    return f'<span class="{cls}">{v:+.1f}%</span>'
 
 def fmt_ratio(v):
-    if v is None: return "—"
-    return f"{v:.1f}배"
+    if v is None:
+        return '<span class="price-flat">—</span>'
+    # Volume ratio is not inherently positive/negative; use red only when above average,
+    # blue when below average, neutral at exactly 1.0x for quick visual scanning.
+    cls = "price-up" if v > 1 else "price-down" if v < 1 else "price-flat"
+    return f'<span class="{cls}">{v:.1f}배</span>'
 
 def final_score(x):
     m = x.get("material_score") or 0
