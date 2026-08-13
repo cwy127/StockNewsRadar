@@ -142,6 +142,17 @@ div[data-testid="stSegmentedControl"] [role="button"]{
   padding-bottom:.36rem!important;
 }
 
+
+.news-box{border-top:1px solid var(--line);margin-top:.7rem;padding-top:.65rem}
+.news-head{display:flex;justify-content:space-between;gap:.5rem;align-items:center;margin-bottom:.35rem}
+.news-title{font-size:.76rem;font-weight:800;color:#d9dee5}
+.news-score{font-size:.72rem;font-weight:850}
+.news-item{display:block;color:#aeb7c4!important;text-decoration:none;font-size:.72rem;line-height:1.35;margin:.28rem 0}
+.news-item:hover{color:#ffffff!important}
+.news-meta{color:#737d89;font-size:.64rem}
+.metrics.us-five{grid-template-columns:repeat(5,1fr)}
+@media(max-width:600px){.metrics.us-five{grid-template-columns:repeat(2,1fr)}}
+
 @media(max-width:600px){.block-container{padding-top:5rem}.hero-title{font-size:1.72rem}.metrics{grid-template-columns:repeat(2,1fr)}}
 </style>
 """, unsafe_allow_html=True)
@@ -150,6 +161,23 @@ KST = ZoneInfo("Asia/Seoul")
 LIVE_FILE = Path("data/live_kr.json")
 VALIDATION_FILE = Path("data/validation/results.json")
 US_LIVE_FILE = Path("data/live_us.json")
+US_NEWS_FILE = Path("data/news_us.json")
+
+
+def load_us_news_map():
+    if not US_NEWS_FILE.exists():
+        return {}
+    try:
+        payload = json.loads(US_NEWS_FILE.read_text(encoding="utf-8"))
+        return {
+            str(item.get("symbol", "")).upper(): item
+            for item in payload.get("items", [])
+            if item.get("symbol")
+        }
+    except Exception:
+        return {}
+
+US_NEWS_BY_SYMBOL = load_us_news_map()
 
 def direction_text(v):
     return {"positive":"▲ 상승 촉매","negative":"▼ 위험·악재","neutral":"• 추가 확인"}.get(v,"• 추가 확인")
@@ -179,13 +207,31 @@ def final_score(x):
 
     c = 40 if c is None else c
     h = 50 if h is None else h
-    score = m * 0.55 + c * 0.35 - h * 0.20
+
+    is_us = x.get("market") == "US"
+    if is_us:
+        news = US_NEWS_BY_SYMBOL.get(str(x.get("symbol", "")).upper(), {})
+        n = news.get("news_score")
+        n = 50 if n is None else n
+
+        # US V2: SEC remains primary; news is a confirmation layer.
+        score = m * 0.45 + c * 0.30 + n * 0.25 - h * 0.15
+
+        sec_dir = x.get("direction")
+        news_dir = news.get("news_sentiment")
+        if sec_dir == "positive" and news_dir == "positive":
+            score += 5
+        elif sec_dir == "negative" and news_dir == "negative":
+            score -= 4
+        elif sec_dir in {"positive", "negative"} and news_dir in {"positive", "negative"} and sec_dir != news_dir:
+            score -= 7
+    else:
+        score = m * 0.55 + c * 0.35 - h * 0.20
 
     day = p.get("day_change_pct")
     five = p.get("five_day_change_pct")
     vr = p.get("volume_ratio_20d")
 
-    # Prefer fresh catalysts over already-extended moves.
     if day is not None and day > 12:
         score -= 8
     if five is not None and five > 20:
@@ -207,6 +253,9 @@ def render_card(x, top_rank=None):
     confirmation = x.get("market_confirmation")
     overheat = x.get("overheat_risk")
     score = final_score(x)
+    news = US_NEWS_BY_SYMBOL.get(str(x.get("symbol", "")).upper(), {}) if is_us else {}
+    news_score = news.get("news_score")
+    news_sentiment = news.get("news_sentiment", "neutral")
 
     price_line = ""
     if p:
@@ -215,6 +264,41 @@ def render_card(x, top_rank=None):
             f'5일 {fmt_pct(p.get("five_day_change_pct"))} · '
             f'거래량 {fmt_ratio(p.get("volume_ratio_20d"))} · '
             f'20일 고점 대비 {fmt_pct(p.get("distance_20d_high_pct"))}</div>'
+        )
+
+    news_html = ""
+    if is_us and news:
+        sentiment_label = {
+            "positive": "긍정",
+            "negative": "부정",
+            "neutral": "중립",
+        }.get(news_sentiment, "중립")
+        sentiment_class = {
+            "positive": "pos",
+            "negative": "neg",
+            "neutral": "neutral",
+        }.get(news_sentiment, "neutral")
+
+        links = []
+        for article in (news.get("articles") or [])[:3]:
+            title = html.escape(str(article.get("title", "")), quote=True)
+            url = html.escape(str(article.get("url", "")), quote=True)
+            source = html.escape(str(article.get("source", "")), quote=True)
+            if not title:
+                continue
+            source_html = f' <span class="news-meta">· {source}</span>' if source else ""
+            if url:
+                links.append(f'<a class="news-item" href="{url}" target="_blank">• {title}{source_html}</a>')
+            else:
+                links.append(f'<div class="news-item">• {title}{source_html}</div>')
+
+        articles_html = "".join(links) if links else '<div class="news-meta">최근 연결된 뉴스 제목이 없습니다.</div>'
+        score_text = news_score if news_score is not None else "—"
+        news_html = (
+            f'<div class="news-box">'
+            f'<div class="news-head"><div class="news-title">관련 뉴스</div>'
+            f'<div class="news-score {sentiment_class}">뉴스확인 {score_text} · {sentiment_label}</div></div>'
+            f'{articles_html}</div>'
         )
 
     rank_html = f'<span class="top-rank">#{top_rank}</span>' if top_rank else ""
@@ -227,13 +311,15 @@ def render_card(x, top_rank=None):
         <div class="symbol">{values["symbol"]} · {values["market"]} · <span class="{dc}">{direction_text(x.get("direction"))}</span></div>
       </div><div class="grade {gc}">{grade}급</div></div>
       <div class="event">{values["event"]}</div><div class="summary">{values["report_name"]}</div>
-      <div class="metrics">
+      <div class="metrics{" us-five" if is_us else ""}">
         <div class="metric"><div class="n">{score}</div><div class="l">최종점수</div></div>
-        <div class="metric"><div class="n">{x.get("material_score","—")}</div><div class="l">공시 중요도</div></div>
+        <div class="metric"><div class="n">{x.get("material_score","—")}</div><div class="l">{"SEC 중요도" if is_us else "공시 중요도"}</div></div>
         <div class="metric"><div class="n">{confirmation if confirmation is not None else "—"}</div><div class="l">시장확인</div></div>
+        {f'<div class="metric"><div class="n">{news_score if news_score is not None else "—"}</div><div class="l">뉴스확인</div></div>' if is_us else ""}
         <div class="metric"><div class="n">{overheat if overheat is not None else "—"}</div><div class="l">과열위험</div></div>
       </div>
       {price_line}
+      {news_html}
       <div class="reason">왜 보는가 · {values["reason"]}</div>
       <div class="meta">{source_name} · {values["published_at"]}</div>
       <a class="source-link" href="{values["url"]}" target="_blank">{source_link_text}</a>
@@ -348,7 +434,7 @@ elif view == "레이더" and market == "미국":
         """, unsafe_allow_html=True)
 
         st.markdown('<div class="section-title bucket-positive">미국 우선 관찰 TOP</div>', unsafe_allow_html=True)
-        st.caption("SEC 공시 중요도 + 미국 가격·거래량 + 과열위험을 합친 V1 우선순위입니다.")
+        st.caption("SEC 공시 + 가격·거래량 + 뉴스확인 + 과열위험을 합친 미국 V2 우선순위입니다.")
         if us_top:
             for i, item in enumerate(us_top, 1):
                 render_card(item, top_rank=i)
@@ -382,7 +468,7 @@ elif view == "레이더" and market == "미국":
 - **8-K / 6-K**: 실적·계약·자사주·배당·승인 등 키워드가 확인되면 상승 촉매 후보로 분류합니다.
 - **S-3 / S-3ASR / 424B5**: 증권 발행 및 희석 가능성 때문에 위험 후보로 우선 분류합니다.
 - **10-Q / 10-K / 13D / 13G**: 세부 내용에 따라 방향이 달라질 수 있어 추가 확인 후보입니다.
-- `시장확인`과 `과열위험`은 한국 레이더와 같은 V1 가격·거래량 휴리스틱을 사용합니다.
+- **미국 V2 최종점수**는 SEC 중요도 45% + 시장확인 30% + 뉴스확인 25% - 과열위험 15%를 기본으로 사용합니다.\n- SEC 방향과 뉴스 방향이 모두 긍정이면 추가 가점, 서로 충돌하면 감점합니다.\n- `시장확인`과 `과열위험`은 한국 레이더와 같은 가격·거래량 휴리스틱을 사용합니다.
 - SEC 키워드 분류는 아직 문서 의미를 완전히 이해하는 AI 분석이 아니므로 **원문 확인이 필요합니다.**
             """)
 
