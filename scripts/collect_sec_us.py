@@ -6,10 +6,9 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
-import pandas as pd
 import yfinance as yf
 
 OUT = Path("data/live_us.json")
@@ -59,8 +58,6 @@ def sec_get(url, timeout=20, retries=3):
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 data = r.read()
                 content_encoding = (r.headers.get("Content-Encoding") or "").lower()
-                # urllib does not automatically decompress gzip responses.
-                # SEC commonly returns gzip when Accept-Encoding requests it.
                 if content_encoding == "gzip" or data[:2] == b"\x1f\x8b":
                     data = gzip.decompress(data)
                 return data, r.headers.get("Content-Type", "")
@@ -154,7 +151,6 @@ def classify(row, filing_text):
     )
 
     hay = f'{row.get("summary","")} {filing_text}'.lower()
-
     if form in {"8-K", "6-K"}:
         pos_hits = sum(1 for k in POSITIVE_KEYWORDS if k in hay)
         neg_hits = sum(1 for k in NEGATIVE_KEYWORDS if k in hay)
@@ -172,20 +168,21 @@ def classify(row, filing_text):
 
     return score, direction, event, reason
 
-def price_metrics(ticker):
-    try:
-        df = yf.download(
-            ticker,
-            period="3mo",
-            interval="1d",
-            auto_adjust=False,
-            progress=False,
-            threads=False,
-            timeout=15,
-        )
-    except Exception:
-        return None
+def likely_warrant_or_unit(ticker):
+    # Recent SEC ticker map frequently includes warrants such as BFRIW/CINGW/BNZIW.
+    # For this stock radar, omit obvious warrant/unit tickers rather than treating
+    # them as common-stock candidates.
+    t = (ticker or "").upper().strip()
+    if len(t) >= 4 and t.endswith("W"):
+        return True
+    if len(t) >= 5 and t.endswith("U"):
+        return True
+    return False
 
+def yahoo_symbol(ticker):
+    return ticker.replace(".", "-")
+
+def parse_price_frame(df):
     if df is None or df.empty:
         return None
 
@@ -214,30 +211,48 @@ def price_metrics(ticker):
 
     confirmation = 40
     if day is not None:
-        if 0 < day <= 5: confirmation += 15
-        elif 5 < day <= 10: confirmation += 10
-        elif day > 10: confirmation += 2
-        elif day < -3: confirmation -= 8
+        if 0 < day <= 5:
+            confirmation += 15
+        elif 5 < day <= 10:
+            confirmation += 10
+        elif day > 10:
+            confirmation += 2
+        elif day < -3:
+            confirmation -= 8
     if vr is not None:
-        if 1.2 <= vr < 2.5: confirmation += 20
-        elif 2.5 <= vr < 5: confirmation += 15
-        elif vr >= 5: confirmation += 7
-        elif vr < .8: confirmation -= 7
+        if 1.2 <= vr < 2.5:
+            confirmation += 20
+        elif 2.5 <= vr < 5:
+            confirmation += 15
+        elif vr >= 5:
+            confirmation += 7
+        elif vr < .8:
+            confirmation -= 7
     if five is not None:
-        if -2 <= five <= 8: confirmation += 10
-        elif five > 15: confirmation -= 6
+        if -2 <= five <= 8:
+            confirmation += 10
+        elif five > 15:
+            confirmation -= 6
 
     heat = 10
     if day is not None:
-        if day >= 20: heat += 40
-        elif day >= 12: heat += 30
-        elif day >= 7: heat += 18
+        if day >= 20:
+            heat += 40
+        elif day >= 12:
+            heat += 30
+        elif day >= 7:
+            heat += 18
     if five is not None:
-        if five >= 30: heat += 35
-        elif five >= 20: heat += 25
-        elif five >= 12: heat += 12
-    if vr is not None and vr >= 5: heat += 10
-    if dist_high is not None and dist_high >= -1.5: heat += 8
+        if five >= 30:
+            heat += 35
+        elif five >= 20:
+            heat += 25
+        elif five >= 12:
+            heat += 12
+    if vr is not None and vr >= 5:
+        heat += 10
+    if dist_high is not None and dist_high >= -1.5:
+        heat += 8
 
     return {
         "latest_close": round(latest, 2),
@@ -248,6 +263,68 @@ def price_metrics(ticker):
         "market_confirmation": int(max(0, min(100, confirmation))),
         "overheat_risk": int(max(0, min(100, heat))),
     }
+
+def fetch_prices(candidates):
+    symbol_map = {}
+    for item in candidates:
+        ys = yahoo_symbol(item["symbol"])
+        symbol_map[ys] = item["symbol"]
+
+    y_symbols = list(symbol_map)
+    results = {}
+
+    for i in range(0, len(y_symbols), 25):
+        chunk = y_symbols[i:i + 25]
+        try:
+            data = yf.download(
+                tickers=chunk,
+                period="3mo",
+                interval="1d",
+                auto_adjust=False,
+                progress=False,
+                threads=True,
+                timeout=20,
+                group_by="ticker",
+            )
+        except Exception as exc:
+            print(f"US price batch failed: {exc}")
+            continue
+
+        if data is None or data.empty:
+            continue
+
+        for ys in chunk:
+            try:
+                frame = data.copy() if len(chunk) == 1 else data[ys].copy()
+                parsed = parse_price_frame(frame)
+                if parsed:
+                    results[symbol_map[ys]] = parsed
+            except Exception as exc:
+                print(f"US price parse failed {ys}: {exc}")
+
+    # Targeted retry for positive candidates that a batch request missed.
+    for item in candidates:
+        ticker = item["symbol"]
+        if ticker in results or item.get("direction") != "positive":
+            continue
+        ys = yahoo_symbol(ticker)
+        try:
+            df = yf.download(
+                ys,
+                period="3mo",
+                interval="1d",
+                auto_adjust=False,
+                progress=False,
+                threads=False,
+                timeout=15,
+            )
+            parsed = parse_price_frame(df)
+            if parsed:
+                results[ticker] = parsed
+        except Exception as exc:
+            print(f"US price retry failed {ys}: {exc}")
+
+    return results
 
 def main():
     cik_map = load_cik_ticker_map()
@@ -264,15 +341,21 @@ def main():
 
     seen = set()
     candidates = []
+    excluded_special = 0
 
-    # Recent feed order is already newest-first within each form.
     for row in filings:
         cik = row["cik"]
         ticker_info = cik_map.get(cik)
         if not ticker_info:
             continue
+
         ticker = (ticker_info.get("ticker") or "").strip().upper()
         if not ticker or ticker in seen:
+            continue
+
+        if likely_warrant_or_unit(ticker):
+            excluded_special += 1
+            seen.add(ticker)
             continue
 
         seen.add(ticker)
@@ -304,24 +387,23 @@ def main():
         if len(candidates) >= 80:
             break
 
-    # Price-enrich first 60 listed tickers to keep runtime reasonable.
+    # Price-enrich ALL candidates in batches, instead of only the first 60.
+    prices = fetch_prices(candidates)
     enriched = 0
-    for item in candidates[:60]:
-        px = price_metrics(item["symbol"])
+
+    for item in candidates:
+        px = prices.get(item["symbol"])
         if px:
             item["price"] = px
             item["market_confirmation"] = px["market_confirmation"]
             item["overheat_risk"] = px["overheat_risk"]
+            item["price_status"] = "ok"
             enriched += 1
         else:
             item["price"] = None
             item["market_confirmation"] = None
             item["overheat_risk"] = None
-
-    for item in candidates[60:]:
-        item["price"] = None
-        item["market_confirmation"] = None
-        item["overheat_risk"] = None
+            item["price_status"] = "unavailable"
 
     candidates.sort(
         key=lambda x: (
@@ -333,17 +415,24 @@ def main():
 
     now = datetime.now(timezone.utc)
     payload = {
-        "version": "us-sec-live-v1",
+        "version": "us-sec-live-v2-price-cleanup",
         "generated_at": now.isoformat(timespec="seconds"),
         "candidate_count": len(candidates),
         "price_enriched_count": enriched,
+        "excluded_special_ticker_count": excluded_special,
         "forms": FORMS,
         "candidates": candidates,
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Wrote {OUT}: candidates={len(candidates)}, price_enriched={enriched}")
+    OUT.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(
+        f"Wrote {OUT}: candidates={len(candidates)}, "
+        f"price_enriched={enriched}, excluded_special={excluded_special}"
+    )
 
 if __name__ == "__main__":
     main()
