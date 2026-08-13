@@ -3,10 +3,8 @@ name: Collect Korean stock disclosures
 on:
   workflow_dispatch:
   schedule:
-    # Korea morning: every 15 min, 06:00-08:59 KST on weekdays
     - cron: "*/15 6-8 * * 1-5"
       timezone: "Asia/Seoul"
-    # Korea post-close/evening: every 30 min, 15:00-23:59 KST on weekdays
     - cron: "0,30 15-23 * * 1-5"
       timezone: "Asia/Seoul"
 
@@ -29,7 +27,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Collect OpenDART disclosures
+      - name: Install collector dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance pandas
+
+      - name: Collect OpenDART disclosures and market data
         env:
           OPENDART_API_KEY: ${{ secrets.OPENDART_API_KEY }}
         run: python scripts/collect_opendart.py
