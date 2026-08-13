@@ -144,6 +144,20 @@ div[data-testid="stSegmentedControl"] [role="button"]{
 
 
 
+
+.analysis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.7rem 0}
+.analysis-card{background:#14181d;border:1px solid var(--line);border-radius:14px;padding:.75rem}
+.analysis-card .k{font-size:.67rem;color:var(--muted)}
+.analysis-card .v{font-size:.95rem;font-weight:850;margin-top:.12rem}
+.analysis-row{background:#11151a;border:1px solid var(--line);border-radius:12px;padding:.65rem .7rem;margin:.42rem 0}
+.analysis-row-top{display:flex;justify-content:space-between;gap:.5rem}
+.analysis-label{font-size:.78rem;font-weight:800}
+.analysis-sample{font-size:.65rem;color:var(--muted)}
+.analysis-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;margin-top:.42rem}
+.analysis-metric{background:#0d1115;border-radius:9px;padding:.4rem;text-align:center}
+.analysis-metric .k{font-size:.58rem;color:var(--muted)}
+.analysis-metric .v{font-size:.76rem;font-weight:800;margin-top:.05rem}
+
 .health-wrap{margin:.7rem 0 .9rem}
 .health-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.42rem}
 .health-item{background:#11151a;border:1px solid var(--line);border-radius:12px;padding:.62rem .7rem}
@@ -174,6 +188,7 @@ VALIDATION_FILE = Path("data/validation/results.json")
 US_VALIDATION_FILE = Path("data/validation/results_us.json")
 US_LIVE_FILE = Path("data/live_us.json")
 US_NEWS_FILE = Path("data/news_us.json")
+ANALYSIS_FILE = Path("data/analysis/performance_report.json")
 
 
 def load_us_news_map():
@@ -454,6 +469,105 @@ def render_health_monitor():
         unsafe_allow_html=True,
     )
 
+
+def render_analysis_group(title, groups):
+    st.markdown(f'<div class="section-title">{html.escape(title)}</div>', unsafe_allow_html=True)
+
+    if not groups:
+        st.markdown('<div class="empty">아직 이 구간을 분석할 평가 데이터가 없습니다.</div>', unsafe_allow_html=True)
+        return
+
+    for g in groups:
+        label = html.escape(str(g.get("label", "—")))
+        count = g.get("count", 0)
+        sample = html.escape(str(g.get("sample_status", "표본 부족")))
+        win = g.get("close_win_rate_pct")
+        avg_close = g.get("avg_close_return_pct")
+        hit3 = g.get("high_hit_3pct_rate_pct")
+
+        def pct_text(v, signed=False):
+            if v is None:
+                return "—"
+            return f"{v:+.2f}%" if signed else f"{v:.1f}%"
+
+        avg_class = "price-flat"
+        if avg_close is not None:
+            avg_class = "price-up" if avg_close > 0 else "price-down" if avg_close < 0 else "price-flat"
+
+        st.markdown(f"""
+        <div class="analysis-row">
+          <div class="analysis-row-top">
+            <div class="analysis-label">{label}</div>
+            <div class="analysis-sample">{sample} · {count}건</div>
+          </div>
+          <div class="analysis-metrics">
+            <div class="analysis-metric"><div class="k">종가 승률</div><div class="v">{pct_text(win)}</div></div>
+            <div class="analysis-metric"><div class="k">평균 종가</div><div class="v {avg_class}">{pct_text(avg_close, True)}</div></div>
+            <div class="analysis-metric"><div class="k">장중 +3%</div><div class="v">{pct_text(hit3)}</div></div>
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+def render_analysis_market(market_key):
+    report = file_json(ANALYSIS_FILE)
+    market_data = report.get(market_key, {})
+    overall = market_data.get("overall", {})
+
+    if not report or not market_data:
+        st.markdown('<div class="empty">아직 성과 분석 리포트가 없습니다. Build performance analysis를 실행하세요.</div>', unsafe_allow_html=True)
+        return
+
+    count = overall.get("count", 0)
+    sample_status = overall.get("sample_status", "표본 부족")
+    win = overall.get("close_win_rate_pct")
+    avg_close = overall.get("avg_close_return_pct")
+    med_close = overall.get("median_close_return_pct")
+
+    def p(v, signed=False):
+        if v is None:
+            return "—"
+        return f"{v:+.2f}%" if signed else f"{v:.1f}%"
+
+    st.markdown(f"""
+    <div class="analysis-grid">
+      <div class="analysis-card"><div class="k">평가 표본</div><div class="v">{count:,}건</div></div>
+      <div class="analysis-card"><div class="k">분석 상태</div><div class="v">{html.escape(str(sample_status))}</div></div>
+      <div class="analysis-card"><div class="k">전체 종가 승률</div><div class="v">{p(win)}</div></div>
+      <div class="analysis-card"><div class="k">평균 / 중앙값 종가</div><div class="v">{p(avg_close, True)} / {p(med_close, True)}</div></div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    highlights = market_data.get("highlights", {})
+    if highlights:
+        st.markdown('<div class="section-title">현재 우수 구간</div>', unsafe_allow_html=True)
+        rows = []
+        for key, item in highlights.items():
+            name_map = {
+                "by_rank": "TOP 순위",
+                "by_market_confirmation": "시장확인",
+                "by_overheat_risk": "과열위험",
+                "by_final_score": "최종점수",
+                "by_sec_score": "SEC 중요도",
+                "by_news_score": "뉴스확인",
+                "by_news_sentiment": "뉴스 방향",
+            }
+            rows.append(
+                f'<div class="analysis-card"><div class="k">{name_map.get(key,key)}</div>'
+                f'<div class="v">{html.escape(str(item.get("label","—")))} · '
+                f'{item.get("avg_close_return_pct","—")}%</div></div>'
+            )
+        st.markdown(f'<div class="analysis-grid">{"".join(rows)}</div>', unsafe_allow_html=True)
+
+    render_analysis_group("TOP 순위별", market_data.get("by_rank", []))
+    render_analysis_group("시장확인 구간별", market_data.get("by_market_confirmation", []))
+    render_analysis_group("과열위험 구간별", market_data.get("by_overheat_risk", []))
+    render_analysis_group("최종점수 구간별", market_data.get("by_final_score", []))
+
+    if market_key == "us":
+        render_analysis_group("SEC 중요도 구간별", market_data.get("by_sec_score", []))
+        render_analysis_group("뉴스확인 점수별", market_data.get("by_news_score", []))
+        render_analysis_group("뉴스 방향별", market_data.get("by_news_sentiment", []))
+
 now = datetime.now(KST)
 st.markdown(f'<div class="hero"><div class="hero-title">StockNewsRadar <span class="live-badge">KR LIVE</span></div><div class="hero-sub">다음 거래일 관찰 후보 · {now.strftime("%Y-%m-%d %H:%M")} KST</div></div>', unsafe_allow_html=True)
 
@@ -614,7 +728,16 @@ elif view == "성과":
         label_visibility="collapsed",
     )
 
-    if perf_market == "한국":
+    perf_view = st.segmented_control(
+        "성과 보기",
+        ["요약", "분석"],
+        default="요약",
+        label_visibility="collapsed",
+    )
+
+    if perf_view == "분석":
+        render_analysis_market("kr" if perf_market == "한국" else "us")
+    elif perf_market == "한국":
         if not VALIDATION_FILE.exists():
             st.markdown('<div class="empty">아직 한국 검증 결과 파일이 없습니다.</div>', unsafe_allow_html=True)
         else:
