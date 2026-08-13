@@ -1,0 +1,51 @@
+name: Evaluate US TOP candidates
+
+on:
+  workflow_dispatch:
+  schedule:
+    # After the US regular session closes.
+    - cron: "40 16 * * 1-5"
+      timezone: "America/New_York"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: evaluate-us-top
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance pandas
+
+      - name: Evaluate previous US TOP candidates
+        run: python scripts/evaluate_us_top_history.py
+
+      - name: Commit US validation results
+        run: |
+          git add data/validation/results_us.json
+
+          if git diff --cached --quiet; then
+            echo "No US validation changes."
+            exit 0
+          fi
+
+          git config user.name "stock-news-radar-bot"
+          git config user.email "stock-news-radar-bot@users.noreply.github.com"
+          git commit -m "Update US TOP validation results"
+          git pull --rebase origin main
+          git push
