@@ -82,6 +82,7 @@ div[data-testid="stSegmentedControl"] button{border-radius:12px!important}
 KST = ZoneInfo("Asia/Seoul")
 LIVE_FILE = Path("data/live_kr.json")
 VALIDATION_FILE = Path("data/validation/results.json")
+US_LIVE_FILE = Path("data/live_us.json")
 
 def direction_text(v):
     return {"positive":"▲ 상승 촉매","negative":"▼ 위험·악재","neutral":"• 추가 확인"}.get(v,"• 추가 확인")
@@ -132,6 +133,9 @@ def render_card(x, top_rank=None):
     grade = x.get("grade","B")
     gc = "grade-a" if grade == "A" else "grade-b"
     values = {k: html.escape(str(x.get(k,"")), quote=True) for k in ("name","symbol","market","event","report_name","reason","published_at","url")}
+    is_us = x.get("market") == "US"
+    source_name = "SEC EDGAR" if is_us else "OpenDART"
+    source_link_text = "SEC 원문 보기 ↗" if is_us else "DART 원문 보기 ↗"
     p = x.get("price") or {}
     confirmation = x.get("market_confirmation")
     overheat = x.get("overheat_risk")
@@ -164,8 +168,8 @@ def render_card(x, top_rank=None):
       </div>
       {price_line}
       <div class="reason">왜 보는가 · {values["reason"]}</div>
-      <div class="meta">OpenDART · {values["published_at"]}</div>
-      <a class="source-link" href="{values["url"]}" target="_blank">DART 원문 보기 ↗</a>
+      <div class="meta">{source_name} · {values["published_at"]}</div>
+      <a class="source-link" href="{values["url"]}" target="_blank">{source_link_text}</a>
     </div>
     """, unsafe_allow_html=True)
 
@@ -244,8 +248,76 @@ if view == "레이더" and market == "한국":
 - 아직 백테스트 전의 **V1 휴리스틱**이므로 매수 신호가 아니라 조사 우선순위입니다.
         """)
 elif view == "레이더" and market == "미국":
-    st.markdown('<div class="section-title">미국 시장</div>', unsafe_allow_html=True)
-    st.markdown('<div class="notice">미국 자동수집은 다음 단계에서 연결합니다.</div>', unsafe_allow_html=True)
+    if not US_LIVE_FILE.exists():
+        st.markdown('<div class="section-title">미국 시장</div>', unsafe_allow_html=True)
+        st.markdown('<div class="empty">아직 미국 SEC 수집 데이터가 없습니다. GitHub Actions의 Collect US SEC radar를 실행하세요.</div>', unsafe_allow_html=True)
+    else:
+        us_data = json.loads(US_LIVE_FILE.read_text(encoding="utf-8"))
+        us_candidates = us_data.get("candidates", [])
+        us_generated = us_data.get("generated_at", "")
+
+        us_positive = [x for x in us_candidates if x.get("direction") == "positive"]
+        us_neutral = [x for x in us_candidates if x.get("direction") == "neutral"]
+        us_negative = [x for x in us_candidates if x.get("direction") == "negative"]
+
+        us_positive.sort(key=lambda x:(final_score(x), x.get("published_at","")), reverse=True)
+        us_neutral.sort(key=lambda x:(final_score(x), x.get("published_at","")), reverse=True)
+        us_negative.sort(key=lambda x:(x.get("material_score",0), x.get("published_at","")), reverse=True)
+
+        us_top = [
+            x for x in us_positive
+            if x.get("price")
+            and (x.get("overheat_risk") is None or x.get("overheat_risk") <= 65)
+            and (x.get("market_confirmation") is None or x.get("market_confirmation") >= 35)
+        ][:7]
+
+        st.markdown(f"""
+        <div class="market-strip">
+          <div class="market-chip"><div class="k">SEC 후보</div><div class="v">{us_data.get("candidate_count",0):,}건</div></div>
+          <div class="market-chip"><div class="k">가격 확인</div><div class="v">{us_data.get("price_enriched_count",0):,}건</div></div>
+          <div class="market-chip"><div class="k">상승 촉매</div><div class="v pos">{len(us_positive):,}건</div></div>
+          <div class="market-chip"><div class="k">TOP 후보</div><div class="v pos">{len(us_top):,}개</div></div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown('<div class="section-title bucket-positive">미국 우선 관찰 TOP</div>', unsafe_allow_html=True)
+        st.caption("SEC 공시 중요도 + 미국 가격·거래량 + 과열위험을 합친 V1 우선순위입니다.")
+        if us_top:
+            for i, item in enumerate(us_top, 1):
+                render_card(item, top_rank=i)
+        else:
+            st.markdown('<div class="empty">현재 조건을 통과한 미국 상승 촉매 TOP 후보가 없습니다.</div>', unsafe_allow_html=True)
+
+        st.markdown('<div class="section-title bucket-positive">상승 촉매 전체</div>', unsafe_allow_html=True)
+        if us_positive:
+            for item in us_positive[:20]:
+                render_card(item)
+        else:
+            st.markdown('<div class="empty">현재 명확한 미국 상승 촉매 후보가 없습니다.</div>', unsafe_allow_html=True)
+
+        st.markdown('<div class="section-title bucket-neutral">추가 확인 후보</div>', unsafe_allow_html=True)
+        st.caption("10-Q, 10-K, 13D/13G 등은 수치와 세부 내용을 추가 확인해야 방향을 판단할 수 있습니다.")
+        if us_neutral:
+            for item in us_neutral[:20]:
+                render_card(item)
+        else:
+            st.markdown('<div class="empty">추가 확인 후보가 없습니다.</div>', unsafe_allow_html=True)
+
+        with st.expander(f"위험·희석 후보 {len(us_negative)}건 보기"):
+            if us_negative:
+                for item in us_negative[:30]:
+                    render_card(item)
+            else:
+                st.markdown('<div class="empty">현재 위험·희석 후보가 없습니다.</div>', unsafe_allow_html=True)
+
+        with st.expander("미국 레이더 V1 기준"):
+            st.markdown("""
+- **8-K / 6-K**: 실적·계약·자사주·배당·승인 등 키워드가 확인되면 상승 촉매 후보로 분류합니다.
+- **S-3 / S-3ASR / 424B5**: 증권 발행 및 희석 가능성 때문에 위험 후보로 우선 분류합니다.
+- **10-Q / 10-K / 13D / 13G**: 세부 내용에 따라 방향이 달라질 수 있어 추가 확인 후보입니다.
+- `시장확인`과 `과열위험`은 한국 레이더와 같은 V1 가격·거래량 휴리스틱을 사용합니다.
+- SEC 키워드 분류는 아직 문서 의미를 완전히 이해하는 AI 분석이 아니므로 **원문 확인이 필요합니다.**
+            """)
 
 elif view == "성과":
     st.markdown('<div class="section-title">TOP 후보 검증 성과</div>', unsafe_allow_html=True)
