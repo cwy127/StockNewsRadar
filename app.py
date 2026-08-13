@@ -74,62 +74,41 @@ div[data-testid="stExpander"] [data-testid="stExpanderDetails"] *{
 .perf-return .k{font-size:.62rem;color:var(--muted)}
 .perf-return .v{font-weight:850;font-size:.86rem;margin-top:.08rem}
 
-/* Segmented controls: force unselected black/white, selected dark red/red */
-div[data-testid="stSegmentedControl"]{
-  background:transparent!important;
-}
-div[data-testid="stSegmentedControl"] [data-baseweb="button-group"],
-div[data-testid="stSegmentedControl"] > div,
-div[data-testid="stSegmentedControl"] > div > div{
-  background:transparent!important;
-}
 
-div[data-testid="stSegmentedControl"] button,
-div[data-testid="stSegmentedControl"] button[data-testid],
-div[data-testid="stSegmentedControl"] [role="button"]{
-  background:#0b0d10!important;
-  background-color:#0b0d10!important;
-  border:1px solid #f4f6f8!important;
-  color:#f4f6f8!important;
-  -webkit-text-fill-color:#f4f6f8!important;
-  box-shadow:none!important;
-}
-
-div[data-testid="stSegmentedControl"] button *,
-div[data-testid="stSegmentedControl"] [role="button"] *{
-  color:#f4f6f8!important;
-  -webkit-text-fill-color:#f4f6f8!important;
-  background:transparent!important;
-}
-
-div[data-testid="stSegmentedControl"] button:hover,
-div[data-testid="stSegmentedControl"] [role="button"]:hover{
-  background:#15181d!important;
-  background-color:#15181d!important;
-  border-color:#ffffff!important;
-}
-
-/* selected */
-div[data-testid="stSegmentedControl"] button[aria-pressed="true"],
-div[data-testid="stSegmentedControl"] button[aria-checked="true"],
-div[data-testid="stSegmentedControl"] button[data-selected="true"],
-div[data-testid="stSegmentedControl"] [role="button"][aria-pressed="true"],
-div[data-testid="stSegmentedControl"] [role="button"][aria-checked="true"]{
+/* Stable tab buttons: selected=primary, unselected=secondary */
+div.stButton > button[kind="primary"]{
   background:#241012!important;
   background-color:#241012!important;
   border:1px solid var(--red)!important;
   color:var(--red)!important;
   -webkit-text-fill-color:var(--red)!important;
+  border-radius:12px!important;
+  min-height:46px!important;
+  font-weight:700!important;
 }
-
-div[data-testid="stSegmentedControl"] button[aria-pressed="true"] *,
-div[data-testid="stSegmentedControl"] button[aria-checked="true"] *,
-div[data-testid="stSegmentedControl"] button[data-selected="true"] *,
-div[data-testid="stSegmentedControl"] [role="button"][aria-pressed="true"] *,
-div[data-testid="stSegmentedControl"] [role="button"][aria-checked="true"] *{
+div.stButton > button[kind="primary"] *{
   color:var(--red)!important;
   -webkit-text-fill-color:var(--red)!important;
 }
+div.stButton > button[kind="secondary"]{
+  background:#0b0d10!important;
+  background-color:#0b0d10!important;
+  border:1px solid #f4f6f8!important;
+  color:#f4f6f8!important;
+  -webkit-text-fill-color:#f4f6f8!important;
+  border-radius:12px!important;
+  min-height:46px!important;
+  font-weight:700!important;
+}
+div.stButton > button[kind="secondary"] *{
+  color:#f4f6f8!important;
+  -webkit-text-fill-color:#f4f6f8!important;
+}
+div.stButton > button[kind="secondary"]:hover{
+  background:#15181d!important;
+  border-color:#ffffff!important;
+}
+
 @media(max-width:600px){.block-container{padding-top:5rem}.hero-title{font-size:1.72rem}.metrics{grid-template-columns:repeat(2,1fr)}}
 </style>
 """, unsafe_allow_html=True)
@@ -228,13 +207,45 @@ def render_card(x, top_rank=None):
     </div>
     """, unsafe_allow_html=True)
 
+
+def two_button_selector(state_key, left_label, right_label, default=None):
+    if state_key not in st.session_state:
+        st.session_state[state_key] = default or left_label
+
+    current = st.session_state[state_key]
+    c1, c2 = st.columns(2, gap="small")
+
+    with c1:
+        left_clicked = st.button(
+            left_label,
+            key=f"{state_key}_left",
+            use_container_width=True,
+            type="primary" if current == left_label else "secondary",
+        )
+    with c2:
+        right_clicked = st.button(
+            right_label,
+            key=f"{state_key}_right",
+            use_container_width=True,
+            type="primary" if current == right_label else "secondary",
+        )
+
+    if left_clicked and current != left_label:
+        st.session_state[state_key] = left_label
+        st.rerun()
+    if right_clicked and current != right_label:
+        st.session_state[state_key] = right_label
+        st.rerun()
+
+    return st.session_state[state_key]
+
 now = datetime.now(KST)
 st.markdown(f'<div class="hero"><div class="hero-title">StockNewsRadar <span class="live-badge">KR LIVE</span></div><div class="hero-sub">다음 거래일 관찰 후보 · {now.strftime("%Y-%m-%d %H:%M")} KST</div></div>', unsafe_allow_html=True)
 
-view = st.segmented_control("보기", ["레이더", "성과"], default="레이더", label_visibility="collapsed")
+view = two_button_selector("view_selector", "레이더", "성과", "레이더")
 
 if view == "레이더":
-    market = st.segmented_control("시장",["한국","미국"],default="한국",label_visibility="collapsed")
+    market = two_button_selector("market_selector", "한국", "미국", "한국")
 
 if view == "레이더" and market == "한국":
     if not LIVE_FILE.exists():
