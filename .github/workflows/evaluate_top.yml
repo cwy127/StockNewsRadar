@@ -1,0 +1,45 @@
+name: Evaluate TOP candidates
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Evaluate previous snapshots after the Korean market close.
+    - cron: "30 16 * * 1-5"
+      timezone: "Asia/Seoul"
+
+permissions:
+  contents: write
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install evaluation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yfinance pandas
+
+      - name: Evaluate historical TOP candidates
+        run: python scripts/evaluate_top_history.py
+
+      - name: Commit validation results
+        run: |
+          git add data/validation/results.json
+
+          if git diff --cached --quiet; then
+            echo "No validation changes."
+            exit 0
+          fi
+
+          git config user.name "stock-news-radar-bot"
+          git config user.email "stock-news-radar-bot@users.noreply.github.com"
+          git commit -m "Update TOP candidate validation results"
+          git push
