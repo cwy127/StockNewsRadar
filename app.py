@@ -143,6 +143,17 @@ div[data-testid="stSegmentedControl"] [role="button"]{
 }
 
 
+
+.health-wrap{margin:.7rem 0 .9rem}
+.health-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.42rem}
+.health-item{background:#11151a;border:1px solid var(--line);border-radius:12px;padding:.62rem .7rem}
+.health-k{font-size:.66rem;color:var(--muted)}
+.health-v{font-size:.78rem;font-weight:800;margin-top:.12rem}
+.health-ok{color:var(--green)}
+.health-warn{color:var(--yellow)}
+.health-bad{color:var(--red)}
+.health-wait{color:#aeb5bf}
+
 .news-box{border-top:1px solid var(--line);margin-top:.7rem;padding-top:.65rem}
 .news-head{display:flex;justify-content:space-between;gap:.5rem;align-items:center;margin-bottom:.35rem}
 .news-title{font-size:.76rem;font-weight:800;color:#d9dee5}
@@ -325,10 +336,131 @@ def render_card(x, top_rank=None):
     </div>
     """, unsafe_allow_html=True)
 
+
+ET = ZoneInfo("America/New_York")
+
+def parse_iso_dt(value):
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+def file_json(path):
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+def age_hours(dt, now_dt):
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=now_dt.tzinfo)
+    try:
+        return (now_dt.astimezone(dt.tzinfo) - dt).total_seconds() / 3600
+    except Exception:
+        return None
+
+def status_item(label, dt, now_dt, ok_hours, warn_hours, wait_text=None):
+    if dt is None:
+        return label, "데이터 없음", "health-bad"
+
+    age = age_hours(dt, now_dt)
+    if age is None:
+        return label, "시간 확인 불가", "health-warn"
+
+    local = dt.astimezone(KST)
+    shown = local.strftime("%m-%d %H:%M")
+
+    if wait_text:
+        return label, f"{shown} · {wait_text}", "health-wait"
+    if age <= ok_hours:
+        return label, f"{shown} · 정상", "health-ok"
+    if age <= warn_hours:
+        return label, f"{shown} · 지연", "health-warn"
+    return label, f"{shown} · 오래됨", "health-bad"
+
+def render_health_monitor():
+    now_kst = datetime.now(KST)
+    now_et = datetime.now(ET)
+
+    kr = file_json(LIVE_FILE)
+    us = file_json(US_LIVE_FILE)
+    news = file_json(US_NEWS_FILE)
+    kr_val = file_json(VALIDATION_FILE)
+    us_val = file_json(US_VALIDATION_FILE)
+
+    kr_dt = parse_iso_dt(kr.get("generated_at"))
+    us_dt = parse_iso_dt(us.get("generated_at"))
+    news_dt = parse_iso_dt(news.get("generated_at"))
+    kr_eval_dt = parse_iso_dt(kr_val.get("updated_at"))
+    us_eval_dt = parse_iso_dt(us_val.get("updated_at"))
+
+    weekday_et = now_et.weekday() < 5
+    us_session_openish = weekday_et and 7 <= now_et.hour <= 18
+
+    items = [
+        status_item("한국 공시·가격", kr_dt, now_kst, 8, 20),
+        status_item(
+            "미국 SEC",
+            us_dt,
+            now_kst,
+            8 if us_session_openish else 24,
+            18 if us_session_openish else 48,
+        ),
+        status_item(
+            "미국 뉴스",
+            news_dt,
+            now_kst,
+            8 if us_session_openish else 24,
+            18 if us_session_openish else 48,
+        ),
+    ]
+
+    kr_eval_count = (kr_val.get("summary") or {}).get("evaluated_count", 0)
+    us_eval_count = (us_val.get("summary") or {}).get("evaluated_count", 0)
+
+    if kr_eval_dt:
+        label, value, cls = status_item("한국 성과", kr_eval_dt, now_kst, 36, 72)
+        value += f" · {kr_eval_count}건"
+    else:
+        label, value, cls = "한국 성과", f"평가 대기 · {kr_eval_count}건", "health-wait"
+    items.append((label, value, cls))
+
+    if us_eval_dt:
+        # 0 evaluated on the first snapshot is normal.
+        label, value, cls = status_item("미국 성과", us_eval_dt, now_kst, 36, 72)
+        if us_eval_count == 0:
+            value += " · 다음 거래일 대기"
+            cls = "health-wait"
+        else:
+            value += f" · {us_eval_count}건"
+    else:
+        label, value, cls = "미국 성과", "평가 대기", "health-wait"
+    items.append((label, value, cls))
+
+    cards = "".join(
+        f'<div class="health-item"><div class="health-k">{html.escape(label)}</div>'
+        f'<div class="health-v {cls}">{html.escape(value)}</div></div>'
+        for label, value, cls in items
+    )
+
+    st.markdown(
+        f'<div class="health-wrap"><div class="health-grid">{cards}</div></div>',
+        unsafe_allow_html=True,
+    )
+
 now = datetime.now(KST)
 st.markdown(f'<div class="hero"><div class="hero-title">StockNewsRadar <span class="live-badge">KR LIVE</span></div><div class="hero-sub">다음 거래일 관찰 후보 · {now.strftime("%Y-%m-%d %H:%M")} KST</div></div>', unsafe_allow_html=True)
 
 view = st.segmented_control("보기", ["레이더", "성과"], default="레이더", label_visibility="collapsed", width="content")
+
+with st.expander("수집 상태"):
+    render_health_monitor()
 
 if view == "레이더":
     market = st.segmented_control("시장",["한국","미국"],default="한국",label_visibility="collapsed", width="content")
