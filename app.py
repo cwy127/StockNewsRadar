@@ -4,6 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="StockNewsRadar", page_icon="📡", layout="centered", initial_sidebar_state="collapsed")
 
@@ -903,16 +904,96 @@ def render_daily_brief():
     render_daily_brief_market("kr" if brief_market == "한국" else "us", f"{brief_market} 오늘 변화")
 
 
-def render_refresh_button():
-    c1, c2 = st.columns([4, 1], gap="small")
-    with c2:
-        if st.button("↻ 새로고침", use_container_width=True, type="secondary"):
-            st.rerun()
+
+def install_pull_to_refresh():
+    components.html(
+        """
+        <script>
+        (() => {
+          const p = window.parent;
+          if (!p || !p.document) return;
+
+          // Avoid duplicate listeners on Streamlit reruns.
+          if (p.__stockNewsRadarPullRefreshInstalled) return;
+          p.__stockNewsRadarPullRefreshInstalled = true;
+
+          let startY = null;
+          let maxPull = 0;
+          let tracking = false;
+          let reloading = false;
+          const threshold = 85;
+
+          const scrollTop = () => {
+            return Math.max(
+              p.scrollY || 0,
+              p.document.documentElement ? p.document.documentElement.scrollTop : 0,
+              p.document.body ? p.document.body.scrollTop : 0
+            );
+          };
+
+          p.document.addEventListener("touchstart", (ev) => {
+            if (reloading || !ev.touches || ev.touches.length !== 1) return;
+
+            // Only start a pull gesture when the app is already at the very top.
+            if (scrollTop() <= 2) {
+              startY = ev.touches[0].clientY;
+              maxPull = 0;
+              tracking = true;
+            } else {
+              startY = null;
+              tracking = false;
+            }
+          }, { passive: true });
+
+          p.document.addEventListener("touchmove", (ev) => {
+            if (!tracking || startY === null || !ev.touches || ev.touches.length !== 1) return;
+
+            const delta = ev.touches[0].clientY - startY;
+
+            if (delta > maxPull) maxPull = delta;
+
+            // If the gesture changes into an upward swipe, cancel it.
+            if (delta < -10) {
+              tracking = false;
+              startY = null;
+              maxPull = 0;
+            }
+          }, { passive: true });
+
+          const finish = () => {
+            if (!tracking || reloading) {
+              tracking = false;
+              startY = null;
+              maxPull = 0;
+              return;
+            }
+
+            const shouldReload = maxPull >= threshold && scrollTop() <= 2;
+
+            tracking = false;
+            startY = null;
+            maxPull = 0;
+
+            if (shouldReload) {
+              reloading = true;
+              p.location.reload();
+            }
+          };
+
+          p.document.addEventListener("touchend", finish, { passive: true });
+          p.document.addEventListener("touchcancel", finish, { passive: true });
+        })();
+        </script>
+        """,
+        height=0,
+        scrolling=False,
+    )
 
 now = datetime.now(KST)
 st.markdown(f'<div class="hero"><div class="hero-title">StockNewsRadar <span class="live-badge">KR LIVE</span></div><div class="hero-sub">다음 거래일 관찰 후보 · {now.strftime("%Y-%m-%d %H:%M")} KST</div></div>', unsafe_allow_html=True)
 
-render_refresh_button()
+install_pull_to_refresh()
+
 
 view = st.segmented_control("보기", ["레이더", "성과"], default="레이더", label_visibility="collapsed", width="content")
 
