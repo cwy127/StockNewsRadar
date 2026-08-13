@@ -1,0 +1,42 @@
+name: Check data integrity
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 19 * * 1-5"
+      timezone: "America/New_York"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: check-data-integrity
+  cancel-in-progress: false
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Check data integrity
+        run: python scripts/check_data_integrity.py
+
+      - name: Commit integrity report
+        run: |
+          git add data/health/integrity_report.json
+          if git diff --cached --quiet; then
+            echo "No integrity report changes."
+            exit 0
+          fi
+          git config user.name "stock-news-radar-bot"
+          git config user.email "stock-news-radar-bot@users.noreply.github.com"
+          git commit -m "Update data integrity report"
+          git pull --rebase origin main
+          git push
