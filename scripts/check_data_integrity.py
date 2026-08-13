@@ -134,11 +134,34 @@ def main():
         candidates = payload.get("candidates", [])
         check_duplicates(candidates, issues, label)
         positive = [x for x in candidates if x.get("direction") == "positive"]
-        missing_price = [x.get("symbol") for x in positive if not x.get("price")]
+
+        # Newly listed stocks can have valid market data but fewer than the
+        # 21 daily bars required by our 20-day metrics. That is not a collector
+        # failure and should not trigger an integrity warning.
+        missing_price = [
+            x.get("symbol")
+            for x in positive
+            if not x.get("price")
+            and x.get("price_status") not in {"insufficient_history"}
+        ]
+        insufficient_history = [
+            x.get("symbol")
+            for x in positive
+            if not x.get("price")
+            and x.get("price_status") == "insufficient_history"
+        ]
+
         if missing_price:
             add_issue(issues, "warning", "positive_candidates_without_price",
                       f"{label}: positive candidates without price",
                       symbols=missing_price[:20], count=len(missing_price))
+
+        # Keep this as diagnostic metadata, not an issue.
+        if insufficient_history:
+            print(
+                f"{label}: {len(insufficient_history)} positive candidate(s) "
+                f"have insufficient trading history: {insufficient_history[:20]}"
+            )
 
     # Cross-check latest snapshot against candidate history current list.
     hist = loaded.get("candidate_history") or {}
@@ -174,7 +197,7 @@ def main():
     status = "error" if errors else "warning" if warnings else "ok"
 
     payload = {
-        "version": "data-integrity-v1",
+        "version": "data-integrity-v1.1-new-listing-aware",
         "generated_at": now.isoformat(timespec="seconds"),
         "status": status,
         "summary": {
