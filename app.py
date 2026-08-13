@@ -33,7 +33,7 @@ html, body, [class*="css"] {
 }
 .block-container {
     max-width: 760px;
-    padding-top: 1.0rem;
+    padding-top: 5.0rem;
     padding-left: 0.85rem;
     padding-right: 0.85rem;
     padding-bottom: 5rem;
