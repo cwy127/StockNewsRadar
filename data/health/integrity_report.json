@@ -1,24 +1,33 @@
 {
   "version": "data-integrity-v1.1-new-listing-aware",
-  "generated_at": "2026-08-19T08:15:14+09:00",
-  "status": "ok",
+  "generated_at": "2026-08-20T08:16:43+09:00",
+  "status": "error",
   "summary": {
-    "errors": 0,
+    "errors": 1,
     "warnings": 0,
-    "issues": 0,
-    "kr_latest_snapshot": "2026-08-19",
-    "us_latest_snapshot": "2026-08-18"
+    "issues": 1,
+    "kr_latest_snapshot": "2026-08-20",
+    "us_latest_snapshot": "2026-08-19"
   },
   "freshness_hours": {
-    "kr_live": 0.38,
-    "us_live": 3.1,
-    "us_news": 2.63,
-    "kr_validation": 15.18,
-    "us_validation": 2.31,
-    "candidate_history": 0.59,
-    "performance_analysis": 0.37,
-    "persistence_analysis": 0.21,
-    "daily_brief": 0.83
+    "kr_live": 0.39,
+    "us_live": 3.07,
+    "us_news": 2.57,
+    "kr_validation": 15.21,
+    "us_validation": 2.3,
+    "candidate_history": 0.63,
+    "performance_analysis": 0.4,
+    "persistence_analysis": 0.24,
+    "daily_brief": 0.84
   },
-  "issues": []
+  "issues": [
+    {
+      "severity": "error",
+      "code": "invalid_ohlc",
+      "message": "US validation: impossible OHLC ('2026-08-18', 'REXR-PC', 7)",
+      "details": {
+        "key": "('2026-08-18', 'REXR-PC', 7)"
+      }
+    }
+  ]
 }
