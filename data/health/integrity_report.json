@@ -1,24 +1,24 @@
 {
   "version": "data-integrity-v1.1-new-listing-aware",
-  "generated_at": "2026-09-05T09:31:42+09:00",
+  "generated_at": "2026-09-08T09:51:15+09:00",
   "status": "error",
   "summary": {
-    "errors": 16,
-    "warnings": 0,
-    "issues": 16,
-    "kr_latest_snapshot": "2026-09-05",
-    "us_latest_snapshot": "2026-09-04"
+    "errors": 18,
+    "warnings": 1,
+    "issues": 19,
+    "kr_latest_snapshot": "2026-09-08",
+    "us_latest_snapshot": "2026-09-07"
   },
   "freshness_hours": {
-    "kr_live": 9.76,
-    "us_live": 2.63,
-    "us_news": 2.19,
-    "kr_validation": 12.3,
-    "us_validation": 2.01,
-    "candidate_history": 0.49,
+    "kr_live": 1.52,
+    "us_live": 4.64,
+    "us_news": 4.3,
+    "kr_validation": 11.22,
+    "us_validation": 1.87,
+    "candidate_history": 0.46,
     "performance_analysis": 0.23,
-    "persistence_analysis": 0.12,
-    "daily_brief": 0.73
+    "persistence_analysis": 0.16,
+    "daily_brief": 0.82
   },
   "issues": [
     {
@@ -136,6 +136,22 @@
     {
       "severity": "error",
       "code": "invalid_ohlc",
+      "message": "US validation: impossible OHLC ('2026-09-04', 'ARW', 3)",
+      "details": {
+        "key": "('2026-09-04', 'ARW', 3)"
+      }
+    },
+    {
+      "severity": "error",
+      "code": "invalid_ohlc",
+      "message": "US validation: impossible OHLC ('2026-09-04', 'SWRD', 6)",
+      "details": {
+        "key": "('2026-09-04', 'SWRD', 6)"
+      }
+    },
+    {
+      "severity": "error",
+      "code": "invalid_ohlc",
       "message": "US validation: impossible OHLC ('2026-09-02', 'REA', 4)",
       "details": {
         "key": "('2026-09-02', 'REA', 4)"
@@ -147,6 +163,17 @@
       "message": "US validation: impossible OHLC ('2026-08-18', 'REXR-PC', 7)",
       "details": {
         "key": "('2026-08-18', 'REXR-PC', 7)"
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "positive_candidates_without_price",
+      "message": "KR live: positive candidates without price",
+      "details": {
+        "symbols": [
+          "046940"
+        ],
+        "count": 1
       }
     }
   ]
