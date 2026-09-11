@@ -1,24 +1,24 @@
 {
   "version": "data-integrity-v1.1-new-listing-aware",
-  "generated_at": "2026-09-10T09:44:43+09:00",
+  "generated_at": "2026-09-11T09:44:52+09:00",
   "status": "error",
   "summary": {
     "errors": 18,
-    "warnings": 0,
-    "issues": 18,
-    "kr_latest_snapshot": "2026-09-10",
-    "us_latest_snapshot": "2026-09-09"
+    "warnings": 1,
+    "issues": 19,
+    "kr_latest_snapshot": "2026-09-11",
+    "us_latest_snapshot": "2026-09-10"
   },
   "freshness_hours": {
-    "kr_live": 1.72,
-    "us_live": 2.71,
-    "us_news": 2.22,
-    "kr_validation": 12.3,
-    "us_validation": 2.01,
-    "candidate_history": 0.53,
-    "performance_analysis": 0.28,
-    "persistence_analysis": 0.11,
-    "daily_brief": 0.87
+    "kr_live": 1.77,
+    "us_live": 2.74,
+    "us_news": 2.2,
+    "kr_validation": 12.41,
+    "us_validation": 1.99,
+    "candidate_history": 0.61,
+    "performance_analysis": 0.33,
+    "persistence_analysis": 0.17,
+    "daily_brief": 0.93
   },
   "issues": [
     {
@@ -163,6 +163,17 @@
       "message": "US validation: impossible OHLC ('2026-08-18', 'REXR-PC', 7)",
       "details": {
         "key": "('2026-08-18', 'REXR-PC', 7)"
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "positive_candidates_without_price",
+      "message": "KR live: positive candidates without price",
+      "details": {
+        "symbols": [
+          "068940"
+        ],
+        "count": 1
       }
     }
   ]
