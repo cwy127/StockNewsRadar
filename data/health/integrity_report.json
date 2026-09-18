@@ -1,24 +1,24 @@
 {
   "version": "data-integrity-v1.1-new-listing-aware",
-  "generated_at": "2026-09-17T10:00:03+09:00",
+  "generated_at": "2026-09-18T09:56:22+09:00",
   "status": "error",
   "summary": {
-    "errors": 19,
+    "errors": 21,
     "warnings": 0,
-    "issues": 19,
-    "kr_latest_snapshot": "2026-09-17",
-    "us_latest_snapshot": "2026-09-16"
+    "issues": 21,
+    "kr_latest_snapshot": "2026-09-18",
+    "us_latest_snapshot": "2026-09-17"
   },
   "freshness_hours": {
-    "kr_live": 1.42,
-    "us_live": 2.55,
-    "us_news": 2.02,
-    "kr_validation": 12.24,
-    "us_validation": 1.77,
-    "candidate_history": 0.51,
-    "performance_analysis": 0.19,
-    "persistence_analysis": 0.1,
-    "daily_brief": 0.82
+    "kr_live": 1.5,
+    "us_live": 2.45,
+    "us_news": 4.64,
+    "kr_validation": 12.21,
+    "us_validation": 1.87,
+    "candidate_history": 0.69,
+    "performance_analysis": 0.24,
+    "persistence_analysis": 0.14,
+    "daily_brief": 0.97
   },
   "issues": [
     {
@@ -131,6 +131,22 @@
       "message": "KR validation: impossible OHLC ('2026-08-26', '014790', 7)",
       "details": {
         "key": "('2026-08-26', '014790', 7)"
+      }
+    },
+    {
+      "severity": "error",
+      "code": "invalid_ohlc",
+      "message": "US validation: impossible OHLC ('2026-09-16', 'PSA-PS', 3)",
+      "details": {
+        "key": "('2026-09-16', 'PSA-PS', 3)"
+      }
+    },
+    {
+      "severity": "error",
+      "code": "invalid_ohlc",
+      "message": "US validation: impossible OHLC ('2026-09-16', 'LEN-B', 6)",
+      "details": {
+        "key": "('2026-09-16', 'LEN-B', 6)"
       }
     },
     {
