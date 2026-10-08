@@ -17,6 +17,18 @@ def outcome(**extra):
     return dict(o,**extra)
 
 class PredictionTests(unittest.TestCase):
+    def test_archive_git_timestamp_has_second_precision(self):
+        import hashlib
+        import json
+        p=prediction(issued_at='2026-10-01T12:00:00.987654Z',recorded_at='2026-10-01T12:00:00.987654Z')
+        archived={k:v for k,v in p.items() if k!='evidence'}
+        raw=json.dumps({'predictions':[archived]}).encode()
+        p['evidence']={'source':'archive.json','sha256':hashlib.sha256(raw).hexdigest(),'git_commit':'a'*40}
+        with patch.object(pv.subprocess,'check_output',side_effect=[raw,'2026-10-01T12:00:00Z']):
+            self.assertTrue(pv.verified_archive(p))
+        with patch.object(pv.subprocess,'check_output',side_effect=[raw,'2026-10-01T11:59:59Z']):
+            self.assertFalse(pv.verified_archive(p))
+
     def test_unproven_predictions_never_score(self):
         r=pv.evaluate(prediction(),[outcome()],NOW)
         self.assertEqual(r['status'],'unevaluable')

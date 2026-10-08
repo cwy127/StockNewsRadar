@@ -44,7 +44,7 @@ def verified_archive(prediction):
         committed = timestamp(subprocess.check_output(['git','show','-s','--format=%cI',commit],text=True,stderr=subprocess.DEVNULL).strip())
         if hashlib.sha256(raw).hexdigest() != evidence.get('sha256'):
             return False
-        if not committed or not timestamp(prediction['issued_at']) <= committed < timestamp(prediction['evaluation_at']):
+        if not committed or not timestamp(prediction['issued_at']).replace(microsecond=0) <= committed < timestamp(prediction['evaluation_at']):
             return False
         archived = json.loads(raw)
         expected = {k:v for k,v in prediction.items() if k != 'evidence'}
