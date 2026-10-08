@@ -27,12 +27,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install research dependencies
+        run: pip install -r requirements-research.txt
+
       - name: Save US TOP candidates
         run: python scripts/snapshot_us_top_candidates.py
 
+      - name: Record prospective research predictions
+        run: python scripts/research_predictions.py issue --market US
+
       - name: Commit US TOP snapshot
         run: |
-          git add data/history/top_us/
+          git add data/history/top_us/ data/predictions/issued/US/
 
           if git diff --cached --quiet; then
             echo "No US TOP snapshot changes."

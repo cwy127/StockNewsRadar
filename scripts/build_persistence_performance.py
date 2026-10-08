@@ -1,3 +1,8 @@
+if __package__:
+    from .validation_quality import partition_records, quality_summary
+else:
+    from validation_quality import partition_records, quality_summary
+
 import json
 from collections import defaultdict
 from datetime import datetime
@@ -16,12 +21,7 @@ MIN_SAMPLE = 10
 GOOD_SAMPLE = 30
 
 def load_json(path):
-    if not path.exists():
-        return {}
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
 
 def avg(values):
     values = [v for v in values if v is not None]
@@ -178,10 +178,8 @@ def analyze_market(snapshot_dir, results_file, market):
     meta = build_signal_metadata(snapshots)
 
     results = load_json(results_file)
-    evaluated = [
-        r for r in results.get("records", [])
-        if r.get("status") == "evaluated"
-    ]
+    records = results.get("records", [])
+    evaluated, excluded = partition_records(records)
 
     enriched = []
     unmatched = 0
@@ -258,6 +256,9 @@ def analyze_market(snapshot_dir, results_file, market):
 
     return {
         "market": market,
+        "classification": "exploratory_signal_performance_not_forecast_accuracy",
+        "data_quality": quality_summary(records, evaluated, excluded),
+        "quarantine": excluded,
         "snapshot_count": len(snapshots),
         "evaluated_matched_count": len(enriched),
         "unmatched_result_count": unmatched,

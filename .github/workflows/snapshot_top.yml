@@ -10,6 +10,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: snapshot-kr-top
+  cancel-in-progress: false
+
 jobs:
   snapshot:
     runs-on: ubuntu-latest
@@ -22,12 +26,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install research dependencies
+        run: pip install -r requirements-research.txt
+
       - name: Save today's TOP candidates
         run: python scripts/snapshot_top_candidates.py
 
+      - name: Record prospective research predictions
+        run: python scripts/research_predictions.py issue --market KR
+
       - name: Commit snapshot
         run: |
-          git add data/history/top/
+          git add data/history/top/ data/predictions/issued/KR/
 
           if git diff --cached --quiet; then
             echo "No snapshot changes."
@@ -37,4 +47,5 @@ jobs:
           git config user.name "stock-news-radar-bot"
           git config user.email "stock-news-radar-bot@users.noreply.github.com"
           git commit -m "Save daily TOP candidate snapshot"
+          git pull --rebase origin main
           git push

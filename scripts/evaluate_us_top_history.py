@@ -1,9 +1,13 @@
+if __package__:
+    from .validation_quality import partition_records, finalize_evaluation
+else:
+    from validation_quality import partition_records, finalize_evaluation
+
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-import yfinance as yf
 
 ET = ZoneInfo("America/New_York")
 HISTORY_DIR = Path("data/history/top_us")
@@ -15,6 +19,8 @@ def pct(a, b):
     return round(((a / b) - 1) * 100, 2)
 
 def next_trade_bar(symbol, signal_date):
+    import yfinance as yf
+
     start = datetime.strptime(signal_date, "%Y-%m-%d").date() + timedelta(days=1)
     end = start + timedelta(days=10)
 
@@ -67,11 +73,7 @@ def next_trade_bar(symbol, signal_date):
 
 def load_results():
     if RESULTS.exists():
-        try:
-            return json.loads(RESULTS.read_text(encoding="utf-8"))
-        except Exception:
-            pass
-
+        return json.loads(RESULTS.read_text(encoding="utf-8"))
     return {
         "version": "us-top-validation-results-v1",
         "updated_at": None,
@@ -83,7 +85,7 @@ def avg(values):
     return round(sum(values) / len(values), 2) if values else None
 
 def summarize(records):
-    complete = [r for r in records if r.get("status") == "evaluated"]
+    complete, _ = partition_records(records)
 
     if not complete:
         return {
@@ -164,7 +166,7 @@ def main():
     evaluated_keys = {
         (r.get("signal_date"), r.get("symbol"), r.get("rank"))
         for r in records
-        if r.get("status") == "evaluated"
+        if r.get("status") in ("evaluated", "invalid")
     }
 
     today_et = datetime.now(ET).date().isoformat()
@@ -206,7 +208,7 @@ def main():
                 "baseline_close": baseline,
             }
 
-            if not bar or baseline in (None, 0):
+            if not bar:
                 record["status"] = "pending"
                 records.append(record)
                 continue
@@ -219,12 +221,13 @@ def main():
                 "next_low": bar["low"],
                 "next_close": bar["close"],
                 "next_volume": bar["volume"],
-                "gap_open_pct": pct(bar["open"], baseline),
-                "next_high_pct": pct(bar["high"], baseline),
-                "next_low_pct": pct(bar["low"], baseline),
-                "next_close_pct": pct(bar["close"], baseline),
+                "gap_open_pct": None,
+                "next_high_pct": None,
+                "next_low_pct": None,
+                "next_close_pct": None,
             })
 
+            finalize_evaluation(record)
             records.append(record)
             evaluated_keys.add(key)
 
@@ -232,7 +235,7 @@ def main():
     evaluated_keys = {
         (r.get("signal_date"), r.get("symbol"), r.get("rank"))
         for r in records
-        if r.get("status") == "evaluated"
+        if r.get("status") in ("evaluated", "invalid")
     }
 
     deduped = []

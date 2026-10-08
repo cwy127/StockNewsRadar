@@ -1,3 +1,8 @@
+if __package__:
+    from .validation_quality import partition_records
+else:
+    from validation_quality import partition_records
+
 import json
 from datetime import datetime
 from pathlib import Path
@@ -82,24 +87,13 @@ def check_validation(payload, issues, label):
     if not payload:
         return
     records = payload.get("records", [])
-    keys = set()
-    for r in records:
-        key = (r.get("signal_date"), str(r.get("symbol","")).upper(), r.get("rank"))
-        if key in keys and r.get("status") == "evaluated":
-            add_issue(issues, "error", "duplicate_evaluation",
-                      f"{label}: duplicate evaluated record {key}", key=str(key))
-        keys.add(key)
-        if r.get("status") == "evaluated":
-            for field in ("next_open","next_high","next_low","next_close"):
-                if r.get(field) is None:
-                    add_issue(issues, "error", "missing_evaluation_price",
-                              f"{label}: {key} missing {field}", field=field, key=str(key))
-            hi, lo = r.get("next_high"), r.get("next_low")
-            op, cl = r.get("next_open"), r.get("next_close")
-            if None not in (hi, lo, op, cl):
-                if hi < max(op, cl) or lo > min(op, cl) or hi < lo:
-                    add_issue(issues, "error", "invalid_ohlc",
-                              f"{label}: impossible OHLC {key}", key=str(key))
+    _, excluded = partition_records(records)
+    for entry in excluded:
+        r = entry['record']
+        add_issue(issues, "error", "invalid_evaluation",
+                  f"{label}: invalid evaluation {r.get('symbol')}",
+                  signal_date=r.get('signal_date'), symbol=r.get('symbol'),
+                  source_index=entry['source_index'], reasons=entry['reasons'])
 
 def main():
     issues = []
@@ -110,7 +104,7 @@ def main():
         loaded[name] = payload
         if err:
             # Analysis files may legitimately not exist early in setup, but report it.
-            add_issue(issues, "warning", "file_problem", err, file=name)
+            add_issue(issues, "error" if name.endswith("validation") else "warning", "file_problem", err, file=name)
 
     kr_snap, kr_err = latest_snapshot(KR_TOP)
     us_snap, us_err = latest_snapshot(US_TOP)
@@ -214,6 +208,7 @@ def main():
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {OUT} status={status} errors={errors} warnings={warnings}")
+    return 1 if errors else 0
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
