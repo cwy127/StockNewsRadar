@@ -15,6 +15,19 @@ class ResearchTests(unittest.TestCase):
     def bars(self,sessions,flat=False):
         return [dict(session=d,next_open=100,next_high=105,next_low=99,next_close=100 if flat else 100+i*.4,splits=0) for i,d in enumerate(sessions)]
 
+    def test_snapshot_rerun_preserves_original_bytes(self):
+        from scripts.snapshot_archive import write_snapshot
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'2026-10-01.json'
+            original=b'{"candidates": [], "snapshot_at": "original"}'
+            path.write_bytes(original)
+            write_snapshot(path,{'candidates':[{'symbol':'NEW'}]})
+            revisions=list((path.parent/'revisions').glob('*.json'))
+            self.assertEqual(len(revisions),1)
+            self.assertEqual(revisions[0].read_bytes(),original)
+            write_snapshot(path,{'candidates':[{'symbol':'NEW'}]})
+            self.assertEqual(len(list((path.parent/'revisions').glob('*.json'))),1)
+
     def test_calendar_holidays_weekend_and_full_future_sessions(self):
         kr=rp.schedule('KR',datetime(2026,10,8,8,tzinfo=timezone.utc))
         self.assertEqual(kr['future_sessions'][0]['session'],'2026-10-12')
