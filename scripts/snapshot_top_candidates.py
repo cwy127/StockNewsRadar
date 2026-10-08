@@ -1,3 +1,8 @@
+if __package__:
+    from .snapshot_archive import write_snapshot
+else:
+    from snapshot_archive import write_snapshot
+
 import json
 from datetime import datetime
 from pathlib import Path
@@ -88,10 +93,7 @@ def main():
     }
 
     # Same-day reruns overwrite the snapshot with the latest final version.
-    out.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    write_snapshot(out, payload)
     print(f"Wrote {out} with {len(rows)} candidates")
 
 if __name__ == "__main__":
