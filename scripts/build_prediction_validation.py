@@ -133,7 +133,11 @@ def metrics(rows, kind):
     valid = [r for r in rows if r['status'] == 'evaluated']
     n = len(valid)
     result = {'total_count':len(rows), 'status_counts':dict(Counter(r['status'] for r in rows)),
-              'evaluated_count':n, 'sample_status':'표본 부족' if n < 30 else '분석 가능'}
+              'evaluated_count':n, 'sample_status':'표본 부족' if n < 30 else '분석 가능',
+              'abstained_count':sum(r['prediction'].get('issuance_status') == 'abstained' for r in rows),
+              'pending_count':sum(r['status'] == 'pending' for r in rows),
+              'symbol_count':len({r['prediction'].get('symbol') for r in rows}),
+              'issue_date_count':len({str(r['prediction'].get('issued_at', 'unknown'))[:10] for r in rows})}
     if not n:
         return result
     def mean(key): return sum(r[key] for r in valid)/n
@@ -164,12 +168,24 @@ def analyze(predictions, outcomes, now):
             row.update(status='unevaluable',reasons=['duplicate_prediction_id'])
         rows.append(row)
     groups=defaultdict(list)
+    cumulative=defaultdict(list)
     for row in rows:
         p=row['prediction']
         key=tuple(str(p.get(k,'unknown')) for k in ('market','horizon','type','rule_version','symbol'))+(str(p.get('issued_at','unknown'))[:7],)
         groups[key].append(row)
+        # Raw price errors cannot be pooled across differently priced instruments.
+        pooled_key=key[:4]+(str(p.get('symbol','unknown')) if p.get('type') == 'price' else None,)
+        cumulative[pooled_key].append(row)
     return {'total_count':len(rows),'status_counts':dict(Counter(r['status'] for r in rows)),
             'groups':[dict(zip(('market','horizon','type','rule_version','symbol','issue_month'),key),**metrics(group,key[2])) for key,group in sorted(groups.items())],
+            'cumulative_groups':[dict(zip(('market','horizon','type','rule_version','price_symbol'),key),
+                                      **metrics(group,key[2])) for key,group in sorted(cumulative.items())],
+            'cumulative_definition':{
+                'scope':'All issuance months and symbols within market, horizon, prediction type and rule version; raw price errors stay per symbol.',
+                'sample_unit':'One evaluated prediction at its fixed horizon',
+                'minimum_evaluated_for_sample_label':30,
+                'abstained_count':'Subset of unevaluable, not an additional status or denominator',
+                'limitation':'Overlapping horizons and correlated symbols are not independent samples. The sample label is descriptive, not evidence of statistical significance or predictive edge.'},
             'records':rows, 'outcomes':outcomes}
 
 
