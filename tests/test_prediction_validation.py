@@ -67,6 +67,44 @@ class PredictionTests(unittest.TestCase):
         report=pv.analyze([prediction(),prediction(id='p2',horizon='week_close')],[],NOW)
         self.assertEqual(len(report['groups']),2)
 
+    @patch.object(pv,'verified_archive',return_value=True)
+    def test_cumulative_pool_crosses_symbols_and_months_without_inflating_denominator(self,_):
+        predictions=[];outcomes=[]
+        for i in range(30):
+            symbol='A' if i%2 else 'B'
+            issued='2026-09-01T12:00:00Z' if i<15 else '2026-10-01T12:00:00Z'
+            predictions.append(prediction(id=str(i),symbol=symbol,target='up' if i%2 else 'down',issued_at=issued))
+            outcomes.append(outcome(prediction_id=str(i),symbol=symbol))
+        predictions.extend([prediction(id='missing'),prediction(id='bad'),
+            prediction(id='pending',evaluation_at='2027-01-01T00:00:00Z'),
+            prediction(id='abstain',target=None,issuance_status='abstained',issuance_reasons=['within_1pct_deadband'])])
+        outcomes.append(outcome(prediction_id='bad',next_high=0))
+        report=pv.analyze(predictions,outcomes,NOW)
+        group=report['cumulative_groups'][0]
+        self.assertEqual(len(report['cumulative_groups']),1)
+        self.assertEqual(group['total_count'],34)
+        self.assertEqual(group['evaluated_count'],30)
+        self.assertEqual(group['status_counts'],{'evaluated':30,'missing_outcome':1,'invalid_price':1,'pending':1,'unevaluable':1})
+        self.assertEqual(group['abstained_count'],1)
+        self.assertEqual(group['pending_count'],1)
+        self.assertEqual(group['sample_status'],'분석 가능')
+        self.assertEqual(group['hit_rate_pct'],50)
+        self.assertEqual(group['always_up_hit_rate_pct'],100)
+        self.assertTrue(all(g['sample_status']=='표본 부족' for g in report['groups']))
+        self.assertEqual(len(report['records']),34)
+
+    @patch.object(pv,'verified_archive',return_value=True)
+    def test_cumulative_keeps_market_horizon_type_and_version_separate(self,_):
+        predictions=[prediction(),prediction(id='other-market',market='KR'),
+            prediction(id='other-horizon',horizon='5_trading_sessions'),
+            prediction(id='other-model',rule_version='test-v2'),prediction('return',1,id='return'),
+            prediction('price',101,id='price-a',symbol='A'),prediction('price',101,id='price-b',symbol='B')]
+        report=pv.analyze(predictions,[],NOW)
+        self.assertEqual(len(report['cumulative_groups']),7)
+        self.assertTrue(all(g['evaluated_count']==0 and g['sample_status']=='표본 부족' for g in report['cumulative_groups']))
+        self.assertTrue(all('hit_rate_pct' not in g for g in report['cumulative_groups']))
+        self.assertEqual({g['price_symbol'] for g in report['cumulative_groups'] if g['type']=='price'},{'A','B'})
+
     def test_existing_ranks_are_not_forecasts(self):
         data=pv.inventory()
         self.assertEqual(data['prediction_count'],0)

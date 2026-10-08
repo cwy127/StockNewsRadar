@@ -80,3 +80,11 @@ python scripts/build_prediction_validation.py
 
 `research_predictions.py issue --market KR` / `--market US`는 실행 당일
 스냅샷만 받습니다. 과거 날짜를 지정하여 예측을 만드는 옵션은 없습니다.
+
+예측 보고서의 `explicit_predictions.cumulative_groups`는 시장×평가 기간×
+예측 유형×규칙 버전별로 모든 발행월과 종목을 누적합니다. 기존 종목×월 세부
+`groups`와 전체 `records`는 유지됩니다. 원가격 오차는 가격 수준이 다른 종목을
+섞지 않도록 누적 집계에서도 종목별로 분리합니다. `evaluated_count`만 적중률과
+30건 표본 기준의 분모이며, `pending_count`와 상태별 수, 판단보류 부분집합인
+`abstained_count`를 별도로 표시합니다. 중첩 기간과 종목 상관 때문에 30건은
+독립 표본 30개 또는 통계적 유의성을 뜻하지 않습니다.
