@@ -1,3 +1,8 @@
+if __package__:
+    from .validation_quality import partition_records, quality_summary
+else:
+    from validation_quality import partition_records, quality_summary
+
 import json
 from datetime import datetime
 from pathlib import Path
@@ -13,12 +18,7 @@ MIN_SAMPLE = 10
 GOOD_SAMPLE = 30
 
 def load_json(path):
-    if not path.exists():
-        return {}
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
 
 def avg(values):
     values = [v for v in values if v is not None]
@@ -124,10 +124,8 @@ def best_bucket(groups, metric="avg_close_return_pct"):
     return max(eligible, key=lambda g: g.get(metric))
 
 def analyze_market(payload, market):
-    rows = [
-        r for r in payload.get("records", [])
-        if r.get("status") == "evaluated"
-    ]
+    records = payload.get("records", [])
+    rows, excluded = partition_records(records)
 
     common_ranges = {
         "market_confirmation": [
@@ -155,6 +153,9 @@ def analyze_market(payload, market):
 
     result = {
         "market": market,
+        "classification": "exploratory_signal_performance_not_forecast_accuracy",
+        "data_quality": quality_summary(records, rows, excluded),
+        "quarantine": excluded,
         "overall": summarize_group(rows),
         "by_rank": group_exact(rows, "rank", list(range(1, 8))),
         "by_market_confirmation": group_ranges(

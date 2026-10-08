@@ -21,18 +21,33 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          # Verify any existing prediction archive commits.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
+      - name: Install research dependencies
+        run: pip install -r requirements-research.txt
+
+      - name: Record due research outcomes
+        run: python scripts/research_predictions.py evaluate
+
       - name: Build performance analysis report
         run: python scripts/build_performance_analysis.py
 
+      - name: Build prediction validation report
+        run: python scripts/build_prediction_validation.py
+
       - name: Commit analysis report
         run: |
-          git add data/analysis/performance_report.json
+          git add data/analysis/performance_report.json data/analysis/prediction_validation.json
+          if [ -d data/predictions/observations ]; then
+            git add data/predictions/observations/
+          fi
 
           if git diff --cached --quiet; then
             echo "No analysis changes."

@@ -1,9 +1,13 @@
+if __package__:
+    from .validation_quality import partition_records, finalize_evaluation
+else:
+    from validation_quality import partition_records, finalize_evaluation
+
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-import yfinance as yf
 
 KST = ZoneInfo("Asia/Seoul")
 HISTORY_DIR = Path("data/history/top")
@@ -25,6 +29,8 @@ def next_trade_bar(symbol, market, signal_date):
     ticker = yahoo_ticker(symbol, market)
     if not ticker:
         return None
+
+    import yfinance as yf
 
     start = datetime.strptime(signal_date, "%Y-%m-%d").date() + timedelta(days=1)
     end = start + timedelta(days=10)
@@ -79,10 +85,7 @@ def next_trade_bar(symbol, market, signal_date):
 
 def load_results():
     if RESULTS.exists():
-        try:
-            return json.loads(RESULTS.read_text(encoding="utf-8"))
-        except Exception:
-            pass
+        return json.loads(RESULTS.read_text(encoding="utf-8"))
     return {
         "version": "top-validation-results-v1",
         "updated_at": None,
@@ -91,7 +94,7 @@ def load_results():
     }
 
 def summarize(records):
-    complete = [r for r in records if r.get("status") == "evaluated"]
+    complete, _ = partition_records(records)
     if not complete:
         return {
             "evaluated_count": 0,
@@ -129,7 +132,7 @@ def main():
     existing = {
         (r.get("signal_date"), r.get("symbol"), r.get("rank"))
         for r in result_data.get("records", [])
-        if r.get("status") == "evaluated"
+        if r.get("status") in ("evaluated", "invalid")
     }
 
     records = list(result_data.get("records", []))
@@ -167,7 +170,7 @@ def main():
                 "baseline_close": baseline,
             }
 
-            if not bar or baseline in (None, 0):
+            if not bar:
                 base_record["status"] = "pending"
                 records.append(base_record)
                 changed = True
@@ -180,11 +183,12 @@ def main():
                 "next_high": bar["high"],
                 "next_low": bar["low"],
                 "next_close": bar["close"],
-                "gap_open_pct": pct(bar["open"], baseline),
-                "next_high_pct": pct(bar["high"], baseline),
-                "next_low_pct": pct(bar["low"], baseline),
-                "next_close_pct": pct(bar["close"], baseline),
+                "gap_open_pct": None,
+                "next_high_pct": None,
+                "next_low_pct": None,
+                "next_close_pct": None,
             })
+            finalize_evaluation(base_record)
             records.append(base_record)
             existing.add(key)
             changed = True
@@ -192,7 +196,7 @@ def main():
     # Deduplicate pending records when later runs successfully evaluate the same key.
     evaluated_keys = {
         (r.get("signal_date"), r.get("symbol"), r.get("rank"))
-        for r in records if r.get("status") == "evaluated"
+        for r in records if r.get("status") in ("evaluated", "invalid")
     }
     deduped = []
     seen_pending = set()

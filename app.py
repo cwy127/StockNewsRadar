@@ -1,3 +1,6 @@
+from scripts.validation_quality import partition_records
+from scripts.evaluate_top_history import summarize as summarize_kr
+from scripts.evaluate_us_top_history import summarize as summarize_us
 import html
 import json
 from datetime import datetime
@@ -679,8 +682,8 @@ def render_health_monitor():
         ),
     ]
 
-    kr_eval_count = (kr_val.get("summary") or {}).get("evaluated_count", 0)
-    us_eval_count = (us_val.get("summary") or {}).get("evaluated_count", 0)
+    kr_eval_count = summarize_kr(kr_val.get("records", []))["evaluated_count"]
+    us_eval_count = summarize_us(us_val.get("records", []))["evaluated_count"]
 
     if kr_eval_dt:
         label, value, cls = status_item("한국 성과", kr_eval_dt, now_kst, 36, 72)
@@ -1148,7 +1151,7 @@ elif view == "레이더" and market == "미국":
 
 elif view == "성과":
     st.markdown('<div class="section-title">TOP 후보 검증 성과</div>', unsafe_allow_html=True)
-    st.caption("매일 저장된 TOP 후보를 다음 거래일 실제 시가·고가·저가·종가와 비교한 누적 검증 결과입니다.")
+    st.caption("매일 저장된 TOP 관심 후보의 다음 거래일 가격 변화 통계입니다. 명시적 예측의 적중률이 아닌 탐색 성과이며, 잘못된 가격 기록은 제외합니다.")
 
     perf_market = st.segmented_control(
         "성과 시장",
@@ -1172,8 +1175,8 @@ elif view == "성과":
         else:
             validation = json.loads(VALIDATION_FILE.read_text(encoding="utf-8"))
             records = validation.get("records", [])
-            summary = validation.get("summary", {})
-            evaluated = [r for r in records if r.get("status") == "evaluated"]
+            summary = summarize_kr(records)
+            evaluated, _ = partition_records(records)
 
             def perf_pct(v):
                 if v is None:
@@ -1233,8 +1236,8 @@ elif view == "성과":
         else:
             validation = json.loads(US_VALIDATION_FILE.read_text(encoding="utf-8"))
             records = validation.get("records", [])
-            summary = validation.get("summary", {})
-            evaluated = [r for r in records if r.get("status") == "evaluated"]
+            summary = summarize_us(records)
+            evaluated, _ = partition_records(records)
 
             def us_perf_pct(v):
                 if v is None:
