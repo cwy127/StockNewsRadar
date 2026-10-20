@@ -1,0 +1,4716 @@
+{
+  "version": "prospective-research-v1",
+  "created_at": "2026-10-20T23:16:44.199512+00:00",
+  "predictions": [
+    {
+      "id": "US-2026-10-20-MBWM-1",
+      "symbol": "MBWM",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.245552+00:00",
+      "recorded_at": "2026-10-20T23:16:46.245552+00:00",
+      "evaluation_at": "2026-10-21T20:00:00+00:00",
+      "evaluation_session": "2026-10-21",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 59.040000915527344,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 1,
+          "symbol": "MBWM",
+          "name": "MERCANTILE BANK CORP",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - MERCANTILE BANK CORP (0001042729) (Filer)",
+          "published_at": "2026-10-20T09:00:18-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 75,
+          "news_sentiment": "positive",
+          "news_article_count": 10,
+          "overheat_risk": 10,
+          "final_score": 89.6,
+          "baseline_close": 59.04,
+          "day_change_pct": 1.06,
+          "five_day_change_pct": 1.74,
+          "volume_ratio_20d": 1.83,
+          "distance_20d_high_pct": -3.16
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 58.630001068115234,
+            "next_high": 58.790000915527344,
+            "next_low": 57.70000076293945,
+            "next_close": 58.029998779296875,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 57.29999923706055,
+            "next_high": 58.2400016784668,
+            "next_low": 57.0,
+            "next_close": 57.689998626708984,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 58.060001373291016,
+            "next_high": 58.81999969482422,
+            "next_low": 57.869998931884766,
+            "next_close": 58.31999969482422,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 58.58000183105469,
+            "next_high": 59.54999923706055,
+            "next_low": 58.58000183105469,
+            "next_close": 58.61000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 58.650001525878906,
+            "next_high": 58.959999084472656,
+            "next_low": 58.25,
+            "next_close": 58.41999816894531,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 59.900001525878906,
+            "next_high": 60.96500015258789,
+            "next_low": 58.61000061035156,
+            "next_close": 59.040000915527344,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "8de2bda1884f594e7e7c359c60a23faf2d2a904c3b76efb96058210c94e4d589",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "MBWM",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-MBWM-5",
+      "symbol": "MBWM",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.245552+00:00",
+      "recorded_at": "2026-10-20T23:16:46.245552+00:00",
+      "evaluation_at": "2026-10-27T20:00:00+00:00",
+      "evaluation_session": "2026-10-27",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 59.040000915527344,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 1,
+          "symbol": "MBWM",
+          "name": "MERCANTILE BANK CORP",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - MERCANTILE BANK CORP (0001042729) (Filer)",
+          "published_at": "2026-10-20T09:00:18-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 75,
+          "news_sentiment": "positive",
+          "news_article_count": 10,
+          "overheat_risk": 10,
+          "final_score": 89.6,
+          "baseline_close": 59.04,
+          "day_change_pct": 1.06,
+          "five_day_change_pct": 1.74,
+          "volume_ratio_20d": 1.83,
+          "distance_20d_high_pct": -3.16
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 58.630001068115234,
+            "next_high": 58.790000915527344,
+            "next_low": 57.70000076293945,
+            "next_close": 58.029998779296875,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 57.29999923706055,
+            "next_high": 58.2400016784668,
+            "next_low": 57.0,
+            "next_close": 57.689998626708984,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 58.060001373291016,
+            "next_high": 58.81999969482422,
+            "next_low": 57.869998931884766,
+            "next_close": 58.31999969482422,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 58.58000183105469,
+            "next_high": 59.54999923706055,
+            "next_low": 58.58000183105469,
+            "next_close": 58.61000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 58.650001525878906,
+            "next_high": 58.959999084472656,
+            "next_low": 58.25,
+            "next_close": 58.41999816894531,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 59.900001525878906,
+            "next_high": 60.96500015258789,
+            "next_low": 58.61000061035156,
+            "next_close": 59.040000915527344,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "8de2bda1884f594e7e7c359c60a23faf2d2a904c3b76efb96058210c94e4d589",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "MBWM",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-MBWM-20",
+      "symbol": "MBWM",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.245552+00:00",
+      "recorded_at": "2026-10-20T23:16:46.245552+00:00",
+      "evaluation_at": "2026-11-17T21:00:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 59.040000915527344,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 1,
+          "symbol": "MBWM",
+          "name": "MERCANTILE BANK CORP",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - MERCANTILE BANK CORP (0001042729) (Filer)",
+          "published_at": "2026-10-20T09:00:18-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 75,
+          "news_sentiment": "positive",
+          "news_article_count": 10,
+          "overheat_risk": 10,
+          "final_score": 89.6,
+          "baseline_close": 59.04,
+          "day_change_pct": 1.06,
+          "five_day_change_pct": 1.74,
+          "volume_ratio_20d": 1.83,
+          "distance_20d_high_pct": -3.16
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 58.630001068115234,
+            "next_high": 58.790000915527344,
+            "next_low": 57.70000076293945,
+            "next_close": 58.029998779296875,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 57.29999923706055,
+            "next_high": 58.2400016784668,
+            "next_low": 57.0,
+            "next_close": 57.689998626708984,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 58.060001373291016,
+            "next_high": 58.81999969482422,
+            "next_low": 57.869998931884766,
+            "next_close": 58.31999969482422,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 58.58000183105469,
+            "next_high": 59.54999923706055,
+            "next_low": 58.58000183105469,
+            "next_close": 58.61000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 58.650001525878906,
+            "next_high": 58.959999084472656,
+            "next_low": 58.25,
+            "next_close": 58.41999816894531,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 59.900001525878906,
+            "next_high": 60.96500015258789,
+            "next_low": 58.61000061035156,
+            "next_close": 59.040000915527344,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "8de2bda1884f594e7e7c359c60a23faf2d2a904c3b76efb96058210c94e4d589",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "MBWM",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-QCRH-1",
+      "symbol": "QCRH",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.419476+00:00",
+      "recorded_at": "2026-10-20T23:16:46.419476+00:00",
+      "evaluation_at": "2026-10-21T20:00:00+00:00",
+      "evaluation_session": "2026-10-21",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 99.38999938964844,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 2,
+          "symbol": "QCRH",
+          "name": "QCR HOLDINGS INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - QCR HOLDINGS INC (0000906465) (Filer)",
+          "published_at": "2026-10-20T16:05:47-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 5,
+          "overheat_risk": 10,
+          "final_score": 80.8,
+          "baseline_close": 99.39,
+          "day_change_pct": 1.96,
+          "five_day_change_pct": 1.49,
+          "volume_ratio_20d": 1.59,
+          "distance_20d_high_pct": -3.86
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 98.77999877929688,
+            "next_high": 99.19999694824219,
+            "next_low": 97.44999694824219,
+            "next_close": 97.93000030517578,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 96.58000183105469,
+            "next_high": 97.68000030517578,
+            "next_low": 95.76000213623047,
+            "next_close": 97.20999908447266,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 97.79000091552734,
+            "next_high": 99.30000305175781,
+            "next_low": 97.26000213623047,
+            "next_close": 98.79000091552734,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 99.19000244140625,
+            "next_high": 102.86000061035156,
+            "next_low": 98.7300033569336,
+            "next_close": 98.86000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 98.87999725341797,
+            "next_high": 98.9000015258789,
+            "next_low": 97.2300033569336,
+            "next_close": 97.4800033569336,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 98.7750015258789,
+            "next_high": 99.79000091552734,
+            "next_low": 98.16000366210938,
+            "next_close": 99.38999938964844,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "bf53a77d26812998cbcce4e3396b5f566407bb262d859e535546298298d51b0d",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "QCRH",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-QCRH-5",
+      "symbol": "QCRH",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.419476+00:00",
+      "recorded_at": "2026-10-20T23:16:46.419476+00:00",
+      "evaluation_at": "2026-10-27T20:00:00+00:00",
+      "evaluation_session": "2026-10-27",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 99.38999938964844,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 2,
+          "symbol": "QCRH",
+          "name": "QCR HOLDINGS INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - QCR HOLDINGS INC (0000906465) (Filer)",
+          "published_at": "2026-10-20T16:05:47-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 5,
+          "overheat_risk": 10,
+          "final_score": 80.8,
+          "baseline_close": 99.39,
+          "day_change_pct": 1.96,
+          "five_day_change_pct": 1.49,
+          "volume_ratio_20d": 1.59,
+          "distance_20d_high_pct": -3.86
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 98.77999877929688,
+            "next_high": 99.19999694824219,
+            "next_low": 97.44999694824219,
+            "next_close": 97.93000030517578,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 96.58000183105469,
+            "next_high": 97.68000030517578,
+            "next_low": 95.76000213623047,
+            "next_close": 97.20999908447266,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 97.79000091552734,
+            "next_high": 99.30000305175781,
+            "next_low": 97.26000213623047,
+            "next_close": 98.79000091552734,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 99.19000244140625,
+            "next_high": 102.86000061035156,
+            "next_low": 98.7300033569336,
+            "next_close": 98.86000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 98.87999725341797,
+            "next_high": 98.9000015258789,
+            "next_low": 97.2300033569336,
+            "next_close": 97.4800033569336,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 98.7750015258789,
+            "next_high": 99.79000091552734,
+            "next_low": 98.16000366210938,
+            "next_close": 99.38999938964844,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "bf53a77d26812998cbcce4e3396b5f566407bb262d859e535546298298d51b0d",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "QCRH",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-QCRH-20",
+      "symbol": "QCRH",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.419476+00:00",
+      "recorded_at": "2026-10-20T23:16:46.419476+00:00",
+      "evaluation_at": "2026-11-17T21:00:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 99.38999938964844,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 2,
+          "symbol": "QCRH",
+          "name": "QCR HOLDINGS INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - QCR HOLDINGS INC (0000906465) (Filer)",
+          "published_at": "2026-10-20T16:05:47-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 5,
+          "overheat_risk": 10,
+          "final_score": 80.8,
+          "baseline_close": 99.39,
+          "day_change_pct": 1.96,
+          "five_day_change_pct": 1.49,
+          "volume_ratio_20d": 1.59,
+          "distance_20d_high_pct": -3.86
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 98.77999877929688,
+            "next_high": 99.19999694824219,
+            "next_low": 97.44999694824219,
+            "next_close": 97.93000030517578,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 96.58000183105469,
+            "next_high": 97.68000030517578,
+            "next_low": 95.76000213623047,
+            "next_close": 97.20999908447266,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 97.79000091552734,
+            "next_high": 99.30000305175781,
+            "next_low": 97.26000213623047,
+            "next_close": 98.79000091552734,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 99.19000244140625,
+            "next_high": 102.86000061035156,
+            "next_low": 98.7300033569336,
+            "next_close": 98.86000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 98.87999725341797,
+            "next_high": 98.9000015258789,
+            "next_low": 97.2300033569336,
+            "next_close": 97.4800033569336,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 98.7750015258789,
+            "next_high": 99.79000091552734,
+            "next_low": 98.16000366210938,
+            "next_close": 99.38999938964844,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "bf53a77d26812998cbcce4e3396b5f566407bb262d859e535546298298d51b0d",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "QCRH",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-SFST-1",
+      "symbol": "SFST",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.539743+00:00",
+      "recorded_at": "2026-10-20T23:16:46.539743+00:00",
+      "evaluation_at": "2026-10-21T20:00:00+00:00",
+      "evaluation_session": "2026-10-21",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 60.93000030517578,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 3,
+          "symbol": "SFST",
+          "name": "SOUTHERN FIRST BANCSHARES INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - SOUTHERN FIRST BANCSHARES INC (0001090009) (Filer)",
+          "published_at": "2026-10-20T08:30:44-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 10,
+          "final_score": 80.8,
+          "baseline_close": 60.93,
+          "day_change_pct": 3.04,
+          "five_day_change_pct": 1.4,
+          "volume_ratio_20d": 1.62,
+          "distance_20d_high_pct": -1.87
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 60.599998474121094,
+            "next_high": 61.0099983215332,
+            "next_low": 59.70000076293945,
+            "next_close": 60.09000015258789,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 59.31999969482422,
+            "next_high": 59.90999984741211,
+            "next_low": 58.880001068115234,
+            "next_close": 59.220001220703125,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 59.70000076293945,
+            "next_high": 60.58000183105469,
+            "next_low": 59.40999984741211,
+            "next_close": 59.790000915527344,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 60.0099983215332,
+            "next_high": 61.099998474121094,
+            "next_low": 59.7400016784668,
+            "next_close": 59.810001373291016,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 59.90999984741211,
+            "next_high": 60.22999954223633,
+            "next_low": 58.9900016784668,
+            "next_close": 59.130001068115234,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 59.58000183105469,
+            "next_high": 62.09000015258789,
+            "next_low": 59.58000183105469,
+            "next_close": 60.93000030517578,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "c08f67b03477adf93d928e63925f8b9f2e718a6abe748504e50de15fb7b48361",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "SFST",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-SFST-5",
+      "symbol": "SFST",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.539743+00:00",
+      "recorded_at": "2026-10-20T23:16:46.539743+00:00",
+      "evaluation_at": "2026-10-27T20:00:00+00:00",
+      "evaluation_session": "2026-10-27",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 60.93000030517578,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 3,
+          "symbol": "SFST",
+          "name": "SOUTHERN FIRST BANCSHARES INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - SOUTHERN FIRST BANCSHARES INC (0001090009) (Filer)",
+          "published_at": "2026-10-20T08:30:44-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 10,
+          "final_score": 80.8,
+          "baseline_close": 60.93,
+          "day_change_pct": 3.04,
+          "five_day_change_pct": 1.4,
+          "volume_ratio_20d": 1.62,
+          "distance_20d_high_pct": -1.87
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 60.599998474121094,
+            "next_high": 61.0099983215332,
+            "next_low": 59.70000076293945,
+            "next_close": 60.09000015258789,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 59.31999969482422,
+            "next_high": 59.90999984741211,
+            "next_low": 58.880001068115234,
+            "next_close": 59.220001220703125,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 59.70000076293945,
+            "next_high": 60.58000183105469,
+            "next_low": 59.40999984741211,
+            "next_close": 59.790000915527344,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 60.0099983215332,
+            "next_high": 61.099998474121094,
+            "next_low": 59.7400016784668,
+            "next_close": 59.810001373291016,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 59.90999984741211,
+            "next_high": 60.22999954223633,
+            "next_low": 58.9900016784668,
+            "next_close": 59.130001068115234,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 59.58000183105469,
+            "next_high": 62.09000015258789,
+            "next_low": 59.58000183105469,
+            "next_close": 60.93000030517578,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "c08f67b03477adf93d928e63925f8b9f2e718a6abe748504e50de15fb7b48361",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "SFST",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-SFST-20",
+      "symbol": "SFST",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.539743+00:00",
+      "recorded_at": "2026-10-20T23:16:46.539743+00:00",
+      "evaluation_at": "2026-11-17T21:00:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 60.93000030517578,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 3,
+          "symbol": "SFST",
+          "name": "SOUTHERN FIRST BANCSHARES INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - SOUTHERN FIRST BANCSHARES INC (0001090009) (Filer)",
+          "published_at": "2026-10-20T08:30:44-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 10,
+          "final_score": 80.8,
+          "baseline_close": 60.93,
+          "day_change_pct": 3.04,
+          "five_day_change_pct": 1.4,
+          "volume_ratio_20d": 1.62,
+          "distance_20d_high_pct": -1.87
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 60.599998474121094,
+            "next_high": 61.0099983215332,
+            "next_low": 59.70000076293945,
+            "next_close": 60.09000015258789,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 59.31999969482422,
+            "next_high": 59.90999984741211,
+            "next_low": 58.880001068115234,
+            "next_close": 59.220001220703125,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 59.70000076293945,
+            "next_high": 60.58000183105469,
+            "next_low": 59.40999984741211,
+            "next_close": 59.790000915527344,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 60.0099983215332,
+            "next_high": 61.099998474121094,
+            "next_low": 59.7400016784668,
+            "next_close": 59.810001373291016,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 59.90999984741211,
+            "next_high": 60.22999954223633,
+            "next_low": 58.9900016784668,
+            "next_close": 59.130001068115234,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 59.58000183105469,
+            "next_high": 62.09000015258789,
+            "next_low": 59.58000183105469,
+            "next_close": 60.93000030517578,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "c08f67b03477adf93d928e63925f8b9f2e718a6abe748504e50de15fb7b48361",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "SFST",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-EWBC-1",
+      "symbol": "EWBC",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.695521+00:00",
+      "recorded_at": "2026-10-20T23:16:46.695521+00:00",
+      "evaluation_at": "2026-10-21T20:00:00+00:00",
+      "evaluation_session": "2026-10-21",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 128.27000427246094,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 4,
+          "symbol": "EWBC",
+          "name": "EAST WEST BANCORP INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - EAST WEST BANCORP INC (0001069157) (Filer)",
+          "published_at": "2026-10-20T16:04:23-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 18,
+          "final_score": 79.6,
+          "baseline_close": 128.27,
+          "day_change_pct": 2.21,
+          "five_day_change_pct": 2.57,
+          "volume_ratio_20d": 1.38,
+          "distance_20d_high_pct": -0.6
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 126.55999755859375,
+            "next_high": 127.0,
+            "next_low": 124.41999816894531,
+            "next_close": 125.05000305175781,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 123.87999725341797,
+            "next_high": 124.75,
+            "next_low": 123.16000366210938,
+            "next_close": 124.5999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 124.80999755859375,
+            "next_high": 126.88999938964844,
+            "next_low": 124.3499984741211,
+            "next_close": 126.26000213623047,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 126.94999694824219,
+            "next_high": 129.0500030517578,
+            "next_low": 125.91000366210938,
+            "next_close": 126.87999725341797,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 126.37000274658203,
+            "next_high": 126.83999633789062,
+            "next_low": 125.33000183105469,
+            "next_close": 125.5,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 125.55000305175781,
+            "next_high": 128.7100067138672,
+            "next_low": 125.55000305175781,
+            "next_close": 128.27000427246094,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "4043cf5c0a1f39049e9ccf8266e02167c4e6335ad546595d01ecd8edd07ed7de",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "EWBC",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-EWBC-5",
+      "symbol": "EWBC",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.695521+00:00",
+      "recorded_at": "2026-10-20T23:16:46.695521+00:00",
+      "evaluation_at": "2026-10-27T20:00:00+00:00",
+      "evaluation_session": "2026-10-27",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 128.27000427246094,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 4,
+          "symbol": "EWBC",
+          "name": "EAST WEST BANCORP INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - EAST WEST BANCORP INC (0001069157) (Filer)",
+          "published_at": "2026-10-20T16:04:23-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 18,
+          "final_score": 79.6,
+          "baseline_close": 128.27,
+          "day_change_pct": 2.21,
+          "five_day_change_pct": 2.57,
+          "volume_ratio_20d": 1.38,
+          "distance_20d_high_pct": -0.6
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 126.55999755859375,
+            "next_high": 127.0,
+            "next_low": 124.41999816894531,
+            "next_close": 125.05000305175781,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 123.87999725341797,
+            "next_high": 124.75,
+            "next_low": 123.16000366210938,
+            "next_close": 124.5999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 124.80999755859375,
+            "next_high": 126.88999938964844,
+            "next_low": 124.3499984741211,
+            "next_close": 126.26000213623047,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 126.94999694824219,
+            "next_high": 129.0500030517578,
+            "next_low": 125.91000366210938,
+            "next_close": 126.87999725341797,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 126.37000274658203,
+            "next_high": 126.83999633789062,
+            "next_low": 125.33000183105469,
+            "next_close": 125.5,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 125.55000305175781,
+            "next_high": 128.7100067138672,
+            "next_low": 125.55000305175781,
+            "next_close": 128.27000427246094,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "4043cf5c0a1f39049e9ccf8266e02167c4e6335ad546595d01ecd8edd07ed7de",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "EWBC",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-EWBC-20",
+      "symbol": "EWBC",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.695521+00:00",
+      "recorded_at": "2026-10-20T23:16:46.695521+00:00",
+      "evaluation_at": "2026-11-17T21:00:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 128.27000427246094,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 4,
+          "symbol": "EWBC",
+          "name": "EAST WEST BANCORP INC",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - EAST WEST BANCORP INC (0001069157) (Filer)",
+          "published_at": "2026-10-20T16:04:23-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 18,
+          "final_score": 79.6,
+          "baseline_close": 128.27,
+          "day_change_pct": 2.21,
+          "five_day_change_pct": 2.57,
+          "volume_ratio_20d": 1.38,
+          "distance_20d_high_pct": -0.6
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 126.55999755859375,
+            "next_high": 127.0,
+            "next_low": 124.41999816894531,
+            "next_close": 125.05000305175781,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 123.87999725341797,
+            "next_high": 124.75,
+            "next_low": 123.16000366210938,
+            "next_close": 124.5999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 124.80999755859375,
+            "next_high": 126.88999938964844,
+            "next_low": 124.3499984741211,
+            "next_close": 126.26000213623047,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 126.94999694824219,
+            "next_high": 129.0500030517578,
+            "next_low": 125.91000366210938,
+            "next_close": 126.87999725341797,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 126.37000274658203,
+            "next_high": 126.83999633789062,
+            "next_low": 125.33000183105469,
+            "next_close": 125.5,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 125.55000305175781,
+            "next_high": 128.7100067138672,
+            "next_low": 125.55000305175781,
+            "next_close": 128.27000427246094,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "4043cf5c0a1f39049e9ccf8266e02167c4e6335ad546595d01ecd8edd07ed7de",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "EWBC",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-CBSH-1",
+      "symbol": "CBSH",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.993393+00:00",
+      "recorded_at": "2026-10-20T23:16:46.993393+00:00",
+      "evaluation_at": "2026-10-21T20:00:00+00:00",
+      "evaluation_session": "2026-10-21",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 55.58000183105469,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 5,
+          "symbol": "CBSH",
+          "name": "COMMERCE BANCSHARES INC /MO/",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - COMMERCE BANCSHARES INC /MO/ (0000022356) (Filer)",
+          "published_at": "2026-10-20T09:19:02-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 50,
+          "news_sentiment": "neutral",
+          "news_article_count": 0,
+          "overheat_risk": 10,
+          "final_score": 78.3,
+          "baseline_close": 55.58,
+          "day_change_pct": 0.85,
+          "five_day_change_pct": 2.38,
+          "volume_ratio_20d": 1.22,
+          "distance_20d_high_pct": -1.75
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 54.83000183105469,
+            "next_high": 54.97999954223633,
+            "next_low": 54.060001373291016,
+            "next_close": 54.290000915527344,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 53.65999984741211,
+            "next_high": 54.470001220703125,
+            "next_low": 53.59000015258789,
+            "next_close": 54.41999816894531,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 54.79999923706055,
+            "next_high": 55.630001068115234,
+            "next_low": 54.599998474121094,
+            "next_close": 55.560001373291016,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 55.84000015258789,
+            "next_high": 56.470001220703125,
+            "next_low": 55.2400016784668,
+            "next_close": 55.689998626708984,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 55.459999084472656,
+            "next_high": 56.029998779296875,
+            "next_low": 55.029998779296875,
+            "next_close": 55.11000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 55.11000061035156,
+            "next_high": 56.08000183105469,
+            "next_low": 55.06999969482422,
+            "next_close": 55.58000183105469,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "da873506a5703c77fafb57d2edb261827ab492ba386f9694724de4b4a4f10c9f",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "CBSH",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-CBSH-5",
+      "symbol": "CBSH",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.993393+00:00",
+      "recorded_at": "2026-10-20T23:16:46.993393+00:00",
+      "evaluation_at": "2026-10-27T20:00:00+00:00",
+      "evaluation_session": "2026-10-27",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 55.58000183105469,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 5,
+          "symbol": "CBSH",
+          "name": "COMMERCE BANCSHARES INC /MO/",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - COMMERCE BANCSHARES INC /MO/ (0000022356) (Filer)",
+          "published_at": "2026-10-20T09:19:02-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 50,
+          "news_sentiment": "neutral",
+          "news_article_count": 0,
+          "overheat_risk": 10,
+          "final_score": 78.3,
+          "baseline_close": 55.58,
+          "day_change_pct": 0.85,
+          "five_day_change_pct": 2.38,
+          "volume_ratio_20d": 1.22,
+          "distance_20d_high_pct": -1.75
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 54.83000183105469,
+            "next_high": 54.97999954223633,
+            "next_low": 54.060001373291016,
+            "next_close": 54.290000915527344,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 53.65999984741211,
+            "next_high": 54.470001220703125,
+            "next_low": 53.59000015258789,
+            "next_close": 54.41999816894531,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 54.79999923706055,
+            "next_high": 55.630001068115234,
+            "next_low": 54.599998474121094,
+            "next_close": 55.560001373291016,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 55.84000015258789,
+            "next_high": 56.470001220703125,
+            "next_low": 55.2400016784668,
+            "next_close": 55.689998626708984,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 55.459999084472656,
+            "next_high": 56.029998779296875,
+            "next_low": 55.029998779296875,
+            "next_close": 55.11000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 55.11000061035156,
+            "next_high": 56.08000183105469,
+            "next_low": 55.06999969482422,
+            "next_close": 55.58000183105469,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "da873506a5703c77fafb57d2edb261827ab492ba386f9694724de4b4a4f10c9f",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "CBSH",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-CBSH-20",
+      "symbol": "CBSH",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:46.993393+00:00",
+      "recorded_at": "2026-10-20T23:16:46.993393+00:00",
+      "evaluation_at": "2026-11-17T21:00:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": "up",
+      "baseline_close": 55.58000183105469,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 5,
+          "symbol": "CBSH",
+          "name": "COMMERCE BANCSHARES INC /MO/",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - COMMERCE BANCSHARES INC /MO/ (0000022356) (Filer)",
+          "published_at": "2026-10-20T09:19:02-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 85,
+          "news_score": 50,
+          "news_sentiment": "neutral",
+          "news_article_count": 0,
+          "overheat_risk": 10,
+          "final_score": 78.3,
+          "baseline_close": 55.58,
+          "day_change_pct": 0.85,
+          "five_day_change_pct": 2.38,
+          "volume_ratio_20d": 1.22,
+          "distance_20d_high_pct": -1.75
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 54.83000183105469,
+            "next_high": 54.97999954223633,
+            "next_low": 54.060001373291016,
+            "next_close": 54.290000915527344,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 53.65999984741211,
+            "next_high": 54.470001220703125,
+            "next_low": 53.59000015258789,
+            "next_close": 54.41999816894531,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 54.79999923706055,
+            "next_high": 55.630001068115234,
+            "next_low": 54.599998474121094,
+            "next_close": 55.560001373291016,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 55.84000015258789,
+            "next_high": 56.470001220703125,
+            "next_low": 55.2400016784668,
+            "next_close": 55.689998626708984,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 55.459999084472656,
+            "next_high": 56.029998779296875,
+            "next_low": 55.029998779296875,
+            "next_close": 55.11000061035156,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 55.11000061035156,
+            "next_high": 56.08000183105469,
+            "next_low": 55.06999969482422,
+            "next_close": 55.58000183105469,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "da873506a5703c77fafb57d2edb261827ab492ba386f9694724de4b4a4f10c9f",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "CBSH",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-UAL-1",
+      "symbol": "UAL",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:47.325361+00:00",
+      "recorded_at": "2026-10-20T23:16:47.325361+00:00",
+      "evaluation_at": "2026-10-21T20:00:00+00:00",
+      "evaluation_session": "2026-10-21",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": "down",
+      "baseline_close": 97.7699966430664,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 6,
+          "symbol": "UAL",
+          "name": "United Airlines Holdings, Inc.",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - United Airlines Holdings, Inc. (0000100517) (Filer)",
+          "published_at": "2026-10-20T16:00:00-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 75,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 10,
+          "final_score": 77.8,
+          "baseline_close": 97.77,
+          "day_change_pct": 2.27,
+          "five_day_change_pct": -5.29,
+          "volume_ratio_20d": 1.51,
+          "distance_20d_high_pct": -15.5
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 104.20999908447266,
+            "next_high": 104.91000366210938,
+            "next_low": 101.7699966430664,
+            "next_close": 103.2300033569336,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 101.0999984741211,
+            "next_high": 101.91000366210938,
+            "next_low": 97.69999694824219,
+            "next_close": 98.95999908447266,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 98.95999908447266,
+            "next_high": 101.62999725341797,
+            "next_low": 98.12999725341797,
+            "next_close": 101.30999755859375,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 101.33999633789062,
+            "next_high": 102.75,
+            "next_low": 96.06999969482422,
+            "next_close": 96.0999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 97.56999969482422,
+            "next_high": 98.12999725341797,
+            "next_low": 95.2699966430664,
+            "next_close": 95.5999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 95.01000213623047,
+            "next_high": 101.875,
+            "next_low": 94.54000091552734,
+            "next_close": 97.7699966430664,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "a41502b698ac742e68a4210ff28f88b8f29ad2f5f95bc40ed1776781cbac88ed",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "UAL",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-UAL-5",
+      "symbol": "UAL",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:47.325361+00:00",
+      "recorded_at": "2026-10-20T23:16:47.325361+00:00",
+      "evaluation_at": "2026-10-27T20:00:00+00:00",
+      "evaluation_session": "2026-10-27",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": "down",
+      "baseline_close": 97.7699966430664,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 6,
+          "symbol": "UAL",
+          "name": "United Airlines Holdings, Inc.",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - United Airlines Holdings, Inc. (0000100517) (Filer)",
+          "published_at": "2026-10-20T16:00:00-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 75,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 10,
+          "final_score": 77.8,
+          "baseline_close": 97.77,
+          "day_change_pct": 2.27,
+          "five_day_change_pct": -5.29,
+          "volume_ratio_20d": 1.51,
+          "distance_20d_high_pct": -15.5
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 104.20999908447266,
+            "next_high": 104.91000366210938,
+            "next_low": 101.7699966430664,
+            "next_close": 103.2300033569336,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 101.0999984741211,
+            "next_high": 101.91000366210938,
+            "next_low": 97.69999694824219,
+            "next_close": 98.95999908447266,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 98.95999908447266,
+            "next_high": 101.62999725341797,
+            "next_low": 98.12999725341797,
+            "next_close": 101.30999755859375,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 101.33999633789062,
+            "next_high": 102.75,
+            "next_low": 96.06999969482422,
+            "next_close": 96.0999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 97.56999969482422,
+            "next_high": 98.12999725341797,
+            "next_low": 95.2699966430664,
+            "next_close": 95.5999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 95.01000213623047,
+            "next_high": 101.875,
+            "next_low": 94.54000091552734,
+            "next_close": 97.7699966430664,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "a41502b698ac742e68a4210ff28f88b8f29ad2f5f95bc40ed1776781cbac88ed",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "UAL",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-UAL-20",
+      "symbol": "UAL",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:47.325361+00:00",
+      "recorded_at": "2026-10-20T23:16:47.325361+00:00",
+      "evaluation_at": "2026-11-17T21:00:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": "down",
+      "baseline_close": 97.7699966430664,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "issued",
+      "issuance_reasons": [],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 6,
+          "symbol": "UAL",
+          "name": "United Airlines Holdings, Inc.",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - United Airlines Holdings, Inc. (0000100517) (Filer)",
+          "published_at": "2026-10-20T16:00:00-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 75,
+          "news_score": 60,
+          "news_sentiment": "neutral",
+          "news_article_count": 8,
+          "overheat_risk": 10,
+          "final_score": 77.8,
+          "baseline_close": 97.77,
+          "day_change_pct": 2.27,
+          "five_day_change_pct": -5.29,
+          "volume_ratio_20d": 1.51,
+          "distance_20d_high_pct": -15.5
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 104.20999908447266,
+            "next_high": 104.91000366210938,
+            "next_low": 101.7699966430664,
+            "next_close": 103.2300033569336,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 101.0999984741211,
+            "next_high": 101.91000366210938,
+            "next_low": 97.69999694824219,
+            "next_close": 98.95999908447266,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 98.95999908447266,
+            "next_high": 101.62999725341797,
+            "next_low": 98.12999725341797,
+            "next_close": 101.30999755859375,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 101.33999633789062,
+            "next_high": 102.75,
+            "next_low": 96.06999969482422,
+            "next_close": 96.0999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 97.56999969482422,
+            "next_high": 98.12999725341797,
+            "next_low": 95.2699966430664,
+            "next_close": 95.5999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 95.01000213623047,
+            "next_high": 101.875,
+            "next_low": 94.54000091552734,
+            "next_close": 97.7699966430664,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "a41502b698ac742e68a4210ff28f88b8f29ad2f5f95bc40ed1776781cbac88ed",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "UAL",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-DMLP-1",
+      "symbol": "DMLP",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:47.642419+00:00",
+      "recorded_at": "2026-10-20T23:16:47.642419+00:00",
+      "evaluation_at": "2026-10-21T20:00:00+00:00",
+      "evaluation_session": "2026-10-21",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": 30.15999984741211,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "within_1pct_deadband"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 7,
+          "symbol": "DMLP",
+          "name": "DORCHESTER MINERALS, L.P.",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - DORCHESTER MINERALS, L.P. (0001172358) (Filer)",
+          "published_at": "2026-10-20T11:46:46-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 65,
+          "news_score": 70,
+          "news_sentiment": "positive",
+          "news_article_count": 8,
+          "overheat_risk": 18,
+          "final_score": 77.1,
+          "baseline_close": 30.16,
+          "day_change_pct": 0.37,
+          "five_day_change_pct": 0.0,
+          "volume_ratio_20d": 0.82,
+          "distance_20d_high_pct": -1.11
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 29.889999389648438,
+            "next_high": 30.200000762939453,
+            "next_low": 29.75,
+            "next_close": 30.15999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 30.299999237060547,
+            "next_high": 30.299999237060547,
+            "next_low": 29.84000015258789,
+            "next_close": 30.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 29.860000610351562,
+            "next_high": 30.110000610351562,
+            "next_low": 29.719999313354492,
+            "next_close": 29.8700008392334,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 29.719999313354492,
+            "next_high": 30.5,
+            "next_low": 29.719999313354492,
+            "next_close": 30.43000030517578,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 30.15999984741211,
+            "next_high": 30.489999771118164,
+            "next_low": 29.829999923706055,
+            "next_close": 30.049999237060547,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 30.0,
+            "next_high": 30.41990089416504,
+            "next_low": 29.799999237060547,
+            "next_close": 30.15999984741211,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "0728f128386076ca24cb7ace631665bcbb0fbeec7f457861b82c0cbc1bc00758",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "DMLP",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-DMLP-5",
+      "symbol": "DMLP",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:47.642419+00:00",
+      "recorded_at": "2026-10-20T23:16:47.642419+00:00",
+      "evaluation_at": "2026-10-27T20:00:00+00:00",
+      "evaluation_session": "2026-10-27",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": 30.15999984741211,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "within_1pct_deadband"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 7,
+          "symbol": "DMLP",
+          "name": "DORCHESTER MINERALS, L.P.",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - DORCHESTER MINERALS, L.P. (0001172358) (Filer)",
+          "published_at": "2026-10-20T11:46:46-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 65,
+          "news_score": 70,
+          "news_sentiment": "positive",
+          "news_article_count": 8,
+          "overheat_risk": 18,
+          "final_score": 77.1,
+          "baseline_close": 30.16,
+          "day_change_pct": 0.37,
+          "five_day_change_pct": 0.0,
+          "volume_ratio_20d": 0.82,
+          "distance_20d_high_pct": -1.11
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 29.889999389648438,
+            "next_high": 30.200000762939453,
+            "next_low": 29.75,
+            "next_close": 30.15999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 30.299999237060547,
+            "next_high": 30.299999237060547,
+            "next_low": 29.84000015258789,
+            "next_close": 30.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 29.860000610351562,
+            "next_high": 30.110000610351562,
+            "next_low": 29.719999313354492,
+            "next_close": 29.8700008392334,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 29.719999313354492,
+            "next_high": 30.5,
+            "next_low": 29.719999313354492,
+            "next_close": 30.43000030517578,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 30.15999984741211,
+            "next_high": 30.489999771118164,
+            "next_low": 29.829999923706055,
+            "next_close": 30.049999237060547,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 30.0,
+            "next_high": 30.41990089416504,
+            "next_low": 29.799999237060547,
+            "next_close": 30.15999984741211,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "0728f128386076ca24cb7ace631665bcbb0fbeec7f457861b82c0cbc1bc00758",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "DMLP",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "US-2026-10-20-DMLP-20",
+      "symbol": "DMLP",
+      "market": "US",
+      "issued_at": "2026-10-20T23:16:47.642419+00:00",
+      "recorded_at": "2026-10-20T23:16:47.642419+00:00",
+      "evaluation_at": "2026-11-17T21:00:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": 30.15999984741211,
+      "baseline_session": "2026-10-20",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "within_1pct_deadband"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 7,
+          "symbol": "DMLP",
+          "name": "DORCHESTER MINERALS, L.P.",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "report_name": "8-K - DORCHESTER MINERALS, L.P. (0001172358) (Filer)",
+          "published_at": "2026-10-20T11:46:46-04:00",
+          "accession": "",
+          "sec_direction": "positive",
+          "material_score": 84,
+          "market_confirmation": 65,
+          "news_score": 70,
+          "news_sentiment": "positive",
+          "news_article_count": 8,
+          "overheat_risk": 18,
+          "final_score": 77.1,
+          "baseline_close": 30.16,
+          "day_change_pct": 0.37,
+          "five_day_change_pct": 0.0,
+          "volume_ratio_20d": 0.82,
+          "distance_20d_high_pct": -1.11
+        },
+        "bars": [
+          {
+            "session": "2026-10-13",
+            "next_open": 29.889999389648438,
+            "next_high": 30.200000762939453,
+            "next_low": 29.75,
+            "next_close": 30.15999984741211,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-14",
+            "next_open": 30.299999237060547,
+            "next_high": 30.299999237060547,
+            "next_low": 29.84000015258789,
+            "next_close": 30.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-15",
+            "next_open": 29.860000610351562,
+            "next_high": 30.110000610351562,
+            "next_low": 29.719999313354492,
+            "next_close": 29.8700008392334,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-16",
+            "next_open": 29.719999313354492,
+            "next_high": 30.5,
+            "next_low": 29.719999313354492,
+            "next_close": 30.43000030517578,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-19",
+            "next_open": 30.15999984741211,
+            "next_high": 30.489999771118164,
+            "next_low": 29.829999923706055,
+            "next_close": 30.049999237060547,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-10-20",
+            "next_open": 30.0,
+            "next_high": 30.41990089416504,
+            "next_low": 29.799999237060547,
+            "next_close": 30.15999984741211,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "us-top-validation-snapshot-v1",
+          "snapshot_at": "2026-10-20T19:16:44-04:00",
+          "signal_date": "2026-10-20",
+          "source_sec_generated_at": "2026-10-20T20:11:21+00:00",
+          "source_news_generated_at": "2026-10-20T20:33:08+00:00",
+          "score_model": "US_V2_SEC45_MARKET30_NEWS25_HEAT15",
+          "count": 7
+        }
+      },
+      "input_sha256": "0728f128386076ca24cb7ace631665bcbb0fbeec7f457861b82c0cbc1bc00758",
+      "snapshot_source": "data/history/top_us/2026-10-20.json",
+      "snapshot_sha256": "61288c1aaf115f4e76ca73a5a5e7dcaef41c873a6a2b4042bafe3f96b12ceac5",
+      "calendar": {
+        "name": "XNYS",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-19",
+          "2026-10-20"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-10-21",
+            "open": "2026-10-21T13:30:00+00:00",
+            "close": "2026-10-21T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-22",
+            "open": "2026-10-22T13:30:00+00:00",
+            "close": "2026-10-22T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-23",
+            "open": "2026-10-23T13:30:00+00:00",
+            "close": "2026-10-23T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-26",
+            "open": "2026-10-26T13:30:00+00:00",
+            "close": "2026-10-26T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-27",
+            "open": "2026-10-27T13:30:00+00:00",
+            "close": "2026-10-27T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-28",
+            "open": "2026-10-28T13:30:00+00:00",
+            "close": "2026-10-28T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-29",
+            "open": "2026-10-29T13:30:00+00:00",
+            "close": "2026-10-29T20:00:00+00:00"
+          },
+          {
+            "session": "2026-10-30",
+            "open": "2026-10-30T13:30:00+00:00",
+            "close": "2026-10-30T20:00:00+00:00"
+          },
+          {
+            "session": "2026-11-02",
+            "open": "2026-11-02T14:30:00+00:00",
+            "close": "2026-11-02T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-03",
+            "open": "2026-11-03T14:30:00+00:00",
+            "close": "2026-11-03T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-04",
+            "open": "2026-11-04T14:30:00+00:00",
+            "close": "2026-11-04T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-05",
+            "open": "2026-11-05T14:30:00+00:00",
+            "close": "2026-11-05T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-06",
+            "open": "2026-11-06T14:30:00+00:00",
+            "close": "2026-11-06T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-09",
+            "open": "2026-11-09T14:30:00+00:00",
+            "close": "2026-11-09T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-10",
+            "open": "2026-11-10T14:30:00+00:00",
+            "close": "2026-11-10T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T14:30:00+00:00",
+            "close": "2026-11-11T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T14:30:00+00:00",
+            "close": "2026-11-12T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T14:30:00+00:00",
+            "close": "2026-11-13T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T14:30:00+00:00",
+            "close": "2026-11-16T21:00:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T14:30:00+00:00",
+            "close": "2026-11-17T21:00:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "DMLP",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    }
+  ]
+}
