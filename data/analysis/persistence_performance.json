@@ -1,6 +1,6 @@
 {
   "version": "persistence-performance-v1",
-  "generated_at": "2026-10-27T10:37:42+09:00",
+  "generated_at": "2026-10-28T10:47:12+09:00",
   "sample_rules": {
     "minimum_for_best_stage": 10,
     "recommended_for_analysis": 30
@@ -460,7 +460,7 @@
         }
       }
     ],
-    "snapshot_count": 53,
+    "snapshot_count": 54,
     "evaluated_matched_count": 343,
     "unmatched_result_count": 0,
     "overall": {
@@ -635,20 +635,60 @@
     "market": "US",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 357,
-      "eligible_count": 340,
-      "excluded_count": 16,
+      "input_record_count": 364,
+      "eligible_count": 346,
+      "excluded_count": 17,
       "reason_counts": {
-        "invalid_ohlc": 16,
-        "invalid_return:gap_open_pct": 2,
-        "invalid_return:next_high_pct": 2,
-        "invalid_return:next_low_pct": 2,
-        "invalid_return:next_close_pct": 2
+        "invalid_ohlc": 17,
+        "invalid_return:gap_open_pct": 3,
+        "invalid_return:next_high_pct": 3,
+        "invalid_return:next_low_pct": 3,
+        "invalid_return:next_close_pct": 3
       }
     },
     "quarantine": [
       {
         "source_index": 0,
+        "reasons": [
+          "invalid_ohlc",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-10-26",
+          "rank": 1,
+          "symbol": "SSD",
+          "name": "Simpson Manufacturing Co., Inc.",
+          "market": "US",
+          "form": "8-K",
+          "event": "상승 촉매 가능",
+          "final_score": 88.8,
+          "material_score": 84,
+          "market_confirmation": 70,
+          "news_score": 90,
+          "news_sentiment": "positive",
+          "overheat_risk": 10,
+          "baseline_close": 181.99,
+          "status": "invalid",
+          "next_trade_date": "2026-10-27",
+          "next_open": 185.0,
+          "next_high": 192.69000244140625,
+          "next_low": 186.02999877929688,
+          "next_close": 191.66000366210938,
+          "next_volume": 486434.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_ohlc"
+          ]
+        }
+      },
+      {
+        "source_index": 7,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -688,7 +728,7 @@
         }
       },
       {
-        "source_index": 59,
+        "source_index": 66,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -728,7 +768,7 @@
         }
       },
       {
-        "source_index": 92,
+        "source_index": 99,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -761,7 +801,7 @@
         }
       },
       {
-        "source_index": 138,
+        "source_index": 145,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -794,7 +834,7 @@
         }
       },
       {
-        "source_index": 142,
+        "source_index": 149,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -827,7 +867,7 @@
         }
       },
       {
-        "source_index": 162,
+        "source_index": 169,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -860,7 +900,7 @@
         }
       },
       {
-        "source_index": 165,
+        "source_index": 172,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -893,7 +933,7 @@
         }
       },
       {
-        "source_index": 183,
+        "source_index": 190,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -926,7 +966,7 @@
         }
       },
       {
-        "source_index": 184,
+        "source_index": 191,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -959,7 +999,7 @@
         }
       },
       {
-        "source_index": 191,
+        "source_index": 198,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -992,7 +1032,7 @@
         }
       },
       {
-        "source_index": 194,
+        "source_index": 201,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1025,7 +1065,7 @@
         }
       },
       {
-        "source_index": 207,
+        "source_index": 214,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1058,7 +1098,7 @@
         }
       },
       {
-        "source_index": 247,
+        "source_index": 254,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1091,7 +1131,7 @@
         }
       },
       {
-        "source_index": 250,
+        "source_index": 257,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1124,7 +1164,7 @@
         }
       },
       {
-        "source_index": 262,
+        "source_index": 269,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1157,7 +1197,7 @@
         }
       },
       {
-        "source_index": 335,
+        "source_index": 342,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1190,34 +1230,34 @@
         }
       }
     ],
-    "snapshot_count": 52,
-    "evaluated_matched_count": 340,
+    "snapshot_count": 53,
+    "evaluated_matched_count": 346,
     "unmatched_result_count": 0,
     "overall": {
-      "count": 340,
+      "count": 346,
       "sample_status": "분석 가능",
       "close_win_rate_pct": 46.8,
-      "high_hit_3pct_rate_pct": 39.7,
-      "high_hit_5pct_rate_pct": 22.4,
-      "avg_close_return_pct": 1.19,
+      "high_hit_3pct_rate_pct": 39.6,
+      "high_hit_5pct_rate_pct": 22.5,
+      "avg_close_return_pct": 1.22,
       "median_close_return_pct": 0.0,
-      "avg_high_return_pct": 4.59,
-      "avg_low_return_pct": -2.34,
-      "avg_gap_open_pct": 0.64
+      "avg_high_return_pct": 4.61,
+      "avg_low_return_pct": -2.31,
+      "avg_gap_open_pct": 0.67
     },
     "by_persistence_stage": [
       {
         "label": "첫 등장",
-        "count": 319,
+        "count": 325,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.4,
-        "high_hit_3pct_rate_pct": 39.5,
-        "high_hit_5pct_rate_pct": 22.6,
-        "avg_close_return_pct": 1.26,
+        "close_win_rate_pct": 46.5,
+        "high_hit_3pct_rate_pct": 39.4,
+        "high_hit_5pct_rate_pct": 22.8,
+        "avg_close_return_pct": 1.29,
         "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.74,
-        "avg_low_return_pct": -2.3,
-        "avg_gap_open_pct": 0.71
+        "avg_high_return_pct": 4.76,
+        "avg_low_return_pct": -2.28,
+        "avg_gap_open_pct": 0.74
       },
       {
         "label": "2회 연속",
@@ -1249,16 +1289,16 @@
     "by_recent_10_frequency": [
       {
         "label": "최근10회 중 1회",
-        "count": 327,
+        "count": 333,
         "sample_status": "분석 가능",
         "close_win_rate_pct": 46.5,
-        "high_hit_3pct_rate_pct": 39.8,
-        "high_hit_5pct_rate_pct": 22.6,
-        "avg_close_return_pct": 1.24,
+        "high_hit_3pct_rate_pct": 39.6,
+        "high_hit_5pct_rate_pct": 22.8,
+        "avg_close_return_pct": 1.27,
         "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.69,
-        "avg_low_return_pct": -2.3,
-        "avg_gap_open_pct": 0.68
+        "avg_high_return_pct": 4.71,
+        "avg_low_return_pct": -2.27,
+        "avg_gap_open_pct": 0.72
       },
       {
         "label": "최근10회 중 2–3회",
@@ -1277,16 +1317,16 @@
     "by_appearance_number": [
       {
         "label": "1번째 등장",
-        "count": 319,
+        "count": 325,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.4,
-        "high_hit_3pct_rate_pct": 39.5,
-        "high_hit_5pct_rate_pct": 22.6,
-        "avg_close_return_pct": 1.26,
+        "close_win_rate_pct": 46.5,
+        "high_hit_3pct_rate_pct": 39.4,
+        "high_hit_5pct_rate_pct": 22.8,
+        "avg_close_return_pct": 1.29,
         "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.74,
-        "avg_low_return_pct": -2.3,
-        "avg_gap_open_pct": 0.71
+        "avg_high_return_pct": 4.76,
+        "avg_low_return_pct": -2.28,
+        "avg_gap_open_pct": 0.74
       },
       {
         "label": "2번째 등장",
@@ -1304,9 +1344,9 @@
     ],
     "best_persistence_stage": {
       "label": "첫 등장",
-      "count": 319,
-      "avg_close_return_pct": 1.26,
-      "close_win_rate_pct": 46.4
+      "count": 325,
+      "avg_close_return_pct": 1.29,
+      "close_win_rate_pct": 46.5
     }
   }
 }
