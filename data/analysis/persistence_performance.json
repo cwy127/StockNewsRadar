@@ -1,6 +1,6 @@
 {
   "version": "persistence-performance-v1",
-  "generated_at": "2026-11-07T12:14:42+09:00",
+  "generated_at": "2026-11-10T13:48:10+09:00",
   "sample_rules": {
     "minimum_for_best_stage": 10,
     "recommended_for_analysis": 30
@@ -15,22 +15,302 @@
     "market": "KR",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 420,
+      "input_record_count": 427,
       "eligible_count": 394,
-      "excluded_count": 26,
+      "excluded_count": 33,
       "reason_counts": {
-        "invalid_price:next_open": 26,
-        "invalid_price:next_high": 26,
-        "invalid_price:next_low": 26,
-        "invalid_return:gap_open_pct": 12,
-        "invalid_return:next_high_pct": 12,
-        "invalid_return:next_low_pct": 12,
-        "invalid_return:next_close_pct": 12
+        "invalid_price:next_open": 33,
+        "invalid_price:next_high": 33,
+        "invalid_price:next_low": 33,
+        "invalid_return:gap_open_pct": 19,
+        "invalid_return:next_high_pct": 19,
+        "invalid_return:next_low_pct": 19,
+        "invalid_return:next_close_pct": 19
       }
     },
     "quarantine": [
       {
-        "source_index": 28,
+        "source_index": 0,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-07",
+          "rank": 1,
+          "symbol": "038010",
+          "name": "제일테크노스",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "final_score": 75.8,
+          "material_score": 87,
+          "market_confirmation": 74,
+          "overheat_risk": 10,
+          "baseline_close": 5410.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-09",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 5350.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 1,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-07",
+          "rank": 2,
+          "symbol": "072020",
+          "name": "중앙백신",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "final_score": 75.8,
+          "material_score": 87,
+          "market_confirmation": 74,
+          "overheat_risk": 10,
+          "baseline_close": 8990.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-09",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 8920.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 2,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-07",
+          "rank": 3,
+          "symbol": "126720",
+          "name": "수산인더스트리",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "final_score": 75.8,
+          "material_score": 87,
+          "market_confirmation": 74,
+          "overheat_risk": 10,
+          "baseline_close": 18980.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-09",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 18510.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 3,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-07",
+          "rank": 4,
+          "symbol": "294870",
+          "name": "IPARK현대산업개발",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "final_score": 75.8,
+          "material_score": 87,
+          "market_confirmation": 74,
+          "overheat_risk": 10,
+          "baseline_close": 25200.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-09",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 23400.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 4,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-07",
+          "rank": 5,
+          "symbol": "113810",
+          "name": "디젠스",
+          "market": "KOSDAQ",
+          "event": "자사주 취득",
+          "final_score": 70.3,
+          "material_score": 83,
+          "market_confirmation": 75,
+          "overheat_risk": 28,
+          "baseline_close": 2990.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-09",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 3130.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 5,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-07",
+          "rank": 6,
+          "symbol": "006840",
+          "name": "AK홀딩스",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "final_score": 68.6,
+          "material_score": 87,
+          "market_confirmation": 65,
+          "overheat_risk": 10,
+          "baseline_close": 6370.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-09",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 6280.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 6,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-07",
+          "rank": 7,
+          "symbol": "440110",
+          "name": "파두",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "final_score": 68.0,
+          "material_score": 87,
+          "market_confirmation": 52,
+          "overheat_risk": 10,
+          "baseline_close": 37000.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-09",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 32850.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 35,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -70,7 +350,7 @@
         }
       },
       {
-        "source_index": 30,
+        "source_index": 37,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -110,7 +390,7 @@
         }
       },
       {
-        "source_index": 31,
+        "source_index": 38,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -150,7 +430,7 @@
         }
       },
       {
-        "source_index": 32,
+        "source_index": 39,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -190,7 +470,7 @@
         }
       },
       {
-        "source_index": 33,
+        "source_index": 40,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -230,7 +510,7 @@
         }
       },
       {
-        "source_index": 34,
+        "source_index": 41,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -270,7 +550,7 @@
         }
       },
       {
-        "source_index": 35,
+        "source_index": 42,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -310,7 +590,7 @@
         }
       },
       {
-        "source_index": 36,
+        "source_index": 43,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -350,7 +630,7 @@
         }
       },
       {
-        "source_index": 37,
+        "source_index": 44,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -390,7 +670,7 @@
         }
       },
       {
-        "source_index": 38,
+        "source_index": 45,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -430,7 +710,7 @@
         }
       },
       {
-        "source_index": 39,
+        "source_index": 46,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -470,7 +750,7 @@
         }
       },
       {
-        "source_index": 40,
+        "source_index": 47,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -510,7 +790,7 @@
         }
       },
       {
-        "source_index": 350,
+        "source_index": 357,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -541,7 +821,7 @@
         }
       },
       {
-        "source_index": 351,
+        "source_index": 358,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -572,7 +852,7 @@
         }
       },
       {
-        "source_index": 352,
+        "source_index": 359,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -603,7 +883,7 @@
         }
       },
       {
-        "source_index": 353,
+        "source_index": 360,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -634,7 +914,7 @@
         }
       },
       {
-        "source_index": 354,
+        "source_index": 361,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -665,7 +945,7 @@
         }
       },
       {
-        "source_index": 355,
+        "source_index": 362,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -696,7 +976,7 @@
         }
       },
       {
-        "source_index": 356,
+        "source_index": 363,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -727,7 +1007,7 @@
         }
       },
       {
-        "source_index": 357,
+        "source_index": 364,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -758,7 +1038,7 @@
         }
       },
       {
-        "source_index": 358,
+        "source_index": 365,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -789,7 +1069,7 @@
         }
       },
       {
-        "source_index": 359,
+        "source_index": 366,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -820,7 +1100,7 @@
         }
       },
       {
-        "source_index": 360,
+        "source_index": 367,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -851,7 +1131,7 @@
         }
       },
       {
-        "source_index": 361,
+        "source_index": 368,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -882,7 +1162,7 @@
         }
       },
       {
-        "source_index": 362,
+        "source_index": 369,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -913,7 +1193,7 @@
         }
       },
       {
-        "source_index": 363,
+        "source_index": 370,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -944,7 +1224,7 @@
         }
       }
     ],
-    "snapshot_count": 62,
+    "snapshot_count": 63,
     "evaluated_matched_count": 394,
     "unmatched_result_count": 0,
     "overall": {
@@ -1119,8 +1399,8 @@
     "market": "US",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 420,
-      "eligible_count": 399,
+      "input_record_count": 427,
+      "eligible_count": 406,
       "excluded_count": 20,
       "reason_counts": {
         "invalid_ohlc": 20,
@@ -1132,7 +1412,7 @@
     },
     "quarantine": [
       {
-        "source_index": 21,
+        "source_index": 28,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1172,7 +1452,7 @@
         }
       },
       {
-        "source_index": 23,
+        "source_index": 30,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1212,7 +1492,7 @@
         }
       },
       {
-        "source_index": 38,
+        "source_index": 45,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1252,7 +1532,7 @@
         }
       },
       {
-        "source_index": 56,
+        "source_index": 63,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1292,7 +1572,7 @@
         }
       },
       {
-        "source_index": 63,
+        "source_index": 70,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1332,7 +1612,7 @@
         }
       },
       {
-        "source_index": 122,
+        "source_index": 129,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1372,7 +1652,7 @@
         }
       },
       {
-        "source_index": 155,
+        "source_index": 162,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1405,7 +1685,7 @@
         }
       },
       {
-        "source_index": 201,
+        "source_index": 208,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1438,7 +1718,7 @@
         }
       },
       {
-        "source_index": 205,
+        "source_index": 212,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1471,7 +1751,7 @@
         }
       },
       {
-        "source_index": 225,
+        "source_index": 232,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1504,7 +1784,7 @@
         }
       },
       {
-        "source_index": 228,
+        "source_index": 235,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1537,7 +1817,7 @@
         }
       },
       {
-        "source_index": 246,
+        "source_index": 253,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1570,7 +1850,7 @@
         }
       },
       {
-        "source_index": 247,
+        "source_index": 254,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1603,7 +1883,7 @@
         }
       },
       {
-        "source_index": 254,
+        "source_index": 261,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1636,7 +1916,7 @@
         }
       },
       {
-        "source_index": 257,
+        "source_index": 264,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1669,7 +1949,7 @@
         }
       },
       {
-        "source_index": 270,
+        "source_index": 277,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1702,7 +1982,7 @@
         }
       },
       {
-        "source_index": 310,
+        "source_index": 317,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1735,7 +2015,7 @@
         }
       },
       {
-        "source_index": 313,
+        "source_index": 320,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1768,7 +2048,7 @@
         }
       },
       {
-        "source_index": 325,
+        "source_index": 332,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1801,7 +2081,7 @@
         }
       },
       {
-        "source_index": 398,
+        "source_index": 405,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1834,47 +2114,47 @@
         }
       }
     ],
-    "snapshot_count": 61,
-    "evaluated_matched_count": 399,
+    "snapshot_count": 62,
+    "evaluated_matched_count": 406,
     "unmatched_result_count": 0,
     "overall": {
-      "count": 399,
+      "count": 406,
       "sample_status": "분석 가능",
-      "close_win_rate_pct": 46.6,
-      "high_hit_3pct_rate_pct": 40.1,
-      "high_hit_5pct_rate_pct": 24.3,
-      "avg_close_return_pct": 1.02,
+      "close_win_rate_pct": 47.3,
+      "high_hit_3pct_rate_pct": 40.6,
+      "high_hit_5pct_rate_pct": 24.4,
+      "avg_close_return_pct": 0.95,
       "median_close_return_pct": 0.0,
       "avg_high_return_pct": 4.5,
-      "avg_low_return_pct": -2.5,
-      "avg_gap_open_pct": 0.52
+      "avg_low_return_pct": -2.58,
+      "avg_gap_open_pct": 0.54
     },
     "by_persistence_stage": [
       {
         "label": "첫 등장",
-        "count": 375,
+        "count": 381,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.4,
-        "high_hit_3pct_rate_pct": 39.7,
-        "high_hit_5pct_rate_pct": 24.5,
-        "avg_close_return_pct": 1.03,
-        "median_close_return_pct": 0.0,
+        "close_win_rate_pct": 47.0,
+        "high_hit_3pct_rate_pct": 40.2,
+        "high_hit_5pct_rate_pct": 24.7,
+        "avg_close_return_pct": 0.94,
+        "median_close_return_pct": -0.0,
         "avg_high_return_pct": 4.56,
-        "avg_low_return_pct": -2.47,
-        "avg_gap_open_pct": 0.58
+        "avg_low_return_pct": -2.55,
+        "avg_gap_open_pct": 0.59
       },
       {
         "label": "2회 연속",
-        "count": 7,
+        "count": 8,
         "sample_status": "표본 부족",
-        "close_win_rate_pct": 57.1,
-        "high_hit_3pct_rate_pct": 42.9,
-        "high_hit_5pct_rate_pct": 28.6,
-        "avg_close_return_pct": -0.63,
-        "median_close_return_pct": 0.67,
-        "avg_high_return_pct": 2.03,
+        "close_win_rate_pct": 62.5,
+        "high_hit_3pct_rate_pct": 50.0,
+        "high_hit_5pct_rate_pct": 25.0,
+        "avg_close_return_pct": -0.24,
+        "median_close_return_pct": 0.8,
+        "avg_high_return_pct": 2.36,
         "avg_low_return_pct": -4.07,
-        "avg_gap_open_pct": -0.48
+        "avg_gap_open_pct": -0.28
       },
       {
         "label": "재등장",
@@ -1893,57 +2173,57 @@
     "by_recent_10_frequency": [
       {
         "label": "최근10회 중 1회",
-        "count": 386,
+        "count": 392,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.4,
-        "high_hit_3pct_rate_pct": 40.2,
-        "high_hit_5pct_rate_pct": 24.6,
-        "avg_close_return_pct": 1.07,
-        "median_close_return_pct": -0.04,
+        "close_win_rate_pct": 46.9,
+        "high_hit_3pct_rate_pct": 40.6,
+        "high_hit_5pct_rate_pct": 24.7,
+        "avg_close_return_pct": 0.98,
+        "median_close_return_pct": 0.0,
         "avg_high_return_pct": 4.58,
-        "avg_low_return_pct": -2.47,
-        "avg_gap_open_pct": 0.56
+        "avg_low_return_pct": -2.55,
+        "avg_gap_open_pct": 0.57
       },
       {
         "label": "최근10회 중 2–3회",
-        "count": 13,
+        "count": 14,
         "sample_status": "초기 참고",
-        "close_win_rate_pct": 53.8,
-        "high_hit_3pct_rate_pct": 38.5,
-        "high_hit_5pct_rate_pct": 15.4,
-        "avg_close_return_pct": -0.17,
-        "median_close_return_pct": 0.63,
-        "avg_high_return_pct": 2.07,
-        "avg_low_return_pct": -3.33,
-        "avg_gap_open_pct": -0.4
+        "close_win_rate_pct": 57.1,
+        "high_hit_3pct_rate_pct": 42.9,
+        "high_hit_5pct_rate_pct": 14.3,
+        "avg_close_return_pct": 0.02,
+        "median_close_return_pct": 0.65,
+        "avg_high_return_pct": 2.26,
+        "avg_low_return_pct": -3.38,
+        "avg_gap_open_pct": -0.29
       }
     ],
     "by_appearance_number": [
       {
         "label": "1번째 등장",
-        "count": 375,
+        "count": 381,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.4,
-        "high_hit_3pct_rate_pct": 39.7,
-        "high_hit_5pct_rate_pct": 24.5,
-        "avg_close_return_pct": 1.03,
-        "median_close_return_pct": 0.0,
+        "close_win_rate_pct": 47.0,
+        "high_hit_3pct_rate_pct": 40.2,
+        "high_hit_5pct_rate_pct": 24.7,
+        "avg_close_return_pct": 0.94,
+        "median_close_return_pct": -0.0,
         "avg_high_return_pct": 4.56,
-        "avg_low_return_pct": -2.47,
-        "avg_gap_open_pct": 0.58
+        "avg_low_return_pct": -2.55,
+        "avg_gap_open_pct": 0.59
       },
       {
         "label": "2번째 등장",
-        "count": 23,
+        "count": 24,
         "sample_status": "초기 참고",
-        "close_win_rate_pct": 47.8,
-        "high_hit_3pct_rate_pct": 43.5,
-        "high_hit_5pct_rate_pct": 17.4,
-        "avg_close_return_pct": -0.07,
-        "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 2.48,
-        "avg_low_return_pct": -3.07,
-        "avg_gap_open_pct": -0.31
+        "close_win_rate_pct": 50.0,
+        "high_hit_3pct_rate_pct": 45.8,
+        "high_hit_5pct_rate_pct": 16.7,
+        "avg_close_return_pct": 0.04,
+        "median_close_return_pct": 0.32,
+        "avg_high_return_pct": 2.57,
+        "avg_low_return_pct": -3.12,
+        "avg_gap_open_pct": -0.25
       },
       {
         "label": "3–5번째 등장",
