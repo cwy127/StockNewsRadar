@@ -1,0 +1,4437 @@
+{
+  "version": "prospective-research-v1",
+  "created_at": "2026-11-10T20:59:56.487508+00:00",
+  "predictions": [
+    {
+      "id": "KR-2026-11-11-006360-1",
+      "symbol": "006360",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:00.718184+00:00",
+      "recorded_at": "2026-11-10T21:00:00.718184+00:00",
+      "evaluation_at": "2026-11-11T06:30:00+00:00",
+      "evaluation_session": "2026-11-11",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 1,
+          "symbol": "006360",
+          "name": "GS건설",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261109",
+          "receipt_no": "20261109800420",
+          "material_score": 87,
+          "market_confirmation": 85,
+          "overheat_risk": 10,
+          "final_score": 79.6,
+          "baseline_close": 30300.0,
+          "day_change_pct": 1.85,
+          "five_day_change_pct": 5.94,
+          "volume_ratio_20d": 1.89,
+          "distance_20d_high_pct": -3.81
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 28650.0,
+            "next_high": 29500.0,
+            "next_low": 27450.0,
+            "next_close": 27700.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 27800.0,
+            "next_high": 28875.0,
+            "next_low": 26850.0,
+            "next_close": 28700.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 29200.0,
+            "next_high": 29450.0,
+            "next_low": 27500.0,
+            "next_close": 27950.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 26150.0,
+            "next_high": 30600.0,
+            "next_low": 25650.0,
+            "next_close": 29750.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 29750.0,
+            "next_high": 31500.0,
+            "next_low": 29200.0,
+            "next_close": 30300.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "642e3e9e22efad1eab9fe29c09a3ef0c818b4ceeeadfda3e46f3bbb31f67d638",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "006360.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-006360-5",
+      "symbol": "006360",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:00.718184+00:00",
+      "recorded_at": "2026-11-10T21:00:00.718184+00:00",
+      "evaluation_at": "2026-11-17T06:30:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 1,
+          "symbol": "006360",
+          "name": "GS건설",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261109",
+          "receipt_no": "20261109800420",
+          "material_score": 87,
+          "market_confirmation": 85,
+          "overheat_risk": 10,
+          "final_score": 79.6,
+          "baseline_close": 30300.0,
+          "day_change_pct": 1.85,
+          "five_day_change_pct": 5.94,
+          "volume_ratio_20d": 1.89,
+          "distance_20d_high_pct": -3.81
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 28650.0,
+            "next_high": 29500.0,
+            "next_low": 27450.0,
+            "next_close": 27700.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 27800.0,
+            "next_high": 28875.0,
+            "next_low": 26850.0,
+            "next_close": 28700.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 29200.0,
+            "next_high": 29450.0,
+            "next_low": 27500.0,
+            "next_close": 27950.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 26150.0,
+            "next_high": 30600.0,
+            "next_low": 25650.0,
+            "next_close": 29750.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 29750.0,
+            "next_high": 31500.0,
+            "next_low": 29200.0,
+            "next_close": 30300.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "642e3e9e22efad1eab9fe29c09a3ef0c818b4ceeeadfda3e46f3bbb31f67d638",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "006360.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-006360-20",
+      "symbol": "006360",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:00.718184+00:00",
+      "recorded_at": "2026-11-10T21:00:00.718184+00:00",
+      "evaluation_at": "2026-12-08T06:30:00+00:00",
+      "evaluation_session": "2026-12-08",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 1,
+          "symbol": "006360",
+          "name": "GS건설",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261109",
+          "receipt_no": "20261109800420",
+          "material_score": 87,
+          "market_confirmation": 85,
+          "overheat_risk": 10,
+          "final_score": 79.6,
+          "baseline_close": 30300.0,
+          "day_change_pct": 1.85,
+          "five_day_change_pct": 5.94,
+          "volume_ratio_20d": 1.89,
+          "distance_20d_high_pct": -3.81
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 28650.0,
+            "next_high": 29500.0,
+            "next_low": 27450.0,
+            "next_close": 27700.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 27800.0,
+            "next_high": 28875.0,
+            "next_low": 26850.0,
+            "next_close": 28700.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 29200.0,
+            "next_high": 29450.0,
+            "next_low": 27500.0,
+            "next_close": 27950.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 26150.0,
+            "next_high": 30600.0,
+            "next_low": 25650.0,
+            "next_close": 29750.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 29750.0,
+            "next_high": 31500.0,
+            "next_low": 29200.0,
+            "next_close": 30300.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "642e3e9e22efad1eab9fe29c09a3ef0c818b4ceeeadfda3e46f3bbb31f67d638",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "006360.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-296640-1",
+      "symbol": "296640",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.065697+00:00",
+      "recorded_at": "2026-11-10T21:00:01.065697+00:00",
+      "evaluation_at": "2026-11-11T06:30:00+00:00",
+      "evaluation_session": "2026-11-11",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 2,
+          "symbol": "296640",
+          "name": "이노에이엑스",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "report_name": "[기재정정]단일판매ㆍ공급계약체결",
+          "published_at": "20261109",
+          "receipt_no": "20261109900590",
+          "material_score": 87,
+          "market_confirmation": 74,
+          "overheat_risk": 10,
+          "final_score": 75.8,
+          "baseline_close": 6990.0,
+          "day_change_pct": -0.14,
+          "five_day_change_pct": 0.58,
+          "volume_ratio_20d": 1.76,
+          "distance_20d_high_pct": -2.78
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 6800.0,
+            "next_high": 7090.0,
+            "next_low": 6520.0,
+            "next_close": 6950.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 6950.0,
+            "next_high": 6950.0,
+            "next_low": 6480.0,
+            "next_close": 6900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 7130.0,
+            "next_high": 7130.0,
+            "next_low": 6590.0,
+            "next_close": 7000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 6990.0,
+            "next_high": 7000.0,
+            "next_low": 6320.0,
+            "next_close": 7000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 7000.0,
+            "next_high": 7100.0,
+            "next_low": 6770.0,
+            "next_close": 6990.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "21d93b393f0d6adb9befcad0513f8aa0c4f7ac8ed30456005cd58832f89ab5c9",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "296640.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-296640-5",
+      "symbol": "296640",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.065697+00:00",
+      "recorded_at": "2026-11-10T21:00:01.065697+00:00",
+      "evaluation_at": "2026-11-17T06:30:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 2,
+          "symbol": "296640",
+          "name": "이노에이엑스",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "report_name": "[기재정정]단일판매ㆍ공급계약체결",
+          "published_at": "20261109",
+          "receipt_no": "20261109900590",
+          "material_score": 87,
+          "market_confirmation": 74,
+          "overheat_risk": 10,
+          "final_score": 75.8,
+          "baseline_close": 6990.0,
+          "day_change_pct": -0.14,
+          "five_day_change_pct": 0.58,
+          "volume_ratio_20d": 1.76,
+          "distance_20d_high_pct": -2.78
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 6800.0,
+            "next_high": 7090.0,
+            "next_low": 6520.0,
+            "next_close": 6950.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 6950.0,
+            "next_high": 6950.0,
+            "next_low": 6480.0,
+            "next_close": 6900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 7130.0,
+            "next_high": 7130.0,
+            "next_low": 6590.0,
+            "next_close": 7000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 6990.0,
+            "next_high": 7000.0,
+            "next_low": 6320.0,
+            "next_close": 7000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 7000.0,
+            "next_high": 7100.0,
+            "next_low": 6770.0,
+            "next_close": 6990.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "21d93b393f0d6adb9befcad0513f8aa0c4f7ac8ed30456005cd58832f89ab5c9",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "296640.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-296640-20",
+      "symbol": "296640",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.065697+00:00",
+      "recorded_at": "2026-11-10T21:00:01.065697+00:00",
+      "evaluation_at": "2026-12-08T06:30:00+00:00",
+      "evaluation_session": "2026-12-08",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 2,
+          "symbol": "296640",
+          "name": "이노에이엑스",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "report_name": "[기재정정]단일판매ㆍ공급계약체결",
+          "published_at": "20261109",
+          "receipt_no": "20261109900590",
+          "material_score": 87,
+          "market_confirmation": 74,
+          "overheat_risk": 10,
+          "final_score": 75.8,
+          "baseline_close": 6990.0,
+          "day_change_pct": -0.14,
+          "five_day_change_pct": 0.58,
+          "volume_ratio_20d": 1.76,
+          "distance_20d_high_pct": -2.78
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 6800.0,
+            "next_high": 7090.0,
+            "next_low": 6520.0,
+            "next_close": 6950.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 6950.0,
+            "next_high": 6950.0,
+            "next_low": 6480.0,
+            "next_close": 6900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 7130.0,
+            "next_high": 7130.0,
+            "next_low": 6590.0,
+            "next_close": 7000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 6990.0,
+            "next_high": 7000.0,
+            "next_low": 6320.0,
+            "next_close": 7000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 7000.0,
+            "next_high": 7100.0,
+            "next_low": 6770.0,
+            "next_close": 6990.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "21d93b393f0d6adb9befcad0513f8aa0c4f7ac8ed30456005cd58832f89ab5c9",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "296640.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-267270-1",
+      "symbol": "267270",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.364819+00:00",
+      "recorded_at": "2026-11-10T21:00:01.364819+00:00",
+      "evaluation_at": "2026-11-11T06:30:00+00:00",
+      "evaluation_session": "2026-11-11",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 3,
+          "symbol": "267270",
+          "name": "HD건설기계",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110800183",
+          "material_score": 87,
+          "market_confirmation": 65,
+          "overheat_risk": 10,
+          "final_score": 68.6,
+          "baseline_close": 82100.0,
+          "day_change_pct": 2.63,
+          "five_day_change_pct": 1.86,
+          "volume_ratio_20d": 1.14,
+          "distance_20d_high_pct": -20.98
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 81000.0,
+            "next_high": 82300.0,
+            "next_low": 79700.0,
+            "next_close": 80900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 82300.0,
+            "next_high": 84100.0,
+            "next_low": 78400.0,
+            "next_close": 82500.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 86100.0,
+            "next_high": 88500.0,
+            "next_low": 81700.0,
+            "next_close": 82900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 77000.0,
+            "next_high": 83700.0,
+            "next_low": 76200.0,
+            "next_close": 80000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 78300.0,
+            "next_high": 86700.0,
+            "next_low": 77600.0,
+            "next_close": 82100.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "fe87f324960bea002a3abedc3c7842db49c66484430f33ae2bd8a1bc778452b8",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "267270.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-267270-5",
+      "symbol": "267270",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.364819+00:00",
+      "recorded_at": "2026-11-10T21:00:01.364819+00:00",
+      "evaluation_at": "2026-11-17T06:30:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 3,
+          "symbol": "267270",
+          "name": "HD건설기계",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110800183",
+          "material_score": 87,
+          "market_confirmation": 65,
+          "overheat_risk": 10,
+          "final_score": 68.6,
+          "baseline_close": 82100.0,
+          "day_change_pct": 2.63,
+          "five_day_change_pct": 1.86,
+          "volume_ratio_20d": 1.14,
+          "distance_20d_high_pct": -20.98
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 81000.0,
+            "next_high": 82300.0,
+            "next_low": 79700.0,
+            "next_close": 80900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 82300.0,
+            "next_high": 84100.0,
+            "next_low": 78400.0,
+            "next_close": 82500.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 86100.0,
+            "next_high": 88500.0,
+            "next_low": 81700.0,
+            "next_close": 82900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 77000.0,
+            "next_high": 83700.0,
+            "next_low": 76200.0,
+            "next_close": 80000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 78300.0,
+            "next_high": 86700.0,
+            "next_low": 77600.0,
+            "next_close": 82100.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "fe87f324960bea002a3abedc3c7842db49c66484430f33ae2bd8a1bc778452b8",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "267270.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-267270-20",
+      "symbol": "267270",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.364819+00:00",
+      "recorded_at": "2026-11-10T21:00:01.364819+00:00",
+      "evaluation_at": "2026-12-08T06:30:00+00:00",
+      "evaluation_session": "2026-12-08",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 3,
+          "symbol": "267270",
+          "name": "HD건설기계",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110800183",
+          "material_score": 87,
+          "market_confirmation": 65,
+          "overheat_risk": 10,
+          "final_score": 68.6,
+          "baseline_close": 82100.0,
+          "day_change_pct": 2.63,
+          "five_day_change_pct": 1.86,
+          "volume_ratio_20d": 1.14,
+          "distance_20d_high_pct": -20.98
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 81000.0,
+            "next_high": 82300.0,
+            "next_low": 79700.0,
+            "next_close": 80900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 82300.0,
+            "next_high": 84100.0,
+            "next_low": 78400.0,
+            "next_close": 82500.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 86100.0,
+            "next_high": 88500.0,
+            "next_low": 81700.0,
+            "next_close": 82900.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 77000.0,
+            "next_high": 83700.0,
+            "next_low": 76200.0,
+            "next_close": 80000.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 78300.0,
+            "next_high": 86700.0,
+            "next_low": 77600.0,
+            "next_close": 82100.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "fe87f324960bea002a3abedc3c7842db49c66484430f33ae2bd8a1bc778452b8",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "267270.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-137310-1",
+      "symbol": "137310",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.659980+00:00",
+      "recorded_at": "2026-11-10T21:00:01.659980+00:00",
+      "evaluation_at": "2026-11-11T06:30:00+00:00",
+      "evaluation_session": "2026-11-11",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 4,
+          "symbol": "137310",
+          "name": "에스디바이오센서",
+          "market": "KOSPI",
+          "event": "자사주 취득",
+          "report_name": "[기재정정]주요사항보고서(자기주식취득결정)",
+          "published_at": "20261110",
+          "receipt_no": "20261110000158",
+          "material_score": 83,
+          "market_confirmation": 65,
+          "overheat_risk": 10,
+          "final_score": 66.4,
+          "baseline_close": 6650.0,
+          "day_change_pct": 1.37,
+          "five_day_change_pct": 3.26,
+          "volume_ratio_20d": 1.08,
+          "distance_20d_high_pct": -5.81
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 6360.0,
+            "next_high": 6420.0,
+            "next_low": 6310.0,
+            "next_close": 6390.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 6380.0,
+            "next_high": 6480.0,
+            "next_low": 6250.0,
+            "next_close": 6470.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 6510.0,
+            "next_high": 6830.0,
+            "next_low": 6510.0,
+            "next_close": 6680.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 6400.0,
+            "next_high": 6690.0,
+            "next_low": 6350.0,
+            "next_close": 6560.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 6580.0,
+            "next_high": 6800.0,
+            "next_low": 6460.0,
+            "next_close": 6650.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "14cbbea1985928309fb379e3ba71d6b0da558215815c7696d03d48267e0a3a3f",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "137310.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-137310-5",
+      "symbol": "137310",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.659980+00:00",
+      "recorded_at": "2026-11-10T21:00:01.659980+00:00",
+      "evaluation_at": "2026-11-17T06:30:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 4,
+          "symbol": "137310",
+          "name": "에스디바이오센서",
+          "market": "KOSPI",
+          "event": "자사주 취득",
+          "report_name": "[기재정정]주요사항보고서(자기주식취득결정)",
+          "published_at": "20261110",
+          "receipt_no": "20261110000158",
+          "material_score": 83,
+          "market_confirmation": 65,
+          "overheat_risk": 10,
+          "final_score": 66.4,
+          "baseline_close": 6650.0,
+          "day_change_pct": 1.37,
+          "five_day_change_pct": 3.26,
+          "volume_ratio_20d": 1.08,
+          "distance_20d_high_pct": -5.81
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 6360.0,
+            "next_high": 6420.0,
+            "next_low": 6310.0,
+            "next_close": 6390.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 6380.0,
+            "next_high": 6480.0,
+            "next_low": 6250.0,
+            "next_close": 6470.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 6510.0,
+            "next_high": 6830.0,
+            "next_low": 6510.0,
+            "next_close": 6680.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 6400.0,
+            "next_high": 6690.0,
+            "next_low": 6350.0,
+            "next_close": 6560.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 6580.0,
+            "next_high": 6800.0,
+            "next_low": 6460.0,
+            "next_close": 6650.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "14cbbea1985928309fb379e3ba71d6b0da558215815c7696d03d48267e0a3a3f",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "137310.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-137310-20",
+      "symbol": "137310",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.659980+00:00",
+      "recorded_at": "2026-11-10T21:00:01.659980+00:00",
+      "evaluation_at": "2026-12-08T06:30:00+00:00",
+      "evaluation_session": "2026-12-08",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 4,
+          "symbol": "137310",
+          "name": "에스디바이오센서",
+          "market": "KOSPI",
+          "event": "자사주 취득",
+          "report_name": "[기재정정]주요사항보고서(자기주식취득결정)",
+          "published_at": "20261110",
+          "receipt_no": "20261110000158",
+          "material_score": 83,
+          "market_confirmation": 65,
+          "overheat_risk": 10,
+          "final_score": 66.4,
+          "baseline_close": 6650.0,
+          "day_change_pct": 1.37,
+          "five_day_change_pct": 3.26,
+          "volume_ratio_20d": 1.08,
+          "distance_20d_high_pct": -5.81
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 6360.0,
+            "next_high": 6420.0,
+            "next_low": 6310.0,
+            "next_close": 6390.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 6380.0,
+            "next_high": 6480.0,
+            "next_low": 6250.0,
+            "next_close": 6470.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 6510.0,
+            "next_high": 6830.0,
+            "next_low": 6510.0,
+            "next_close": 6680.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 6400.0,
+            "next_high": 6690.0,
+            "next_low": 6350.0,
+            "next_close": 6560.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 6580.0,
+            "next_high": 6800.0,
+            "next_low": 6460.0,
+            "next_close": 6650.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "14cbbea1985928309fb379e3ba71d6b0da558215815c7696d03d48267e0a3a3f",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "137310.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-013870-1",
+      "symbol": "013870",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.919537+00:00",
+      "recorded_at": "2026-11-10T21:00:01.919537+00:00",
+      "evaluation_at": "2026-11-11T06:30:00+00:00",
+      "evaluation_session": "2026-11-11",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 5,
+          "symbol": "013870",
+          "name": "지엠비코리아",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110800196",
+          "material_score": 87,
+          "market_confirmation": 58,
+          "overheat_risk": 10,
+          "final_score": 66.2,
+          "baseline_close": 3660.0,
+          "day_change_pct": 2.38,
+          "five_day_change_pct": -0.14,
+          "volume_ratio_20d": 0.56,
+          "distance_20d_high_pct": -3.3
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 3685.0,
+            "next_high": 3685.0,
+            "next_low": 3585.0,
+            "next_close": 3660.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 3635.0,
+            "next_high": 3680.0,
+            "next_low": 3515.0,
+            "next_close": 3680.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 3670.0,
+            "next_high": 3755.0,
+            "next_low": 3640.0,
+            "next_close": 3640.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 3620.0,
+            "next_high": 3695.0,
+            "next_low": 3510.0,
+            "next_close": 3575.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 3620.0,
+            "next_high": 3660.0,
+            "next_low": 3505.0,
+            "next_close": 3660.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "efc16f13e153d62a803e2b3211aea64f37f8feb0553d8315006ca66f96253cd1",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "013870.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-013870-5",
+      "symbol": "013870",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.919537+00:00",
+      "recorded_at": "2026-11-10T21:00:01.919537+00:00",
+      "evaluation_at": "2026-11-17T06:30:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 5,
+          "symbol": "013870",
+          "name": "지엠비코리아",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110800196",
+          "material_score": 87,
+          "market_confirmation": 58,
+          "overheat_risk": 10,
+          "final_score": 66.2,
+          "baseline_close": 3660.0,
+          "day_change_pct": 2.38,
+          "five_day_change_pct": -0.14,
+          "volume_ratio_20d": 0.56,
+          "distance_20d_high_pct": -3.3
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 3685.0,
+            "next_high": 3685.0,
+            "next_low": 3585.0,
+            "next_close": 3660.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 3635.0,
+            "next_high": 3680.0,
+            "next_low": 3515.0,
+            "next_close": 3680.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 3670.0,
+            "next_high": 3755.0,
+            "next_low": 3640.0,
+            "next_close": 3640.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 3620.0,
+            "next_high": 3695.0,
+            "next_low": 3510.0,
+            "next_close": 3575.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 3620.0,
+            "next_high": 3660.0,
+            "next_low": 3505.0,
+            "next_close": 3660.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "efc16f13e153d62a803e2b3211aea64f37f8feb0553d8315006ca66f96253cd1",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "013870.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-013870-20",
+      "symbol": "013870",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:01.919537+00:00",
+      "recorded_at": "2026-11-10T21:00:01.919537+00:00",
+      "evaluation_at": "2026-12-08T06:30:00+00:00",
+      "evaluation_session": "2026-12-08",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 5,
+          "symbol": "013870",
+          "name": "지엠비코리아",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "report_name": "단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110800196",
+          "material_score": 87,
+          "market_confirmation": 58,
+          "overheat_risk": 10,
+          "final_score": 66.2,
+          "baseline_close": 3660.0,
+          "day_change_pct": 2.38,
+          "five_day_change_pct": -0.14,
+          "volume_ratio_20d": 0.56,
+          "distance_20d_high_pct": -3.3
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 3685.0,
+            "next_high": 3685.0,
+            "next_low": 3585.0,
+            "next_close": 3660.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 3635.0,
+            "next_high": 3680.0,
+            "next_low": 3515.0,
+            "next_close": 3680.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 3670.0,
+            "next_high": 3755.0,
+            "next_low": 3640.0,
+            "next_close": 3640.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 3620.0,
+            "next_high": 3695.0,
+            "next_low": 3510.0,
+            "next_close": 3575.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 3620.0,
+            "next_high": 3660.0,
+            "next_low": 3505.0,
+            "next_close": 3660.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "efc16f13e153d62a803e2b3211aea64f37f8feb0553d8315006ca66f96253cd1",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "013870.KS",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-099190-1",
+      "symbol": "099190",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:02.174580+00:00",
+      "recorded_at": "2026-11-10T21:00:02.174580+00:00",
+      "evaluation_at": "2026-11-11T06:30:00+00:00",
+      "evaluation_session": "2026-11-11",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 6,
+          "symbol": "099190",
+          "name": "아이센스",
+          "market": "KOSDAQ",
+          "event": "자사주 취득",
+          "report_name": "주요사항보고서(자기주식취득결정)",
+          "published_at": "20261109",
+          "receipt_no": "20261109000309",
+          "material_score": 83,
+          "market_confirmation": 59,
+          "overheat_risk": 10,
+          "final_score": 64.3,
+          "baseline_close": 12210.0,
+          "day_change_pct": -0.81,
+          "five_day_change_pct": -27.45,
+          "volume_ratio_20d": 4.14,
+          "distance_20d_high_pct": -31.6
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 16650.0,
+            "next_high": 17850.0,
+            "next_low": 16500.0,
+            "next_close": 17590.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 17830.0,
+            "next_high": 17830.0,
+            "next_low": 15330.0,
+            "next_close": 16220.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 16000.0,
+            "next_high": 16000.0,
+            "next_low": 13970.0,
+            "next_close": 14150.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 13480.0,
+            "next_high": 13480.0,
+            "next_low": 12110.0,
+            "next_close": 12310.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 11740.0,
+            "next_high": 12500.0,
+            "next_low": 11700.0,
+            "next_close": 12210.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "48d41c9bbd77e8b1565740fbf8fa764cfc4d6b185e4a0fbeaf489bfc272c720f",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "099190.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-099190-5",
+      "symbol": "099190",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:02.174580+00:00",
+      "recorded_at": "2026-11-10T21:00:02.174580+00:00",
+      "evaluation_at": "2026-11-17T06:30:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 6,
+          "symbol": "099190",
+          "name": "아이센스",
+          "market": "KOSDAQ",
+          "event": "자사주 취득",
+          "report_name": "주요사항보고서(자기주식취득결정)",
+          "published_at": "20261109",
+          "receipt_no": "20261109000309",
+          "material_score": 83,
+          "market_confirmation": 59,
+          "overheat_risk": 10,
+          "final_score": 64.3,
+          "baseline_close": 12210.0,
+          "day_change_pct": -0.81,
+          "five_day_change_pct": -27.45,
+          "volume_ratio_20d": 4.14,
+          "distance_20d_high_pct": -31.6
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 16650.0,
+            "next_high": 17850.0,
+            "next_low": 16500.0,
+            "next_close": 17590.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 17830.0,
+            "next_high": 17830.0,
+            "next_low": 15330.0,
+            "next_close": 16220.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 16000.0,
+            "next_high": 16000.0,
+            "next_low": 13970.0,
+            "next_close": 14150.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 13480.0,
+            "next_high": 13480.0,
+            "next_low": 12110.0,
+            "next_close": 12310.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 11740.0,
+            "next_high": 12500.0,
+            "next_low": 11700.0,
+            "next_close": 12210.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "48d41c9bbd77e8b1565740fbf8fa764cfc4d6b185e4a0fbeaf489bfc272c720f",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "099190.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-099190-20",
+      "symbol": "099190",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:02.174580+00:00",
+      "recorded_at": "2026-11-10T21:00:02.174580+00:00",
+      "evaluation_at": "2026-12-08T06:30:00+00:00",
+      "evaluation_session": "2026-12-08",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 6,
+          "symbol": "099190",
+          "name": "아이센스",
+          "market": "KOSDAQ",
+          "event": "자사주 취득",
+          "report_name": "주요사항보고서(자기주식취득결정)",
+          "published_at": "20261109",
+          "receipt_no": "20261109000309",
+          "material_score": 83,
+          "market_confirmation": 59,
+          "overheat_risk": 10,
+          "final_score": 64.3,
+          "baseline_close": 12210.0,
+          "day_change_pct": -0.81,
+          "five_day_change_pct": -27.45,
+          "volume_ratio_20d": 4.14,
+          "distance_20d_high_pct": -31.6
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 16650.0,
+            "next_high": 17850.0,
+            "next_low": 16500.0,
+            "next_close": 17590.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 17830.0,
+            "next_high": 17830.0,
+            "next_low": 15330.0,
+            "next_close": 16220.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 16000.0,
+            "next_high": 16000.0,
+            "next_low": 13970.0,
+            "next_close": 14150.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 13480.0,
+            "next_high": 13480.0,
+            "next_low": 12110.0,
+            "next_close": 12310.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 11740.0,
+            "next_high": 12500.0,
+            "next_low": 11700.0,
+            "next_close": 12210.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "48d41c9bbd77e8b1565740fbf8fa764cfc4d6b185e4a0fbeaf489bfc272c720f",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "099190.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-412350-1",
+      "symbol": "412350",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:02.431425+00:00",
+      "recorded_at": "2026-11-10T21:00:02.431425+00:00",
+      "evaluation_at": "2026-11-11T06:30:00+00:00",
+      "evaluation_session": "2026-11-11",
+      "horizon": "1_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 7,
+          "symbol": "412350",
+          "name": "레이저쎌",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "report_name": "[기재정정]단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110900740",
+          "material_score": 87,
+          "market_confirmation": 48,
+          "overheat_risk": 10,
+          "final_score": 62.7,
+          "baseline_close": 3885.0,
+          "day_change_pct": 1.04,
+          "five_day_change_pct": -31.96,
+          "volume_ratio_20d": 0.36,
+          "distance_20d_high_pct": -40.41
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 5660.0,
+            "next_high": 5660.0,
+            "next_low": 5010.0,
+            "next_close": 5040.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 5380.0,
+            "next_high": 5380.0,
+            "next_low": 4645.0,
+            "next_close": 5090.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 5040.0,
+            "next_high": 5040.0,
+            "next_low": 4170.0,
+            "next_close": 4315.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 3690.0,
+            "next_high": 4100.0,
+            "next_low": 3485.0,
+            "next_close": 3845.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 3845.0,
+            "next_high": 4045.0,
+            "next_low": 3750.0,
+            "next_close": 3885.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "707afac0a3fc9ed3d9efe19ad637f7a9dad4a42c89e43ac61d07227240667046",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "412350.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-412350-5",
+      "symbol": "412350",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:02.431425+00:00",
+      "recorded_at": "2026-11-10T21:00:02.431425+00:00",
+      "evaluation_at": "2026-11-17T06:30:00+00:00",
+      "evaluation_session": "2026-11-17",
+      "horizon": "5_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 7,
+          "symbol": "412350",
+          "name": "레이저쎌",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "report_name": "[기재정정]단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110900740",
+          "material_score": 87,
+          "market_confirmation": 48,
+          "overheat_risk": 10,
+          "final_score": 62.7,
+          "baseline_close": 3885.0,
+          "day_change_pct": 1.04,
+          "five_day_change_pct": -31.96,
+          "volume_ratio_20d": 0.36,
+          "distance_20d_high_pct": -40.41
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 5660.0,
+            "next_high": 5660.0,
+            "next_low": 5010.0,
+            "next_close": 5040.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 5380.0,
+            "next_high": 5380.0,
+            "next_low": 4645.0,
+            "next_close": 5090.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 5040.0,
+            "next_high": 5040.0,
+            "next_low": 4170.0,
+            "next_close": 4315.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 3690.0,
+            "next_high": 4100.0,
+            "next_low": 3485.0,
+            "next_close": 3845.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 3845.0,
+            "next_high": 4045.0,
+            "next_low": 3750.0,
+            "next_close": 3885.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "707afac0a3fc9ed3d9efe19ad637f7a9dad4a42c89e43ac61d07227240667046",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "412350.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    },
+    {
+      "id": "KR-2026-11-11-412350-20",
+      "symbol": "412350",
+      "market": "KR",
+      "issued_at": "2026-11-10T21:00:02.431425+00:00",
+      "recorded_at": "2026-11-10T21:00:02.431425+00:00",
+      "evaluation_at": "2026-12-08T06:30:00+00:00",
+      "evaluation_session": "2026-12-08",
+      "horizon": "20_trading_sessions",
+      "type": "direction",
+      "target": null,
+      "baseline_close": null,
+      "baseline_session": "2026-11-10",
+      "rule_version": "momentum-5-session-deadband-1pct-v1",
+      "issuance_status": "abstained",
+      "issuance_reasons": [
+        "missing_or_duplicate_input_sessions"
+      ],
+      "rationale": "Five completed-session raw close momentum: >=+1% up, <=-1% down; otherwise abstain. Research baseline, not a validated predictive model.",
+      "input_data": {
+        "candidate": {
+          "rank": 7,
+          "symbol": "412350",
+          "name": "레이저쎌",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "report_name": "[기재정정]단일판매ㆍ공급계약체결",
+          "published_at": "20261110",
+          "receipt_no": "20261110900740",
+          "material_score": 87,
+          "market_confirmation": 48,
+          "overheat_risk": 10,
+          "final_score": 62.7,
+          "baseline_close": 3885.0,
+          "day_change_pct": 1.04,
+          "five_day_change_pct": -31.96,
+          "volume_ratio_20d": 0.36,
+          "distance_20d_high_pct": -40.41
+        },
+        "bars": [
+          {
+            "session": "2026-11-03",
+            "next_open": 5660.0,
+            "next_high": 5660.0,
+            "next_low": 5010.0,
+            "next_close": 5040.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-04",
+            "next_open": 5380.0,
+            "next_high": 5380.0,
+            "next_low": 4645.0,
+            "next_close": 5090.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-05",
+            "next_open": 5040.0,
+            "next_high": 5040.0,
+            "next_low": 4170.0,
+            "next_close": 4315.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-06",
+            "next_open": 3690.0,
+            "next_high": 4100.0,
+            "next_low": 3485.0,
+            "next_close": 3845.0,
+            "splits": 0.0
+          },
+          {
+            "session": "2026-11-09",
+            "next_open": 3845.0,
+            "next_high": 4045.0,
+            "next_low": 3750.0,
+            "next_close": 3885.0,
+            "splits": 0.0
+          }
+        ],
+        "snapshot_metadata": {
+          "version": "top-validation-snapshot-v1",
+          "snapshot_at": "2026-11-11T05:59:56+09:00",
+          "signal_date": "2026-11-11",
+          "source_generated_at": "2026-11-11T05:56:54+09:00",
+          "count": 7
+        }
+      },
+      "input_sha256": "707afac0a3fc9ed3d9efe19ad637f7a9dad4a42c89e43ac61d07227240667046",
+      "snapshot_source": "data/history/top/2026-11-11.json",
+      "snapshot_sha256": "89f35cfe143b55542ab022941044f2bd0fd9ef13350984ffd52371aeb42be36e",
+      "calendar": {
+        "name": "XKRX",
+        "package": "exchange_calendars",
+        "version": "4.13.2",
+        "past_sessions": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06",
+          "2026-11-09",
+          "2026-11-10"
+        ],
+        "future_sessions": [
+          {
+            "session": "2026-11-11",
+            "open": "2026-11-11T00:00:00+00:00",
+            "close": "2026-11-11T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-12",
+            "open": "2026-11-12T00:00:00+00:00",
+            "close": "2026-11-12T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-13",
+            "open": "2026-11-13T00:00:00+00:00",
+            "close": "2026-11-13T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-16",
+            "open": "2026-11-16T00:00:00+00:00",
+            "close": "2026-11-16T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-17",
+            "open": "2026-11-17T00:00:00+00:00",
+            "close": "2026-11-17T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-18",
+            "open": "2026-11-18T00:00:00+00:00",
+            "close": "2026-11-18T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-19",
+            "open": "2026-11-19T00:00:00+00:00",
+            "close": "2026-11-19T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-20",
+            "open": "2026-11-20T00:00:00+00:00",
+            "close": "2026-11-20T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-23",
+            "open": "2026-11-23T00:00:00+00:00",
+            "close": "2026-11-23T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-24",
+            "open": "2026-11-24T00:00:00+00:00",
+            "close": "2026-11-24T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-25",
+            "open": "2026-11-25T00:00:00+00:00",
+            "close": "2026-11-25T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-26",
+            "open": "2026-11-26T00:00:00+00:00",
+            "close": "2026-11-26T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-27",
+            "open": "2026-11-27T00:00:00+00:00",
+            "close": "2026-11-27T06:30:00+00:00"
+          },
+          {
+            "session": "2026-11-30",
+            "open": "2026-11-30T00:00:00+00:00",
+            "close": "2026-11-30T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-01",
+            "open": "2026-12-01T00:00:00+00:00",
+            "close": "2026-12-01T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-02",
+            "open": "2026-12-02T00:00:00+00:00",
+            "close": "2026-12-02T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-03",
+            "open": "2026-12-03T00:00:00+00:00",
+            "close": "2026-12-03T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-04",
+            "open": "2026-12-04T00:00:00+00:00",
+            "close": "2026-12-04T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-07",
+            "open": "2026-12-07T00:00:00+00:00",
+            "close": "2026-12-07T06:30:00+00:00"
+          },
+          {
+            "session": "2026-12-08",
+            "open": "2026-12-08T00:00:00+00:00",
+            "close": "2026-12-08T06:30:00+00:00"
+          }
+        ]
+      },
+      "price_provider": "Yahoo Finance via yfinance",
+      "ticker": "412350.KQ",
+      "price_adjustment": "raw; split events make evaluation unavailable; no dividend total return"
+    }
+  ]
+}
