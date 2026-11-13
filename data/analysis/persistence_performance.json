@@ -1,6 +1,6 @@
 {
   "version": "persistence-performance-v1",
-  "generated_at": "2026-11-12T13:20:59+09:00",
+  "generated_at": "2026-11-13T12:37:47+09:00",
   "sample_rules": {
     "minimum_for_best_stage": 10,
     "recommended_for_analysis": 30
@@ -15,22 +15,59 @@
     "market": "KR",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 441,
-      "eligible_count": 408,
-      "excluded_count": 33,
+      "input_record_count": 448,
+      "eligible_count": 414,
+      "excluded_count": 34,
       "reason_counts": {
+        "invalid_ohlc": 1,
+        "invalid_return:gap_open_pct": 20,
+        "invalid_return:next_high_pct": 20,
+        "invalid_return:next_low_pct": 20,
+        "invalid_return:next_close_pct": 20,
         "invalid_price:next_open": 33,
         "invalid_price:next_high": 33,
-        "invalid_price:next_low": 33,
-        "invalid_return:gap_open_pct": 19,
-        "invalid_return:next_high_pct": 19,
-        "invalid_return:next_low_pct": 19,
-        "invalid_return:next_close_pct": 19
+        "invalid_price:next_low": 33
       }
     },
     "quarantine": [
       {
-        "source_index": 14,
+        "source_index": 2,
+        "reasons": [
+          "invalid_ohlc",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-12",
+          "rank": 3,
+          "symbol": "013870",
+          "name": "지엠비코리아",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "final_score": 68.4,
+          "material_score": 87,
+          "market_confirmation": 73,
+          "overheat_risk": 25,
+          "baseline_close": 3725.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-12",
+          "next_open": 3725.0,
+          "next_high": 3785.0,
+          "next_low": 3715.0,
+          "next_close": 3695.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_ohlc"
+          ]
+        }
+      },
+      {
+        "source_index": 21,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -70,7 +107,7 @@
         }
       },
       {
-        "source_index": 15,
+        "source_index": 22,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -110,7 +147,7 @@
         }
       },
       {
-        "source_index": 16,
+        "source_index": 23,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -150,7 +187,7 @@
         }
       },
       {
-        "source_index": 17,
+        "source_index": 24,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -190,7 +227,7 @@
         }
       },
       {
-        "source_index": 18,
+        "source_index": 25,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -230,7 +267,7 @@
         }
       },
       {
-        "source_index": 19,
+        "source_index": 26,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -270,7 +307,7 @@
         }
       },
       {
-        "source_index": 20,
+        "source_index": 27,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -310,7 +347,7 @@
         }
       },
       {
-        "source_index": 49,
+        "source_index": 56,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -350,7 +387,7 @@
         }
       },
       {
-        "source_index": 51,
+        "source_index": 58,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -390,7 +427,7 @@
         }
       },
       {
-        "source_index": 52,
+        "source_index": 59,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -430,7 +467,7 @@
         }
       },
       {
-        "source_index": 53,
+        "source_index": 60,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -470,7 +507,7 @@
         }
       },
       {
-        "source_index": 54,
+        "source_index": 61,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -510,7 +547,7 @@
         }
       },
       {
-        "source_index": 55,
+        "source_index": 62,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -550,7 +587,7 @@
         }
       },
       {
-        "source_index": 56,
+        "source_index": 63,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -590,7 +627,7 @@
         }
       },
       {
-        "source_index": 57,
+        "source_index": 64,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -630,7 +667,7 @@
         }
       },
       {
-        "source_index": 58,
+        "source_index": 65,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -670,7 +707,7 @@
         }
       },
       {
-        "source_index": 59,
+        "source_index": 66,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -710,7 +747,7 @@
         }
       },
       {
-        "source_index": 60,
+        "source_index": 67,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -750,7 +787,7 @@
         }
       },
       {
-        "source_index": 61,
+        "source_index": 68,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -790,7 +827,7 @@
         }
       },
       {
-        "source_index": 371,
+        "source_index": 378,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -821,7 +858,7 @@
         }
       },
       {
-        "source_index": 372,
+        "source_index": 379,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -852,7 +889,7 @@
         }
       },
       {
-        "source_index": 373,
+        "source_index": 380,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -883,7 +920,7 @@
         }
       },
       {
-        "source_index": 374,
+        "source_index": 381,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -914,7 +951,7 @@
         }
       },
       {
-        "source_index": 375,
+        "source_index": 382,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -945,7 +982,7 @@
         }
       },
       {
-        "source_index": 376,
+        "source_index": 383,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -976,7 +1013,7 @@
         }
       },
       {
-        "source_index": 377,
+        "source_index": 384,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1007,7 +1044,7 @@
         }
       },
       {
-        "source_index": 378,
+        "source_index": 385,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1038,7 +1075,7 @@
         }
       },
       {
-        "source_index": 379,
+        "source_index": 386,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1069,7 +1106,7 @@
         }
       },
       {
-        "source_index": 380,
+        "source_index": 387,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1100,7 +1137,7 @@
         }
       },
       {
-        "source_index": 381,
+        "source_index": 388,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1131,7 +1168,7 @@
         }
       },
       {
-        "source_index": 382,
+        "source_index": 389,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1162,7 +1199,7 @@
         }
       },
       {
-        "source_index": 383,
+        "source_index": 390,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1193,7 +1230,7 @@
         }
       },
       {
-        "source_index": 384,
+        "source_index": 391,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1224,34 +1261,34 @@
         }
       }
     ],
-    "snapshot_count": 65,
-    "evaluated_matched_count": 408,
+    "snapshot_count": 66,
+    "evaluated_matched_count": 414,
     "unmatched_result_count": 0,
     "overall": {
-      "count": 408,
+      "count": 414,
       "sample_status": "분석 가능",
-      "close_win_rate_pct": 45.6,
-      "high_hit_3pct_rate_pct": 38.7,
-      "high_hit_5pct_rate_pct": 25.7,
-      "avg_close_return_pct": -0.05,
-      "median_close_return_pct": -0.33,
-      "avg_high_return_pct": 3.06,
-      "avg_low_return_pct": -2.72,
-      "avg_gap_open_pct": 0.22
+      "close_win_rate_pct": 45.9,
+      "high_hit_3pct_rate_pct": 39.1,
+      "high_hit_5pct_rate_pct": 25.8,
+      "avg_close_return_pct": -0.03,
+      "median_close_return_pct": -0.29,
+      "avg_high_return_pct": 3.07,
+      "avg_low_return_pct": -2.69,
+      "avg_gap_open_pct": 0.25
     },
     "by_persistence_stage": [
       {
         "label": "첫 등장",
-        "count": 215,
+        "count": 218,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 47.0,
-        "high_hit_3pct_rate_pct": 39.1,
-        "high_hit_5pct_rate_pct": 27.0,
-        "avg_close_return_pct": 0.4,
-        "median_close_return_pct": -0.17,
-        "avg_high_return_pct": 3.64,
-        "avg_low_return_pct": -2.24,
-        "avg_gap_open_pct": 0.64
+        "close_win_rate_pct": 47.2,
+        "high_hit_3pct_rate_pct": 39.9,
+        "high_hit_5pct_rate_pct": 27.5,
+        "avg_close_return_pct": 0.45,
+        "median_close_return_pct": -0.15,
+        "avg_high_return_pct": 3.68,
+        "avg_low_return_pct": -2.18,
+        "avg_gap_open_pct": 0.71
       },
       {
         "label": "2회 연속",
@@ -1268,85 +1305,85 @@
       },
       {
         "label": "3회 이상 연속",
-        "count": 9,
-        "sample_status": "표본 부족",
-        "close_win_rate_pct": 44.4,
-        "high_hit_3pct_rate_pct": 44.4,
-        "high_hit_5pct_rate_pct": 22.2,
-        "avg_close_return_pct": -1.4,
-        "median_close_return_pct": -1.5,
-        "avg_high_return_pct": 1.49,
-        "avg_low_return_pct": -4.0,
-        "avg_gap_open_pct": -0.37
+        "count": 10,
+        "sample_status": "초기 참고",
+        "close_win_rate_pct": 40.0,
+        "high_hit_3pct_rate_pct": 40.0,
+        "high_hit_5pct_rate_pct": 20.0,
+        "avg_close_return_pct": -1.79,
+        "median_close_return_pct": -2.3,
+        "avg_high_return_pct": 1.17,
+        "avg_low_return_pct": -4.25,
+        "avg_gap_open_pct": -0.92
       },
       {
         "label": "재등장",
-        "count": 107,
+        "count": 109,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 43.0,
-        "high_hit_3pct_rate_pct": 36.4,
-        "high_hit_5pct_rate_pct": 24.3,
-        "avg_close_return_pct": -0.44,
+        "close_win_rate_pct": 44.0,
+        "high_hit_3pct_rate_pct": 36.7,
+        "high_hit_5pct_rate_pct": 23.9,
+        "avg_close_return_pct": -0.41,
         "median_close_return_pct": -0.62,
-        "avg_high_return_pct": 2.35,
-        "avg_low_return_pct": -3.12,
-        "avg_gap_open_pct": -0.26
+        "avg_high_return_pct": 2.36,
+        "avg_low_return_pct": -3.08,
+        "avg_gap_open_pct": -0.24
       }
     ],
     "by_recent_10_frequency": [
       {
         "label": "최근10회 중 1회",
-        "count": 268,
+        "count": 272,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.3,
-        "high_hit_3pct_rate_pct": 38.4,
-        "high_hit_5pct_rate_pct": 27.2,
-        "avg_close_return_pct": 0.24,
-        "median_close_return_pct": -0.39,
-        "avg_high_return_pct": 3.45,
-        "avg_low_return_pct": -2.43,
-        "avg_gap_open_pct": 0.54
+        "close_win_rate_pct": 46.7,
+        "high_hit_3pct_rate_pct": 39.3,
+        "high_hit_5pct_rate_pct": 27.6,
+        "avg_close_return_pct": 0.29,
+        "median_close_return_pct": -0.33,
+        "avg_high_return_pct": 3.49,
+        "avg_low_return_pct": -2.38,
+        "avg_gap_open_pct": 0.59
       },
       {
         "label": "최근10회 중 2–3회",
-        "count": 135,
+        "count": 136,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 43.0,
-        "high_hit_3pct_rate_pct": 37.8,
-        "high_hit_5pct_rate_pct": 21.5,
-        "avg_close_return_pct": -0.78,
-        "median_close_return_pct": -0.56,
+        "close_win_rate_pct": 43.4,
+        "high_hit_3pct_rate_pct": 37.5,
+        "high_hit_5pct_rate_pct": 21.3,
+        "avg_close_return_pct": -0.77,
+        "median_close_return_pct": -0.42,
         "avg_high_return_pct": 2.08,
-        "avg_low_return_pct": -3.39,
-        "avg_gap_open_pct": -0.48
+        "avg_low_return_pct": -3.37,
+        "avg_gap_open_pct": -0.46
       },
       {
         "label": "최근10회 중 4–5회",
-        "count": 5,
+        "count": 6,
         "sample_status": "표본 부족",
-        "close_win_rate_pct": 80.0,
-        "high_hit_3pct_rate_pct": 80.0,
-        "high_hit_5pct_rate_pct": 60.0,
-        "avg_close_return_pct": 3.81,
-        "median_close_return_pct": 2.89,
-        "avg_high_return_pct": 8.47,
-        "avg_low_return_pct": -0.03,
-        "avg_gap_open_pct": 2.1
+        "close_win_rate_pct": 66.7,
+        "high_hit_3pct_rate_pct": 66.7,
+        "high_hit_5pct_rate_pct": 50.0,
+        "avg_close_return_pct": 2.29,
+        "median_close_return_pct": 1.6,
+        "avg_high_return_pct": 6.77,
+        "avg_low_return_pct": -1.1,
+        "avg_gap_open_pct": 0.78
       }
     ],
     "by_appearance_number": [
       {
         "label": "1번째 등장",
-        "count": 215,
+        "count": 218,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 47.0,
-        "high_hit_3pct_rate_pct": 39.1,
-        "high_hit_5pct_rate_pct": 27.0,
-        "avg_close_return_pct": 0.4,
-        "median_close_return_pct": -0.17,
-        "avg_high_return_pct": 3.64,
-        "avg_low_return_pct": -2.24,
-        "avg_gap_open_pct": 0.64
+        "close_win_rate_pct": 47.2,
+        "high_hit_3pct_rate_pct": 39.9,
+        "high_hit_5pct_rate_pct": 27.5,
+        "avg_close_return_pct": 0.45,
+        "median_close_return_pct": -0.15,
+        "avg_high_return_pct": 3.68,
+        "avg_low_return_pct": -2.18,
+        "avg_gap_open_pct": 0.71
       },
       {
         "label": "2번째 등장",
@@ -1376,31 +1413,31 @@
       },
       {
         "label": "6번째 이상",
-        "count": 8,
-        "sample_status": "표본 부족",
-        "close_win_rate_pct": 37.5,
-        "high_hit_3pct_rate_pct": 37.5,
-        "high_hit_5pct_rate_pct": 25.0,
-        "avg_close_return_pct": -1.54,
-        "median_close_return_pct": -0.84,
-        "avg_high_return_pct": 1.25,
-        "avg_low_return_pct": -4.71,
-        "avg_gap_open_pct": -1.65
+        "count": 11,
+        "sample_status": "초기 참고",
+        "close_win_rate_pct": 45.5,
+        "high_hit_3pct_rate_pct": 36.4,
+        "high_hit_5pct_rate_pct": 18.2,
+        "avg_close_return_pct": -1.36,
+        "median_close_return_pct": -0.71,
+        "avg_high_return_pct": 1.31,
+        "avg_low_return_pct": -4.19,
+        "avg_gap_open_pct": -1.66
       }
     ],
     "best_persistence_stage": {
       "label": "첫 등장",
-      "count": 215,
-      "avg_close_return_pct": 0.4,
-      "close_win_rate_pct": 47.0
+      "count": 218,
+      "avg_close_return_pct": 0.45,
+      "close_win_rate_pct": 47.2
     }
   },
   "us": {
     "market": "US",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 441,
-      "eligible_count": 420,
+      "input_record_count": 448,
+      "eligible_count": 427,
       "excluded_count": 20,
       "reason_counts": {
         "invalid_ohlc": 20,
@@ -1412,7 +1449,7 @@
     },
     "quarantine": [
       {
-        "source_index": 42,
+        "source_index": 49,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1452,7 +1489,7 @@
         }
       },
       {
-        "source_index": 44,
+        "source_index": 51,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1492,7 +1529,7 @@
         }
       },
       {
-        "source_index": 59,
+        "source_index": 66,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1532,7 +1569,7 @@
         }
       },
       {
-        "source_index": 77,
+        "source_index": 84,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1572,7 +1609,7 @@
         }
       },
       {
-        "source_index": 84,
+        "source_index": 91,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1612,7 +1649,7 @@
         }
       },
       {
-        "source_index": 143,
+        "source_index": 150,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1652,7 +1689,7 @@
         }
       },
       {
-        "source_index": 176,
+        "source_index": 183,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1685,7 +1722,7 @@
         }
       },
       {
-        "source_index": 222,
+        "source_index": 229,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1718,7 +1755,7 @@
         }
       },
       {
-        "source_index": 226,
+        "source_index": 233,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1751,7 +1788,7 @@
         }
       },
       {
-        "source_index": 246,
+        "source_index": 253,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1784,7 +1821,7 @@
         }
       },
       {
-        "source_index": 249,
+        "source_index": 256,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1817,7 +1854,7 @@
         }
       },
       {
-        "source_index": 267,
+        "source_index": 274,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1850,7 +1887,7 @@
         }
       },
       {
-        "source_index": 268,
+        "source_index": 275,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1883,7 +1920,7 @@
         }
       },
       {
-        "source_index": 275,
+        "source_index": 282,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1916,7 +1953,7 @@
         }
       },
       {
-        "source_index": 278,
+        "source_index": 285,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1949,7 +1986,7 @@
         }
       },
       {
-        "source_index": 291,
+        "source_index": 298,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1982,7 +2019,7 @@
         }
       },
       {
-        "source_index": 331,
+        "source_index": 338,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2015,7 +2052,7 @@
         }
       },
       {
-        "source_index": 334,
+        "source_index": 341,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2048,7 +2085,7 @@
         }
       },
       {
-        "source_index": 346,
+        "source_index": 353,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2081,7 +2118,7 @@
         }
       },
       {
-        "source_index": 419,
+        "source_index": 426,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2114,47 +2151,47 @@
         }
       }
     ],
-    "snapshot_count": 64,
-    "evaluated_matched_count": 420,
+    "snapshot_count": 65,
+    "evaluated_matched_count": 427,
     "unmatched_result_count": 0,
     "overall": {
-      "count": 420,
+      "count": 427,
       "sample_status": "분석 가능",
-      "close_win_rate_pct": 47.4,
-      "high_hit_3pct_rate_pct": 40.7,
-      "high_hit_5pct_rate_pct": 24.8,
-      "avg_close_return_pct": 0.89,
+      "close_win_rate_pct": 47.5,
+      "high_hit_3pct_rate_pct": 41.0,
+      "high_hit_5pct_rate_pct": 25.3,
+      "avg_close_return_pct": 0.91,
       "median_close_return_pct": 0.0,
-      "avg_high_return_pct": 4.46,
-      "avg_low_return_pct": -2.72,
-      "avg_gap_open_pct": 0.41
+      "avg_high_return_pct": 4.54,
+      "avg_low_return_pct": -2.71,
+      "avg_gap_open_pct": 0.45
     },
     "by_persistence_stage": [
       {
         "label": "첫 등장",
-        "count": 393,
+        "count": 395,
         "sample_status": "분석 가능",
         "close_win_rate_pct": 47.1,
         "high_hit_3pct_rate_pct": 40.5,
-        "high_hit_5pct_rate_pct": 25.2,
-        "avg_close_return_pct": 0.89,
+        "high_hit_5pct_rate_pct": 25.3,
+        "avg_close_return_pct": 0.83,
         "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.54,
-        "avg_low_return_pct": -2.68,
-        "avg_gap_open_pct": 0.46
+        "avg_high_return_pct": 4.49,
+        "avg_low_return_pct": -2.76,
+        "avg_gap_open_pct": 0.41
       },
       {
         "label": "2회 연속",
-        "count": 8,
-        "sample_status": "표본 부족",
-        "close_win_rate_pct": 62.5,
-        "high_hit_3pct_rate_pct": 50.0,
-        "high_hit_5pct_rate_pct": 25.0,
-        "avg_close_return_pct": -0.24,
-        "median_close_return_pct": 0.8,
-        "avg_high_return_pct": 2.36,
-        "avg_low_return_pct": -4.07,
-        "avg_gap_open_pct": -0.28
+        "count": 13,
+        "sample_status": "초기 참고",
+        "close_win_rate_pct": 61.5,
+        "high_hit_3pct_rate_pct": 53.8,
+        "high_hit_5pct_rate_pct": 38.5,
+        "avg_close_return_pct": 2.68,
+        "median_close_return_pct": 0.93,
+        "avg_high_return_pct": 7.34,
+        "avg_low_return_pct": -0.86,
+        "avg_gap_open_pct": 2.98
       },
       {
         "label": "재등장",
@@ -2173,77 +2210,77 @@
     "by_recent_10_frequency": [
       {
         "label": "최근10회 중 1회",
-        "count": 405,
+        "count": 407,
         "sample_status": "분석 가능",
         "close_win_rate_pct": 46.9,
-        "high_hit_3pct_rate_pct": 40.7,
-        "high_hit_5pct_rate_pct": 25.2,
-        "avg_close_return_pct": 0.92,
+        "high_hit_3pct_rate_pct": 40.8,
+        "high_hit_5pct_rate_pct": 25.3,
+        "avg_close_return_pct": 0.86,
         "median_close_return_pct": 0.0,
-        "avg_high_return_pct": 4.54,
-        "avg_low_return_pct": -2.7,
-        "avg_gap_open_pct": 0.43
+        "avg_high_return_pct": 4.5,
+        "avg_low_return_pct": -2.77,
+        "avg_gap_open_pct": 0.38
       },
       {
         "label": "최근10회 중 2–3회",
-        "count": 15,
+        "count": 20,
         "sample_status": "초기 참고",
         "close_win_rate_pct": 60.0,
-        "high_hit_3pct_rate_pct": 40.0,
-        "high_hit_5pct_rate_pct": 13.3,
-        "avg_close_return_pct": 0.14,
-        "median_close_return_pct": 0.67,
-        "avg_high_return_pct": 2.24,
-        "avg_low_return_pct": -3.18,
-        "avg_gap_open_pct": -0.23
+        "high_hit_3pct_rate_pct": 45.0,
+        "high_hit_5pct_rate_pct": 25.0,
+        "avg_close_return_pct": 1.94,
+        "median_close_return_pct": 0.8,
+        "avg_high_return_pct": 5.5,
+        "avg_low_return_pct": -1.32,
+        "avg_gap_open_pct": 1.88
       }
     ],
     "by_appearance_number": [
       {
         "label": "1번째 등장",
-        "count": 393,
+        "count": 395,
         "sample_status": "분석 가능",
         "close_win_rate_pct": 47.1,
         "high_hit_3pct_rate_pct": 40.5,
-        "high_hit_5pct_rate_pct": 25.2,
-        "avg_close_return_pct": 0.89,
+        "high_hit_5pct_rate_pct": 25.3,
+        "avg_close_return_pct": 0.83,
         "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.54,
-        "avg_low_return_pct": -2.68,
-        "avg_gap_open_pct": 0.46
+        "avg_high_return_pct": 4.49,
+        "avg_low_return_pct": -2.76,
+        "avg_gap_open_pct": 0.41
       },
       {
         "label": "2번째 등장",
-        "count": 26,
-        "sample_status": "초기 참고",
-        "close_win_rate_pct": 50.0,
-        "high_hit_3pct_rate_pct": 42.3,
-        "high_hit_5pct_rate_pct": 15.4,
-        "avg_close_return_pct": -0.03,
-        "median_close_return_pct": 0.32,
-        "avg_high_return_pct": 2.31,
-        "avg_low_return_pct": -3.28,
-        "avg_gap_open_pct": -0.42
+        "count": 30,
+        "sample_status": "분석 가능",
+        "close_win_rate_pct": 53.3,
+        "high_hit_3pct_rate_pct": 46.7,
+        "high_hit_5pct_rate_pct": 23.3,
+        "avg_close_return_pct": 1.29,
+        "median_close_return_pct": 0.65,
+        "avg_high_return_pct": 4.58,
+        "avg_low_return_pct": -1.94,
+        "avg_gap_open_pct": 1.11
       },
       {
         "label": "3–5번째 등장",
-        "count": 1,
+        "count": 2,
         "sample_status": "표본 부족",
-        "close_win_rate_pct": 100.0,
-        "high_hit_3pct_rate_pct": 100.0,
-        "high_hit_5pct_rate_pct": 100.0,
-        "avg_close_return_pct": 24.29,
-        "median_close_return_pct": 24.29,
-        "avg_high_return_pct": 30.33,
-        "avg_low_return_pct": -0.24,
-        "avg_gap_open_pct": -0.24
+        "close_win_rate_pct": 50.0,
+        "high_hit_3pct_rate_pct": 50.0,
+        "high_hit_5pct_rate_pct": 50.0,
+        "avg_close_return_pct": 10.74,
+        "median_close_return_pct": 10.74,
+        "avg_high_return_pct": 14.74,
+        "avg_low_return_pct": -2.99,
+        "avg_gap_open_pct": -1.8
       }
     ],
     "best_persistence_stage": {
-      "label": "재등장",
-      "count": 19,
-      "avg_close_return_pct": 1.34,
-      "close_win_rate_pct": 47.4
+      "label": "2회 연속",
+      "count": 13,
+      "avg_close_return_pct": 2.68,
+      "close_win_rate_pct": 61.5
     }
   }
 }
