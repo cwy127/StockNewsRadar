@@ -1,6 +1,6 @@
 {
   "version": "performance-analysis-v1",
-  "generated_at": "2026-11-12T13:03:37+09:00",
+  "generated_at": "2026-11-13T12:32:04+09:00",
   "sample_rules": {
     "minimum_for_highlight": 10,
     "recommended_for_analysis": 30,
@@ -14,22 +14,59 @@
     "market": "KR",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 441,
-      "eligible_count": 408,
-      "excluded_count": 33,
+      "input_record_count": 448,
+      "eligible_count": 414,
+      "excluded_count": 34,
       "reason_counts": {
+        "invalid_ohlc": 1,
+        "invalid_return:gap_open_pct": 20,
+        "invalid_return:next_high_pct": 20,
+        "invalid_return:next_low_pct": 20,
+        "invalid_return:next_close_pct": 20,
         "invalid_price:next_open": 33,
         "invalid_price:next_high": 33,
-        "invalid_price:next_low": 33,
-        "invalid_return:gap_open_pct": 19,
-        "invalid_return:next_high_pct": 19,
-        "invalid_return:next_low_pct": 19,
-        "invalid_return:next_close_pct": 19
+        "invalid_price:next_low": 33
       }
     },
     "quarantine": [
       {
-        "source_index": 14,
+        "source_index": 2,
+        "reasons": [
+          "invalid_ohlc",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-12",
+          "rank": 3,
+          "symbol": "013870",
+          "name": "지엠비코리아",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "final_score": 68.4,
+          "material_score": 87,
+          "market_confirmation": 73,
+          "overheat_risk": 25,
+          "baseline_close": 3725.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-12",
+          "next_open": 3725.0,
+          "next_high": 3785.0,
+          "next_low": 3715.0,
+          "next_close": 3695.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_ohlc"
+          ]
+        }
+      },
+      {
+        "source_index": 21,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -69,7 +106,7 @@
         }
       },
       {
-        "source_index": 15,
+        "source_index": 22,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -109,7 +146,7 @@
         }
       },
       {
-        "source_index": 16,
+        "source_index": 23,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -149,7 +186,7 @@
         }
       },
       {
-        "source_index": 17,
+        "source_index": 24,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -189,7 +226,7 @@
         }
       },
       {
-        "source_index": 18,
+        "source_index": 25,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -229,7 +266,7 @@
         }
       },
       {
-        "source_index": 19,
+        "source_index": 26,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -269,7 +306,7 @@
         }
       },
       {
-        "source_index": 20,
+        "source_index": 27,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -309,7 +346,7 @@
         }
       },
       {
-        "source_index": 49,
+        "source_index": 56,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -349,7 +386,7 @@
         }
       },
       {
-        "source_index": 51,
+        "source_index": 58,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -389,7 +426,7 @@
         }
       },
       {
-        "source_index": 52,
+        "source_index": 59,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -429,7 +466,7 @@
         }
       },
       {
-        "source_index": 53,
+        "source_index": 60,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -469,7 +506,7 @@
         }
       },
       {
-        "source_index": 54,
+        "source_index": 61,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -509,7 +546,7 @@
         }
       },
       {
-        "source_index": 55,
+        "source_index": 62,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -549,7 +586,7 @@
         }
       },
       {
-        "source_index": 56,
+        "source_index": 63,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -589,7 +626,7 @@
         }
       },
       {
-        "source_index": 57,
+        "source_index": 64,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -629,7 +666,7 @@
         }
       },
       {
-        "source_index": 58,
+        "source_index": 65,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -669,7 +706,7 @@
         }
       },
       {
-        "source_index": 59,
+        "source_index": 66,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -709,7 +746,7 @@
         }
       },
       {
-        "source_index": 60,
+        "source_index": 67,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -749,7 +786,7 @@
         }
       },
       {
-        "source_index": 61,
+        "source_index": 68,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -789,7 +826,7 @@
         }
       },
       {
-        "source_index": 371,
+        "source_index": 378,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -820,7 +857,7 @@
         }
       },
       {
-        "source_index": 372,
+        "source_index": 379,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -851,7 +888,7 @@
         }
       },
       {
-        "source_index": 373,
+        "source_index": 380,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -882,7 +919,7 @@
         }
       },
       {
-        "source_index": 374,
+        "source_index": 381,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -913,7 +950,7 @@
         }
       },
       {
-        "source_index": 375,
+        "source_index": 382,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -944,7 +981,7 @@
         }
       },
       {
-        "source_index": 376,
+        "source_index": 383,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -975,7 +1012,7 @@
         }
       },
       {
-        "source_index": 377,
+        "source_index": 384,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1006,7 +1043,7 @@
         }
       },
       {
-        "source_index": 378,
+        "source_index": 385,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1037,7 +1074,7 @@
         }
       },
       {
-        "source_index": 379,
+        "source_index": 386,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1068,7 +1105,7 @@
         }
       },
       {
-        "source_index": 380,
+        "source_index": 387,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1099,7 +1136,7 @@
         }
       },
       {
-        "source_index": 381,
+        "source_index": 388,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1130,7 +1167,7 @@
         }
       },
       {
-        "source_index": 382,
+        "source_index": 389,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1161,7 +1198,7 @@
         }
       },
       {
-        "source_index": 383,
+        "source_index": 390,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1192,7 +1229,7 @@
         }
       },
       {
-        "source_index": 384,
+        "source_index": 391,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1224,47 +1261,47 @@
       }
     ],
     "overall": {
-      "count": 408,
+      "count": 414,
       "sample_status": "분석 가능",
-      "close_win_rate_pct": 45.6,
-      "high_hit_3pct_rate_pct": 38.7,
-      "high_hit_5pct_rate_pct": 25.7,
-      "avg_close_return_pct": -0.05,
-      "median_close_return_pct": -0.33,
-      "avg_high_return_pct": 3.06,
-      "avg_low_return_pct": -2.72,
-      "avg_gap_open_pct": 0.22
+      "close_win_rate_pct": 45.9,
+      "high_hit_3pct_rate_pct": 39.1,
+      "high_hit_5pct_rate_pct": 25.8,
+      "avg_close_return_pct": -0.03,
+      "median_close_return_pct": -0.29,
+      "avg_high_return_pct": 3.07,
+      "avg_low_return_pct": -2.69,
+      "avg_gap_open_pct": 0.25
     },
     "by_rank": [
       {
         "label": "1",
         "field": "rank",
         "value": 1,
-        "count": 58,
+        "count": 59,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 37.9,
-        "high_hit_3pct_rate_pct": 29.3,
-        "high_hit_5pct_rate_pct": 20.7,
-        "avg_close_return_pct": -1.0,
-        "median_close_return_pct": -0.97,
-        "avg_high_return_pct": 1.75,
-        "avg_low_return_pct": -3.17,
-        "avg_gap_open_pct": -0.11
+        "close_win_rate_pct": 37.3,
+        "high_hit_3pct_rate_pct": 30.5,
+        "high_hit_5pct_rate_pct": 20.3,
+        "avg_close_return_pct": -0.99,
+        "median_close_return_pct": -0.86,
+        "avg_high_return_pct": 1.77,
+        "avg_low_return_pct": -3.14,
+        "avg_gap_open_pct": -0.06
       },
       {
         "label": "2",
         "field": "rank",
         "value": 2,
-        "count": 59,
+        "count": 60,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 39.0,
-        "high_hit_3pct_rate_pct": 35.6,
-        "high_hit_5pct_rate_pct": 27.1,
-        "avg_close_return_pct": -0.45,
-        "median_close_return_pct": -1.05,
-        "avg_high_return_pct": 2.53,
-        "avg_low_return_pct": -3.36,
-        "avg_gap_open_pct": -0.61
+        "close_win_rate_pct": 40.0,
+        "high_hit_3pct_rate_pct": 36.7,
+        "high_hit_5pct_rate_pct": 28.3,
+        "avg_close_return_pct": -0.35,
+        "median_close_return_pct": -1.0,
+        "avg_high_return_pct": 2.61,
+        "avg_low_return_pct": -3.27,
+        "avg_gap_open_pct": -0.53
       },
       {
         "label": "3",
@@ -1285,61 +1322,61 @@
         "label": "4",
         "field": "rank",
         "value": 4,
-        "count": 58,
+        "count": 59,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 48.3,
-        "high_hit_3pct_rate_pct": 46.6,
-        "high_hit_5pct_rate_pct": 31.0,
-        "avg_close_return_pct": 1.22,
-        "median_close_return_pct": -0.32,
-        "avg_high_return_pct": 4.72,
-        "avg_low_return_pct": -1.42,
-        "avg_gap_open_pct": 1.33
+        "close_win_rate_pct": 47.5,
+        "high_hit_3pct_rate_pct": 45.8,
+        "high_hit_5pct_rate_pct": 30.5,
+        "avg_close_return_pct": 1.11,
+        "median_close_return_pct": -0.41,
+        "avg_high_return_pct": 4.61,
+        "avg_low_return_pct": -1.51,
+        "avg_gap_open_pct": 1.21
       },
       {
         "label": "5",
         "field": "rank",
         "value": 5,
-        "count": 58,
+        "count": 59,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 43.1,
-        "high_hit_3pct_rate_pct": 32.8,
-        "high_hit_5pct_rate_pct": 22.4,
-        "avg_close_return_pct": -0.63,
-        "median_close_return_pct": -0.74,
-        "avg_high_return_pct": 2.47,
-        "avg_low_return_pct": -2.97,
-        "avg_gap_open_pct": 0.19
+        "close_win_rate_pct": 44.1,
+        "high_hit_3pct_rate_pct": 33.9,
+        "high_hit_5pct_rate_pct": 23.7,
+        "avg_close_return_pct": -0.52,
+        "median_close_return_pct": -0.66,
+        "avg_high_return_pct": 2.58,
+        "avg_low_return_pct": -2.83,
+        "avg_gap_open_pct": 0.33
       },
       {
         "label": "6",
         "field": "rank",
         "value": 6,
-        "count": 58,
+        "count": 59,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 51.7,
-        "high_hit_3pct_rate_pct": 39.7,
-        "high_hit_5pct_rate_pct": 22.4,
+        "close_win_rate_pct": 52.5,
+        "high_hit_3pct_rate_pct": 39.0,
+        "high_hit_5pct_rate_pct": 22.0,
         "avg_close_return_pct": 0.02,
-        "median_close_return_pct": 0.12,
-        "avg_high_return_pct": 3.24,
-        "avg_low_return_pct": -2.89,
-        "avg_gap_open_pct": 0.22
+        "median_close_return_pct": 0.13,
+        "avg_high_return_pct": 3.21,
+        "avg_low_return_pct": -2.84,
+        "avg_gap_open_pct": 0.24
       },
       {
         "label": "7",
         "field": "rank",
         "value": 7,
-        "count": 59,
+        "count": 60,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 49.2,
-        "high_hit_3pct_rate_pct": 39.0,
-        "high_hit_5pct_rate_pct": 18.6,
-        "avg_close_return_pct": -0.39,
-        "median_close_return_pct": -0.12,
-        "avg_high_return_pct": 2.35,
-        "avg_low_return_pct": -3.11,
-        "avg_gap_open_pct": -0.18
+        "close_win_rate_pct": 50.0,
+        "high_hit_3pct_rate_pct": 40.0,
+        "high_hit_5pct_rate_pct": 18.3,
+        "avg_close_return_pct": -0.35,
+        "median_close_return_pct": 0.0,
+        "avg_high_return_pct": 2.39,
+        "avg_low_return_pct": -3.08,
+        "avg_gap_open_pct": -0.19
       }
     ],
     "by_market_confirmation": [
@@ -1364,16 +1401,16 @@
         "field": "market_confirmation",
         "min": 55,
         "max_exclusive": 70,
-        "count": 123,
+        "count": 127,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 39.8,
-        "high_hit_3pct_rate_pct": 36.6,
+        "close_win_rate_pct": 40.9,
+        "high_hit_3pct_rate_pct": 37.0,
         "high_hit_5pct_rate_pct": 22.8,
-        "avg_close_return_pct": -0.55,
-        "median_close_return_pct": -1.18,
-        "avg_high_return_pct": 2.77,
-        "avg_low_return_pct": -2.9,
-        "avg_gap_open_pct": 0.11
+        "avg_close_return_pct": -0.51,
+        "median_close_return_pct": -1.17,
+        "avg_high_return_pct": 2.79,
+        "avg_low_return_pct": -2.83,
+        "avg_gap_open_pct": 0.14
       },
       {
         "label": "70–84",
@@ -1396,16 +1433,16 @@
         "field": "market_confirmation",
         "min": 85,
         "max_exclusive": null,
-        "count": 70,
+        "count": 72,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 31.4,
-        "high_hit_3pct_rate_pct": 21.4,
-        "high_hit_5pct_rate_pct": 12.9,
-        "avg_close_return_pct": -0.69,
-        "median_close_return_pct": -1.42,
-        "avg_high_return_pct": 1.41,
-        "avg_low_return_pct": -2.98,
-        "avg_gap_open_pct": -0.44
+        "close_win_rate_pct": 31.9,
+        "high_hit_3pct_rate_pct": 23.6,
+        "high_hit_5pct_rate_pct": 13.9,
+        "avg_close_return_pct": -0.6,
+        "median_close_return_pct": -1.36,
+        "avg_high_return_pct": 1.52,
+        "avg_low_return_pct": -2.89,
+        "avg_gap_open_pct": -0.32
       }
     ],
     "by_overheat_risk": [
@@ -1414,32 +1451,32 @@
         "field": "overheat_risk",
         "min": 0,
         "max_exclusive": 20,
-        "count": 359,
+        "count": 364,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.2,
-        "high_hit_3pct_rate_pct": 39.0,
-        "high_hit_5pct_rate_pct": 25.9,
-        "avg_close_return_pct": 0.04,
+        "close_win_rate_pct": 46.7,
+        "high_hit_3pct_rate_pct": 39.6,
+        "high_hit_5pct_rate_pct": 26.1,
+        "avg_close_return_pct": 0.08,
         "median_close_return_pct": -0.17,
-        "avg_high_return_pct": 3.02,
-        "avg_low_return_pct": -2.65,
-        "avg_gap_open_pct": 0.25
+        "avg_high_return_pct": 3.05,
+        "avg_low_return_pct": -2.6,
+        "avg_gap_open_pct": 0.29
       },
       {
         "label": "20–39",
         "field": "overheat_risk",
         "min": 20,
         "max_exclusive": 40,
-        "count": 48,
+        "count": 49,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 39.6,
-        "high_hit_3pct_rate_pct": 35.4,
-        "high_hit_5pct_rate_pct": 22.9,
-        "avg_close_return_pct": -0.93,
-        "median_close_return_pct": -1.22,
-        "avg_high_return_pct": 3.21,
-        "avg_low_return_pct": -3.42,
-        "avg_gap_open_pct": -0.16
+        "close_win_rate_pct": 38.8,
+        "high_hit_3pct_rate_pct": 34.7,
+        "high_hit_5pct_rate_pct": 22.4,
+        "avg_close_return_pct": -1.02,
+        "median_close_return_pct": -1.36,
+        "avg_high_return_pct": 3.11,
+        "avg_low_return_pct": -3.48,
+        "avg_gap_open_pct": -0.28
       },
       {
         "label": "40–59",
@@ -1464,40 +1501,40 @@
         "field": "final_score",
         "min": 60,
         "max_exclusive": 70,
-        "count": 124,
+        "count": 128,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.8,
-        "high_hit_3pct_rate_pct": 38.7,
+        "close_win_rate_pct": 47.7,
+        "high_hit_3pct_rate_pct": 39.1,
         "high_hit_5pct_rate_pct": 25.8,
-        "avg_close_return_pct": 0.44,
-        "median_close_return_pct": -0.2,
-        "avg_high_return_pct": 3.61,
-        "avg_low_return_pct": -2.14,
-        "avg_gap_open_pct": 0.63
+        "avg_close_return_pct": 0.45,
+        "median_close_return_pct": -0.16,
+        "avg_high_return_pct": 3.6,
+        "avg_low_return_pct": -2.1,
+        "avg_gap_open_pct": 0.64
       },
       {
         "label": "70–79",
         "field": "final_score",
         "min": 70,
         "max_exclusive": 80,
-        "count": 284,
+        "count": 286,
         "sample_status": "분석 가능",
         "close_win_rate_pct": 45.1,
-        "high_hit_3pct_rate_pct": 38.7,
-        "high_hit_5pct_rate_pct": 25.7,
-        "avg_close_return_pct": -0.27,
-        "median_close_return_pct": -0.49,
-        "avg_high_return_pct": 2.82,
-        "avg_low_return_pct": -2.97,
-        "avg_gap_open_pct": 0.05
+        "high_hit_3pct_rate_pct": 39.2,
+        "high_hit_5pct_rate_pct": 25.9,
+        "avg_close_return_pct": -0.25,
+        "median_close_return_pct": -0.47,
+        "avg_high_return_pct": 2.84,
+        "avg_low_return_pct": -2.95,
+        "avg_gap_open_pct": 0.07
       }
     ],
     "highlights": {
       "by_rank": {
         "label": "4",
-        "count": 58,
-        "avg_close_return_pct": 1.22,
-        "close_win_rate_pct": 48.3
+        "count": 59,
+        "avg_close_return_pct": 1.11,
+        "close_win_rate_pct": 47.5
       },
       "by_market_confirmation": {
         "label": "40–54",
@@ -1507,15 +1544,15 @@
       },
       "by_overheat_risk": {
         "label": "0–19",
-        "count": 359,
-        "avg_close_return_pct": 0.04,
-        "close_win_rate_pct": 46.2
+        "count": 364,
+        "avg_close_return_pct": 0.08,
+        "close_win_rate_pct": 46.7
       },
       "by_final_score": {
         "label": "60–69",
-        "count": 124,
-        "avg_close_return_pct": 0.44,
-        "close_win_rate_pct": 46.8
+        "count": 128,
+        "avg_close_return_pct": 0.45,
+        "close_win_rate_pct": 47.7
       }
     }
   },
@@ -1523,8 +1560,8 @@
     "market": "US",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 441,
-      "eligible_count": 420,
+      "input_record_count": 448,
+      "eligible_count": 427,
       "excluded_count": 20,
       "reason_counts": {
         "invalid_ohlc": 20,
@@ -1536,7 +1573,7 @@
     },
     "quarantine": [
       {
-        "source_index": 42,
+        "source_index": 49,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1576,7 +1613,7 @@
         }
       },
       {
-        "source_index": 44,
+        "source_index": 51,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1616,7 +1653,7 @@
         }
       },
       {
-        "source_index": 59,
+        "source_index": 66,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1656,7 +1693,7 @@
         }
       },
       {
-        "source_index": 77,
+        "source_index": 84,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1696,7 +1733,7 @@
         }
       },
       {
-        "source_index": 84,
+        "source_index": 91,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1736,7 +1773,7 @@
         }
       },
       {
-        "source_index": 143,
+        "source_index": 150,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -1776,7 +1813,7 @@
         }
       },
       {
-        "source_index": 176,
+        "source_index": 183,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1809,7 +1846,7 @@
         }
       },
       {
-        "source_index": 222,
+        "source_index": 229,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1842,7 +1879,7 @@
         }
       },
       {
-        "source_index": 226,
+        "source_index": 233,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1875,7 +1912,7 @@
         }
       },
       {
-        "source_index": 246,
+        "source_index": 253,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1908,7 +1945,7 @@
         }
       },
       {
-        "source_index": 249,
+        "source_index": 256,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1941,7 +1978,7 @@
         }
       },
       {
-        "source_index": 267,
+        "source_index": 274,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -1974,7 +2011,7 @@
         }
       },
       {
-        "source_index": 268,
+        "source_index": 275,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2007,7 +2044,7 @@
         }
       },
       {
-        "source_index": 275,
+        "source_index": 282,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2040,7 +2077,7 @@
         }
       },
       {
-        "source_index": 278,
+        "source_index": 285,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2073,7 +2110,7 @@
         }
       },
       {
-        "source_index": 291,
+        "source_index": 298,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2106,7 +2143,7 @@
         }
       },
       {
-        "source_index": 331,
+        "source_index": 338,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2139,7 +2176,7 @@
         }
       },
       {
-        "source_index": 334,
+        "source_index": 341,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2172,7 +2209,7 @@
         }
       },
       {
-        "source_index": 346,
+        "source_index": 353,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2205,7 +2242,7 @@
         }
       },
       {
-        "source_index": 419,
+        "source_index": 426,
         "reasons": [
           "invalid_ohlc"
         ],
@@ -2239,122 +2276,122 @@
       }
     ],
     "overall": {
-      "count": 420,
+      "count": 427,
       "sample_status": "분석 가능",
-      "close_win_rate_pct": 47.4,
-      "high_hit_3pct_rate_pct": 40.7,
-      "high_hit_5pct_rate_pct": 24.8,
-      "avg_close_return_pct": 0.89,
+      "close_win_rate_pct": 47.5,
+      "high_hit_3pct_rate_pct": 41.0,
+      "high_hit_5pct_rate_pct": 25.3,
+      "avg_close_return_pct": 0.91,
       "median_close_return_pct": 0.0,
-      "avg_high_return_pct": 4.46,
-      "avg_low_return_pct": -2.72,
-      "avg_gap_open_pct": 0.41
+      "avg_high_return_pct": 4.54,
+      "avg_low_return_pct": -2.71,
+      "avg_gap_open_pct": 0.45
     },
     "by_rank": [
       {
         "label": "1",
         "field": "rank",
         "value": 1,
-        "count": 60,
+        "count": 61,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 50.0,
-        "high_hit_3pct_rate_pct": 41.7,
-        "high_hit_5pct_rate_pct": 18.3,
-        "avg_close_return_pct": 0.41,
-        "median_close_return_pct": 0.02,
-        "avg_high_return_pct": 3.12,
-        "avg_low_return_pct": -3.03,
-        "avg_gap_open_pct": -0.38
+        "close_win_rate_pct": 50.8,
+        "high_hit_3pct_rate_pct": 42.6,
+        "high_hit_5pct_rate_pct": 19.7,
+        "avg_close_return_pct": 0.68,
+        "median_close_return_pct": 0.04,
+        "avg_high_return_pct": 3.47,
+        "avg_low_return_pct": -2.78,
+        "avg_gap_open_pct": -0.17
       },
       {
         "label": "2",
         "field": "rank",
         "value": 2,
-        "count": 60,
+        "count": 61,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 48.3,
-        "high_hit_3pct_rate_pct": 38.3,
-        "high_hit_5pct_rate_pct": 21.7,
-        "avg_close_return_pct": 0.13,
-        "median_close_return_pct": 0.0,
-        "avg_high_return_pct": 3.42,
-        "avg_low_return_pct": -2.52,
-        "avg_gap_open_pct": 0.15
+        "close_win_rate_pct": 49.2,
+        "high_hit_3pct_rate_pct": 39.3,
+        "high_hit_5pct_rate_pct": 23.0,
+        "avg_close_return_pct": 0.15,
+        "median_close_return_pct": -0.0,
+        "avg_high_return_pct": 3.46,
+        "avg_low_return_pct": -2.55,
+        "avg_gap_open_pct": 0.21
       },
       {
         "label": "3",
         "field": "rank",
         "value": 3,
-        "count": 58,
+        "count": 59,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 56.9,
-        "high_hit_3pct_rate_pct": 50.0,
-        "high_hit_5pct_rate_pct": 24.1,
-        "avg_close_return_pct": 0.1,
-        "median_close_return_pct": 0.28,
-        "avg_high_return_pct": 4.1,
-        "avg_low_return_pct": -3.44,
-        "avg_gap_open_pct": -0.34
+        "close_win_rate_pct": 55.9,
+        "high_hit_3pct_rate_pct": 49.2,
+        "high_hit_5pct_rate_pct": 23.7,
+        "avg_close_return_pct": -0.27,
+        "median_close_return_pct": 0.24,
+        "avg_high_return_pct": 3.76,
+        "avg_low_return_pct": -3.91,
+        "avg_gap_open_pct": -0.74
       },
       {
         "label": "4",
         "field": "rank",
         "value": 4,
-        "count": 60,
+        "count": 61,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 35.0,
-        "high_hit_3pct_rate_pct": 33.3,
-        "high_hit_5pct_rate_pct": 21.7,
-        "avg_close_return_pct": -0.24,
-        "median_close_return_pct": -1.04,
-        "avg_high_return_pct": 4.09,
-        "avg_low_return_pct": -3.33,
-        "avg_gap_open_pct": 0.98
+        "close_win_rate_pct": 34.4,
+        "high_hit_3pct_rate_pct": 32.8,
+        "high_hit_5pct_rate_pct": 21.3,
+        "avg_close_return_pct": -0.28,
+        "median_close_return_pct": -1.05,
+        "avg_high_return_pct": 4.01,
+        "avg_low_return_pct": -3.37,
+        "avg_gap_open_pct": 0.91
       },
       {
         "label": "5",
         "field": "rank",
         "value": 5,
-        "count": 60,
+        "count": 61,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 51.7,
-        "high_hit_3pct_rate_pct": 50.0,
-        "high_hit_5pct_rate_pct": 35.0,
-        "avg_close_return_pct": 2.9,
-        "median_close_return_pct": 0.14,
-        "avg_high_return_pct": 6.28,
-        "avg_low_return_pct": -1.19,
-        "avg_gap_open_pct": 2.05
+        "close_win_rate_pct": 52.5,
+        "high_hit_3pct_rate_pct": 50.8,
+        "high_hit_5pct_rate_pct": 36.1,
+        "avg_close_return_pct": 2.99,
+        "median_close_return_pct": 0.17,
+        "avg_high_return_pct": 6.54,
+        "avg_low_return_pct": -1.13,
+        "avg_gap_open_pct": 2.14
       },
       {
         "label": "6",
         "field": "rank",
         "value": 6,
-        "count": 60,
+        "count": 61,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 43.3,
-        "high_hit_3pct_rate_pct": 30.0,
-        "high_hit_5pct_rate_pct": 21.7,
-        "avg_close_return_pct": -1.15,
-        "median_close_return_pct": -0.28,
-        "avg_high_return_pct": 1.64,
-        "avg_low_return_pct": -3.62,
-        "avg_gap_open_pct": -0.72
+        "close_win_rate_pct": 44.3,
+        "high_hit_3pct_rate_pct": 31.1,
+        "high_hit_5pct_rate_pct": 23.0,
+        "avg_close_return_pct": -0.86,
+        "median_close_return_pct": -0.16,
+        "avg_high_return_pct": 2.08,
+        "avg_low_return_pct": -3.31,
+        "avg_gap_open_pct": -0.35
       },
       {
         "label": "7",
         "field": "rank",
         "value": 7,
-        "count": 62,
+        "count": 63,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.8,
-        "high_hit_3pct_rate_pct": 41.9,
-        "high_hit_5pct_rate_pct": 30.6,
-        "avg_close_return_pct": 3.93,
+        "close_win_rate_pct": 46.0,
+        "high_hit_3pct_rate_pct": 41.3,
+        "high_hit_5pct_rate_pct": 30.2,
+        "avg_close_return_pct": 3.84,
         "median_close_return_pct": 0.0,
-        "avg_high_return_pct": 8.44,
-        "avg_low_return_pct": -1.94,
-        "avg_gap_open_pct": 1.07
+        "avg_high_return_pct": 8.33,
+        "avg_low_return_pct": -1.96,
+        "avg_gap_open_pct": 1.08
       }
     ],
     "by_market_confirmation": [
@@ -2379,64 +2416,64 @@
         "field": "market_confirmation",
         "min": 40,
         "max_exclusive": 55,
-        "count": 74,
+        "count": 75,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 31.1,
-        "high_hit_3pct_rate_pct": 40.5,
-        "high_hit_5pct_rate_pct": 24.3,
-        "avg_close_return_pct": -0.26,
-        "median_close_return_pct": -0.65,
-        "avg_high_return_pct": 4.36,
-        "avg_low_return_pct": -3.27,
-        "avg_gap_open_pct": 1.1
+        "close_win_rate_pct": 30.7,
+        "high_hit_3pct_rate_pct": 40.0,
+        "high_hit_5pct_rate_pct": 24.0,
+        "avg_close_return_pct": -0.55,
+        "median_close_return_pct": -0.66,
+        "avg_high_return_pct": 4.09,
+        "avg_low_return_pct": -3.64,
+        "avg_gap_open_pct": 0.76
       },
       {
         "label": "55–69",
         "field": "market_confirmation",
         "min": 55,
         "max_exclusive": 70,
-        "count": 154,
+        "count": 155,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 53.2,
-        "high_hit_3pct_rate_pct": 39.0,
-        "high_hit_5pct_rate_pct": 25.3,
-        "avg_close_return_pct": 0.87,
+        "close_win_rate_pct": 52.9,
+        "high_hit_3pct_rate_pct": 38.7,
+        "high_hit_5pct_rate_pct": 25.2,
+        "avg_close_return_pct": 0.85,
         "median_close_return_pct": 0.14,
-        "avg_high_return_pct": 3.87,
-        "avg_low_return_pct": -2.65,
-        "avg_gap_open_pct": 0.17
+        "avg_high_return_pct": 3.86,
+        "avg_low_return_pct": -2.66,
+        "avg_gap_open_pct": 0.18
       },
       {
         "label": "70–84",
         "field": "market_confirmation",
         "min": 70,
         "max_exclusive": 85,
-        "count": 97,
+        "count": 100,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 57.7,
-        "high_hit_3pct_rate_pct": 47.4,
-        "high_hit_5pct_rate_pct": 28.9,
-        "avg_close_return_pct": 2.3,
-        "median_close_return_pct": 0.92,
-        "avg_high_return_pct": 6.22,
-        "avg_low_return_pct": -2.13,
-        "avg_gap_open_pct": 0.74
+        "close_win_rate_pct": 58.0,
+        "high_hit_3pct_rate_pct": 48.0,
+        "high_hit_5pct_rate_pct": 30.0,
+        "avg_close_return_pct": 2.45,
+        "median_close_return_pct": 0.93,
+        "avg_high_return_pct": 6.53,
+        "avg_low_return_pct": -1.94,
+        "avg_gap_open_pct": 0.98
       },
       {
         "label": "85–100",
         "field": "market_confirmation",
         "min": 85,
         "max_exclusive": null,
-        "count": 92,
+        "count": 94,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 40.2,
-        "high_hit_3pct_rate_pct": 35.9,
-        "high_hit_5pct_rate_pct": 19.6,
-        "avg_close_return_pct": -0.21,
-        "median_close_return_pct": -0.34,
-        "avg_high_return_pct": 2.71,
-        "avg_low_return_pct": -3.22,
-        "avg_gap_open_pct": -0.51
+        "close_win_rate_pct": 41.5,
+        "high_hit_3pct_rate_pct": 37.2,
+        "high_hit_5pct_rate_pct": 21.3,
+        "avg_close_return_pct": -0.01,
+        "median_close_return_pct": -0.32,
+        "avg_high_return_pct": 2.97,
+        "avg_low_return_pct": -3.07,
+        "avg_gap_open_pct": -0.32
       }
     ],
     "by_overheat_risk": [
@@ -2445,16 +2482,16 @@
         "field": "overheat_risk",
         "min": 0,
         "max_exclusive": 20,
-        "count": 395,
+        "count": 402,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.6,
-        "high_hit_3pct_rate_pct": 40.3,
-        "high_hit_5pct_rate_pct": 23.8,
-        "avg_close_return_pct": 0.47,
+        "close_win_rate_pct": 46.8,
+        "high_hit_3pct_rate_pct": 40.5,
+        "high_hit_5pct_rate_pct": 24.4,
+        "avg_close_return_pct": 0.51,
         "median_close_return_pct": 0.0,
-        "avg_high_return_pct": 3.81,
-        "avg_low_return_pct": -2.8,
-        "avg_gap_open_pct": 0.16
+        "avg_high_return_pct": 3.91,
+        "avg_low_return_pct": -2.79,
+        "avg_gap_open_pct": 0.21
       },
       {
         "label": "20–39",
@@ -2511,32 +2548,32 @@
         "field": "final_score",
         "min": 70,
         "max_exclusive": 80,
-        "count": 235,
+        "count": 241,
         "sample_status": "분석 가능",
         "close_win_rate_pct": 49.8,
-        "high_hit_3pct_rate_pct": 39.6,
-        "high_hit_5pct_rate_pct": 23.0,
-        "avg_close_return_pct": 1.18,
+        "high_hit_3pct_rate_pct": 39.8,
+        "high_hit_5pct_rate_pct": 23.7,
+        "avg_close_return_pct": 1.15,
         "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.72,
-        "avg_low_return_pct": -2.41,
-        "avg_gap_open_pct": 0.72
+        "avg_high_return_pct": 4.78,
+        "avg_low_return_pct": -2.46,
+        "avg_gap_open_pct": 0.74
       },
       {
         "label": "80–100",
         "field": "final_score",
         "min": 80,
         "max_exclusive": null,
-        "count": 125,
+        "count": 126,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.4,
-        "high_hit_3pct_rate_pct": 45.6,
-        "high_hit_5pct_rate_pct": 28.0,
-        "avg_close_return_pct": 0.08,
-        "median_close_return_pct": -0.27,
-        "avg_high_return_pct": 3.48,
-        "avg_low_return_pct": -3.34,
-        "avg_gap_open_pct": -0.28
+        "close_win_rate_pct": 46.8,
+        "high_hit_3pct_rate_pct": 46.0,
+        "high_hit_5pct_rate_pct": 28.6,
+        "avg_close_return_pct": 0.21,
+        "median_close_return_pct": -0.18,
+        "avg_high_return_pct": 3.65,
+        "avg_low_return_pct": -3.22,
+        "avg_gap_open_pct": -0.17
       }
     ],
     "by_sec_score": [
@@ -2545,16 +2582,16 @@
         "field": "material_score",
         "min": 80,
         "max_exclusive": 90,
-        "count": 420,
+        "count": 427,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 47.4,
-        "high_hit_3pct_rate_pct": 40.7,
-        "high_hit_5pct_rate_pct": 24.8,
-        "avg_close_return_pct": 0.89,
+        "close_win_rate_pct": 47.5,
+        "high_hit_3pct_rate_pct": 41.0,
+        "high_hit_5pct_rate_pct": 25.3,
+        "avg_close_return_pct": 0.91,
         "median_close_return_pct": 0.0,
-        "avg_high_return_pct": 4.46,
-        "avg_low_return_pct": -2.72,
-        "avg_gap_open_pct": 0.41
+        "avg_high_return_pct": 4.54,
+        "avg_low_return_pct": -2.71,
+        "avg_gap_open_pct": 0.45
       }
     ],
     "by_news_score": [
@@ -2563,48 +2600,48 @@
         "field": "news_score",
         "min": 45,
         "max_exclusive": 55,
-        "count": 74,
+        "count": 75,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 56.8,
-        "high_hit_3pct_rate_pct": 43.2,
-        "high_hit_5pct_rate_pct": 27.0,
-        "avg_close_return_pct": 2.24,
-        "median_close_return_pct": 0.12,
+        "close_win_rate_pct": 57.3,
+        "high_hit_3pct_rate_pct": 44.0,
+        "high_hit_5pct_rate_pct": 28.0,
+        "avg_close_return_pct": 2.23,
+        "median_close_return_pct": 0.14,
         "avg_high_return_pct": 5.75,
-        "avg_low_return_pct": -0.95,
-        "avg_gap_open_pct": 1.78
+        "avg_low_return_pct": -1.0,
+        "avg_gap_open_pct": 1.81
       },
       {
         "label": "55–64",
         "field": "news_score",
         "min": 55,
         "max_exclusive": 65,
-        "count": 167,
+        "count": 172,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 40.1,
-        "high_hit_3pct_rate_pct": 37.7,
-        "high_hit_5pct_rate_pct": 21.0,
-        "avg_close_return_pct": -0.6,
+        "close_win_rate_pct": 40.7,
+        "high_hit_3pct_rate_pct": 38.4,
+        "high_hit_5pct_rate_pct": 22.1,
+        "avg_close_return_pct": -0.37,
         "median_close_return_pct": -0.55,
-        "avg_high_return_pct": 3.02,
-        "avg_low_return_pct": -4.15,
-        "avg_gap_open_pct": -0.88
+        "avg_high_return_pct": 3.38,
+        "avg_low_return_pct": -3.9,
+        "avg_gap_open_pct": -0.62
       },
       {
         "label": "65–74",
         "field": "news_score",
         "min": 65,
         "max_exclusive": 75,
-        "count": 69,
+        "count": 70,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.4,
-        "high_hit_3pct_rate_pct": 31.9,
-        "high_hit_5pct_rate_pct": 23.2,
-        "avg_close_return_pct": 0.89,
-        "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.34,
-        "avg_low_return_pct": -2.67,
-        "avg_gap_open_pct": 0.44
+        "close_win_rate_pct": 45.7,
+        "high_hit_3pct_rate_pct": 31.4,
+        "high_hit_5pct_rate_pct": 22.9,
+        "avg_close_return_pct": 0.56,
+        "median_close_return_pct": -0.06,
+        "avg_high_return_pct": 4.05,
+        "avg_low_return_pct": -3.07,
+        "avg_gap_open_pct": 0.08
       },
       {
         "label": "75–100",
@@ -2626,29 +2663,29 @@
     "by_news_sentiment": [
       {
         "label": "SEC+뉴스 긍정",
-        "count": 161,
+        "count": 162,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 49.7,
-        "high_hit_3pct_rate_pct": 45.3,
-        "high_hit_5pct_rate_pct": 26.7,
-        "avg_close_return_pct": 1.09,
-        "median_close_return_pct": -0.0,
-        "avg_high_return_pct": 4.64,
-        "avg_low_return_pct": -2.41,
-        "avg_gap_open_pct": 0.86
+        "close_win_rate_pct": 49.4,
+        "high_hit_3pct_rate_pct": 45.1,
+        "high_hit_5pct_rate_pct": 26.5,
+        "avg_close_return_pct": 0.95,
+        "median_close_return_pct": 0.0,
+        "avg_high_return_pct": 4.51,
+        "avg_low_return_pct": -2.58,
+        "avg_gap_open_pct": 0.71
       },
       {
         "label": "뉴스 중립",
-        "count": 256,
+        "count": 262,
         "sample_status": "분석 가능",
-        "close_win_rate_pct": 46.5,
-        "high_hit_3pct_rate_pct": 38.3,
-        "high_hit_5pct_rate_pct": 23.8,
-        "avg_close_return_pct": 0.79,
+        "close_win_rate_pct": 46.9,
+        "high_hit_3pct_rate_pct": 38.9,
+        "high_hit_5pct_rate_pct": 24.8,
+        "avg_close_return_pct": 0.92,
         "median_close_return_pct": 0.0,
-        "avg_high_return_pct": 4.4,
-        "avg_low_return_pct": -2.91,
-        "avg_gap_open_pct": 0.14
+        "avg_high_return_pct": 4.61,
+        "avg_low_return_pct": -2.78,
+        "avg_gap_open_pct": 0.3
       },
       {
         "label": "뉴스 부정",
@@ -2667,15 +2704,15 @@
     "highlights": {
       "by_rank": {
         "label": "7",
-        "count": 62,
-        "avg_close_return_pct": 3.93,
-        "close_win_rate_pct": 46.8
+        "count": 63,
+        "avg_close_return_pct": 3.84,
+        "close_win_rate_pct": 46.0
       },
       "by_market_confirmation": {
         "label": "70–84",
-        "count": 97,
-        "avg_close_return_pct": 2.3,
-        "close_win_rate_pct": 57.7
+        "count": 100,
+        "avg_close_return_pct": 2.45,
+        "close_win_rate_pct": 58.0
       },
       "by_overheat_risk": {
         "label": "20–39",
@@ -2691,9 +2728,9 @@
       },
       "by_sec_score": {
         "label": "80–89",
-        "count": 420,
-        "avg_close_return_pct": 0.89,
-        "close_win_rate_pct": 47.4
+        "count": 427,
+        "avg_close_return_pct": 0.91,
+        "close_win_rate_pct": 47.5
       },
       "by_news_score": {
         "label": "75–100",
@@ -2703,9 +2740,9 @@
       },
       "by_news_sentiment": {
         "label": "SEC+뉴스 긍정",
-        "count": 161,
-        "avg_close_return_pct": 1.09,
-        "close_win_rate_pct": 49.7
+        "count": 162,
+        "avg_close_return_pct": 0.95,
+        "close_win_rate_pct": 49.4
       }
     }
   }
