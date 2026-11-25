@@ -1,6 +1,6 @@
 {
   "version": "performance-analysis-v1",
-  "generated_at": "2026-11-24T16:03:13+09:00",
+  "generated_at": "2026-11-25T14:37:02+09:00",
   "sample_rules": {
     "minimum_for_highlight": 10,
     "recommended_for_analysis": 30,
@@ -14,23 +14,263 @@
     "market": "KR",
     "classification": "exploratory_signal_performance_not_forecast_accuracy",
     "data_quality": {
-      "input_record_count": 497,
+      "input_record_count": 504,
       "eligible_count": 456,
-      "excluded_count": 41,
+      "excluded_count": 47,
       "reason_counts": {
-        "invalid_price:next_open": 40,
-        "invalid_price:next_high": 40,
-        "invalid_price:next_low": 40,
-        "invalid_return:gap_open_pct": 27,
-        "invalid_return:next_high_pct": 27,
-        "invalid_return:next_low_pct": 27,
-        "invalid_return:next_close_pct": 27,
+        "invalid_price:next_open": 46,
+        "invalid_price:next_high": 46,
+        "invalid_price:next_low": 46,
+        "invalid_return:gap_open_pct": 33,
+        "invalid_return:next_high_pct": 33,
+        "invalid_return:next_low_pct": 33,
+        "invalid_return:next_close_pct": 33,
         "invalid_ohlc": 1
       }
     },
     "quarantine": [
       {
         "source_index": 0,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-24",
+          "rank": 1,
+          "symbol": "206400",
+          "name": "아인스팩씨엔에스",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "final_score": 72.2,
+          "material_score": 87,
+          "market_confirmation": 64,
+          "overheat_risk": 10,
+          "baseline_close": 1003.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-24",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 1000.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 1,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-24",
+          "rank": 2,
+          "symbol": "205100",
+          "name": "엑셈",
+          "market": "KOSDAQ",
+          "event": "자사주 취득",
+          "final_score": 65.9,
+          "material_score": 83,
+          "market_confirmation": 52,
+          "overheat_risk": 10,
+          "baseline_close": 4900.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-24",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 5310.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 2,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-24",
+          "rank": 3,
+          "symbol": "003480",
+          "name": "한진중공업홀딩스",
+          "market": "KOSPI",
+          "event": "공급계약 체결",
+          "final_score": 64.8,
+          "material_score": 87,
+          "market_confirmation": 54,
+          "overheat_risk": 10,
+          "baseline_close": 4280.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-24",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 4350.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 4,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-24",
+          "rank": 5,
+          "symbol": "475230",
+          "name": "엔알비",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "final_score": 61.2,
+          "material_score": 87,
+          "market_confirmation": 44,
+          "overheat_risk": 10,
+          "baseline_close": 7100.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-24",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 7570.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 5,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-24",
+          "rank": 6,
+          "symbol": "347700",
+          "name": "스피어",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "final_score": 60.5,
+          "material_score": 87,
+          "market_confirmation": 42,
+          "overheat_risk": 10,
+          "baseline_close": 16980.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-24",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 19260.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 6,
+        "reasons": [
+          "invalid_price:next_open",
+          "invalid_price:next_high",
+          "invalid_price:next_low",
+          "invalid_return:gap_open_pct",
+          "invalid_return:next_high_pct",
+          "invalid_return:next_low_pct",
+          "invalid_return:next_close_pct"
+        ],
+        "record": {
+          "signal_date": "2026-11-24",
+          "rank": 7,
+          "symbol": "417860",
+          "name": "오브젠",
+          "market": "KOSDAQ",
+          "event": "공급계약 체결",
+          "final_score": 58.8,
+          "material_score": 87,
+          "market_confirmation": 37,
+          "overheat_risk": 10,
+          "baseline_close": 6140.0,
+          "status": "invalid",
+          "next_trade_date": "2026-11-24",
+          "next_open": 0.0,
+          "next_high": 0.0,
+          "next_low": 0.0,
+          "next_close": 6190.0,
+          "gap_open_pct": null,
+          "next_high_pct": null,
+          "next_low_pct": null,
+          "next_close_pct": null,
+          "validation_errors": [
+            "invalid_price:next_open",
+            "invalid_price:next_high",
+            "invalid_price:next_low"
+          ]
+        }
+      },
+      {
+        "source_index": 7,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -70,7 +310,7 @@
         }
       },
       {
-        "source_index": 1,
+        "source_index": 8,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -110,7 +350,7 @@
         }
       },
       {
-        "source_index": 2,
+        "source_index": 9,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -150,7 +390,7 @@
         }
       },
       {
-        "source_index": 3,
+        "source_index": 10,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -190,7 +430,7 @@
         }
       },
       {
-        "source_index": 4,
+        "source_index": 11,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -230,7 +470,7 @@
         }
       },
       {
-        "source_index": 5,
+        "source_index": 12,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -270,7 +510,7 @@
         }
       },
       {
-        "source_index": 6,
+        "source_index": 13,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -310,7 +550,7 @@
         }
       },
       {
-        "source_index": 51,
+        "source_index": 58,
         "reasons": [
           "invalid_ohlc",
           "invalid_return:gap_open_pct",
@@ -346,7 +586,7 @@
         }
       },
       {
-        "source_index": 70,
+        "source_index": 77,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -386,7 +626,7 @@
         }
       },
       {
-        "source_index": 71,
+        "source_index": 78,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -426,7 +666,7 @@
         }
       },
       {
-        "source_index": 72,
+        "source_index": 79,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -466,7 +706,7 @@
         }
       },
       {
-        "source_index": 73,
+        "source_index": 80,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -506,7 +746,7 @@
         }
       },
       {
-        "source_index": 74,
+        "source_index": 81,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -546,7 +786,7 @@
         }
       },
       {
-        "source_index": 75,
+        "source_index": 82,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -586,7 +826,7 @@
         }
       },
       {
-        "source_index": 76,
+        "source_index": 83,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -626,7 +866,7 @@
         }
       },
       {
-        "source_index": 105,
+        "source_index": 112,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -666,7 +906,7 @@
         }
       },
       {
-        "source_index": 107,
+        "source_index": 114,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -706,7 +946,7 @@
         }
       },
       {
-        "source_index": 108,
+        "source_index": 115,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -746,7 +986,7 @@
         }
       },
       {
-        "source_index": 109,
+        "source_index": 116,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -786,7 +1026,7 @@
         }
       },
       {
-        "source_index": 110,
+        "source_index": 117,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -826,7 +1066,7 @@
         }
       },
       {
-        "source_index": 111,
+        "source_index": 118,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -866,7 +1106,7 @@
         }
       },
       {
-        "source_index": 112,
+        "source_index": 119,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -906,7 +1146,7 @@
         }
       },
       {
-        "source_index": 113,
+        "source_index": 120,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -946,7 +1186,7 @@
         }
       },
       {
-        "source_index": 114,
+        "source_index": 121,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -986,7 +1226,7 @@
         }
       },
       {
-        "source_index": 115,
+        "source_index": 122,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1026,7 +1266,7 @@
         }
       },
       {
-        "source_index": 116,
+        "source_index": 123,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1066,7 +1306,7 @@
         }
       },
       {
-        "source_index": 117,
+        "source_index": 124,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1106,7 +1346,7 @@
         }
       },
       {
-        "source_index": 427,
+        "source_index": 434,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1137,7 +1377,7 @@
         }
       },
       {
-        "source_index": 428,
+        "source_index": 435,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1168,7 +1408,7 @@
         }
       },
       {
-        "source_index": 429,
+        "source_index": 436,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1199,7 +1439,7 @@
         }
       },
       {
-        "source_index": 430,
+        "source_index": 437,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1230,7 +1470,7 @@
         }
       },
       {
-        "source_index": 431,
+        "source_index": 438,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1261,7 +1501,7 @@
         }
       },
       {
-        "source_index": 432,
+        "source_index": 439,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1292,7 +1532,7 @@
         }
       },
       {
-        "source_index": 433,
+        "source_index": 440,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1323,7 +1563,7 @@
         }
       },
       {
-        "source_index": 434,
+        "source_index": 441,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1354,7 +1594,7 @@
         }
       },
       {
-        "source_index": 435,
+        "source_index": 442,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1385,7 +1625,7 @@
         }
       },
       {
-        "source_index": 436,
+        "source_index": 443,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1416,7 +1656,7 @@
         }
       },
       {
-        "source_index": 437,
+        "source_index": 444,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1447,7 +1687,7 @@
         }
       },
       {
-        "source_index": 438,
+        "source_index": 445,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1478,7 +1718,7 @@
         }
       },
       {
-        "source_index": 439,
+        "source_index": 446,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
@@ -1509,7 +1749,7 @@
         }
       },
       {
-        "source_index": 440,
+        "source_index": 447,
         "reasons": [
           "invalid_price:next_open",
           "invalid_price:next_high",
